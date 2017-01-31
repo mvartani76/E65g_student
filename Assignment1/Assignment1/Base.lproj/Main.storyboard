@@ -67,7 +67,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ew0-i0-5wS" userLabel="LT_View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ew0-i0-5wS" userLabel="LT_Blue_View">
                                 <rect key="frame" x="0.0" y="20" width="320" height="249.5"/>
                                 <color key="backgroundColor" red="0.77820889260000004" green="0.95593015940000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -76,7 +76,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCA-4T-3QI" userLabel="RB_View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCA-4T-3QI" userLabel="RB_Green_View">
                                 <rect key="frame" x="0.0" y="269.5" width="320" height="249.5"/>
                                 <color key="backgroundColor" red="0.80531669463087252" green="1" blue="0.79745176174496613" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
