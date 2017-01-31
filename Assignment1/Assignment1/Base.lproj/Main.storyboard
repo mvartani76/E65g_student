@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ew0-i0-5wS" userLabel="LT_View">
-                                <rect key="frame" x="16" y="20" width="288" height="249.5"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="250"/>
                                 <color key="backgroundColor" red="0.77820889260000004" green="0.95593015940000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -67,7 +66,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCA-4T-3QI" userLabel="RB_View">
-                                <rect key="frame" x="16" y="269.5" width="288" height="249.5"/>
+                                <rect key="frame" x="0.0" y="269.5" width="320" height="249.5"/>
                                 <color key="backgroundColor" red="0.80531669463087252" green="1" blue="0.79745176174496613" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -79,12 +78,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BCA-4T-3QI" firstAttribute="width" secondItem="ew0-i0-5wS" secondAttribute="width" id="4JA-xw-yRR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ew0-i0-5wS" secondAttribute="trailing" id="4Xl-CU-2Rq"/>
+                            <constraint firstAttribute="trailing" secondItem="ew0-i0-5wS" secondAttribute="trailing" id="4Xl-CU-2Rq"/>
                             <constraint firstItem="BCA-4T-3QI" firstAttribute="top" secondItem="ew0-i0-5wS" secondAttribute="bottom" id="7YA-03-7bL"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="BCA-4T-3QI" secondAttribute="bottom" id="Yqv-NS-Obo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BCA-4T-3QI" secondAttribute="trailing" id="atq-hd-neH"/>
-                            <constraint firstItem="BCA-4T-3QI" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="eia-yo-TuF"/>
-                            <constraint firstItem="ew0-i0-5wS" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="hla-J4-r79"/>
+                            <constraint firstAttribute="trailing" secondItem="BCA-4T-3QI" secondAttribute="trailing" id="atq-hd-neH"/>
+                            <constraint firstItem="BCA-4T-3QI" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="eia-yo-TuF"/>
+                            <constraint firstItem="ew0-i0-5wS" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="hla-J4-r79"/>
                             <constraint firstItem="BCA-4T-3QI" firstAttribute="height" secondItem="ew0-i0-5wS" secondAttribute="height" id="puT-Vm-1Z1"/>
                             <constraint firstItem="ew0-i0-5wS" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="u2F-GX-2ed"/>
                         </constraints>
@@ -93,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="748.125" y="359.15492957746477"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
