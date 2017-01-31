@@ -23,8 +23,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OwG-PO-y5y">
-                                <rect key="frame" x="0.0" y="168" width="375" height="375"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPU-1w-Vkb" userLabel="IntermediateView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OwG-PO-y5y" userLabel="LifeGrid">
+                                <rect key="frame" x="32" y="142" width="256" height="256"/>
                                 <color key="backgroundColor" red="0.77820889260000004" green="0.95593015940000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OwG-PO-y5y" secondAttribute="height" multiplier="1:1" id="d3O-he-61p"/>
@@ -33,9 +37,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OwG-PO-y5y" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="eGr-bE-JmU"/>
-                            <constraint firstItem="OwG-PO-y5y" firstAttribute="width" relation="lessThanOrEqual" secondItem="tsR-hK-woN" secondAttribute="width" multiplier="0.8" id="kRW-JC-jOn"/>
-                            <constraint firstItem="OwG-PO-y5y" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="olN-me-aEM"/>
+                            <constraint firstItem="OwG-PO-y5y" firstAttribute="centerX" secondItem="iPU-1w-Vkb" secondAttribute="centerX" id="IIv-gr-4Ju"/>
+                            <constraint firstItem="OwG-PO-y5y" firstAttribute="width" secondItem="iPU-1w-Vkb" secondAttribute="width" multiplier="0.8" priority="750" id="QPJ-7Y-Rvb"/>
+                            <constraint firstItem="iPU-1w-Vkb" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="RXg-pm-Iw1"/>
+                            <constraint firstItem="OwG-PO-y5y" firstAttribute="height" relation="lessThanOrEqual" secondItem="iPU-1w-Vkb" secondAttribute="height" multiplier="0.8" id="RmV-ma-7rs"/>
+                            <constraint firstItem="OwG-PO-y5y" firstAttribute="centerY" secondItem="iPU-1w-Vkb" secondAttribute="centerY" id="XpB-YJ-LC0"/>
+                            <constraint firstItem="OwG-PO-y5y" firstAttribute="height" secondItem="iPU-1w-Vkb" secondAttribute="height" multiplier="0.8" priority="750" id="eb5-z2-xQl"/>
+                            <constraint firstAttribute="trailing" secondItem="iPU-1w-Vkb" secondAttribute="trailing" id="hkI-p1-AcZ"/>
+                            <constraint firstItem="OwG-PO-y5y" firstAttribute="width" relation="lessThanOrEqual" secondItem="iPU-1w-Vkb" secondAttribute="width" multiplier="0.8" id="l0N-wk-5hR"/>
+                            <constraint firstItem="iPU-1w-Vkb" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="oNS-Wp-xTD"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="iPU-1w-Vkb" secondAttribute="bottom" id="xPf-2E-ARv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
