@@ -82,10 +82,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 </variation>
                                             </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="e6h-Dn-TMh">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="e6h-Dn-TMh" userLabel="SliderAndLabelStackView">
                                                 <rect key="frame" x="0.0" y="83" width="320" height="83.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GBX-VY-fJ2">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GBX-VY-fJ2" userLabel="HorizontalSlider_HorizontalStackView">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="83.5"/>
                                                         <subviews>
                                                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dNq-C0-vN0" userLabel="GridSize Horizontal Slider">
@@ -102,7 +102,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="vrQ-5X-6PA" secondAttribute="trailing" constant="10" id="vVA-Gd-yVX"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZlW-Pv-ecp">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZlW-Pv-ecp" userLabel="SliderLabel_HorizontalStackView">
                                                         <rect key="frame" x="160" y="0.0" width="160" height="83.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Grid Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y0-NW-bzx">
