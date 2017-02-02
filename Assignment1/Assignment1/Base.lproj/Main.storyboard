@@ -179,24 +179,28 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="4Xl-CU-2Rq"/>
                                 <exclude reference="syl-au-b5K"/>
+                                <exclude reference="7YA-03-7bL"/>
                                 <exclude reference="KfT-RR-HAU"/>
                                 <exclude reference="eia-yo-TuF"/>
                                 <exclude reference="Lnl-gW-jUh"/>
+                                <exclude reference="Yqv-NS-Obo"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=compact-widthClass=compact">
+                        <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <exclude reference="4Xl-CU-2Rq"/>
                                 <include reference="syl-au-b5K"/>
-                                <exclude reference="7YA-03-7bL"/>
                                 <include reference="KfT-RR-HAU"/>
                                 <include reference="Lnl-gW-jUh"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
+                        <variation key="heightClass=regular">
                             <mask key="constraints">
+                                <include reference="4Xl-CU-2Rq"/>
+                                <include reference="7YA-03-7bL"/>
                                 <include reference="eia-yo-TuF"/>
+                                <include reference="Yqv-NS-Obo"/>
                             </mask>
                         </variation>
                     </view>
