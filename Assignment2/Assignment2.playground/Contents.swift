@@ -136,10 +136,9 @@ enum CellState {
 // A struct representing a Cell in Conway's Game of Life
 struct Cell {
     // ** Your Problem 3 code goes here! replace the following two lines **
-    var position: Position
-    var state: CellState
+    var position = (0,0)
+    var state = CellState.empty
 }
-
 /*:
  ## Problem 4:
  I am providing the following function, `map2` immediately below.
