@@ -148,28 +148,28 @@ struct Cell {
  */
 // ** Your Problem 4.1 answer goes here **
 /*
- 
+ The _ characters allow the label to be ignored and have the function called without parameter labels.
  */
 /*:
  2. what is the type of the `transform` variable
  */
 // ** Your Problem 4.2 answer goes here **
 /*
- 
+ transform is a computed variable that will be a Cell Struct
  */
 /*:
  3. what is the return type of `map2`
  */
 // ** Your Problem 4.3 answer goes here **
 /*
- 
+ The return type of map2 is a two dimensional array of generic type T which in our case is a Cell Struct.
  */
 /*:
  4. what is `T` in this declaration
  */
 // ** Your Problem 4.4 answer goes here **
 /*
- 
+ T is a generic placeholder type that in our case will be a Cell Struct.
  */
 // A function which is like the standard map function but
 // which will operate only on a two dimensional array
@@ -197,7 +197,7 @@ func map2<T>(_ rows: Int, _ cols: Int, transform: (Int, Int) -> T) -> [[T]] {
  */
 // ** Your Problem 5 comment goes here! **
 /*
- 
+ Offsets contains the row/col information relative to the center cell location based on a with Offsets[0] being one col to the right and one row below the center and Offsets[7] being one col to the left and one row above the center.
  */
 
 /*:
@@ -241,17 +241,35 @@ struct Grid {
     ]
     
     // ** Your Problem 6 code goes here! Change the following two lines **
-    var rows: Int = 0
-    var cols: Int = 0
+    var rows: Int = 10
+    var cols: Int = 10
     var cells: [[Cell]] = [[Cell]]()
     
     init(_ rows: Int, _ cols: Int, cellInitializer: (Int, Int) -> CellState = { _,_ in .empty } ) {
         // ** Your Problem 7 code goes here! **
+        self.rows = rows
+        self.cols = cols
+        
+        //self.cells = [[Cell]](repeatElement([Cell](repeatElement([Cell], count: cols)), count: rows))
+        let zeroes = (repeatElement(repeatElement([Cell]().self, count: cols), count: rows))
+        
+        //let zeroes = repeatElement(0,count: 5)
+        
+        for x in zeroes {
+            print(x)
+        }
+        
+        
         map2(rows, cols) { row, col in
             // ** Your Problem 8 code goes here! **
         }
     }
 }
+
+var myGrid = Grid.init(15,16)
+myGrid.rows
+myGrid.cols
+myGrid.cells
 
 /*:
  The next two problems apply to the extension to `Grid` immediately below.
