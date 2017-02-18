@@ -250,13 +250,12 @@ struct Grid {
         self.rows = rows
         self.cols = cols
         
-        //self.cells = [[Cell]](repeatElement([Cell](repeatElement([Cell], count: cols)), count: rows))
         cells = [[Cell]](repeatElement([Cell](repeatElement(Cell(), count: cols)), count: rows))
-        
-        print(cells)
         
         map2(rows, cols) { row, col in
             // ** Your Problem 8 code goes here! **
+            cells[row][col].position = (row,col)
+            cells[row][col].state = cellInitializer(row,col)
         }
     }
 }
