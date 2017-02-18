@@ -251,14 +251,9 @@ struct Grid {
         self.cols = cols
         
         //self.cells = [[Cell]](repeatElement([Cell](repeatElement([Cell], count: cols)), count: rows))
-        let zeroes = (repeatElement(repeatElement([Cell]().self, count: cols), count: rows))
+        cells = [[Cell]](repeatElement([Cell](repeatElement(Cell(), count: cols)), count: rows))
         
-        //let zeroes = repeatElement(0,count: 5)
-        
-        for x in zeroes {
-            print(x)
-        }
-        
+        print(cells)
         
         map2(rows, cols) { row, col in
             // ** Your Problem 8 code goes here! **
@@ -266,7 +261,7 @@ struct Grid {
     }
 }
 
-var myGrid = Grid.init(15,16)
+var myGrid = Grid.init(3,3)
 myGrid.rows
 myGrid.cols
 myGrid.cells
