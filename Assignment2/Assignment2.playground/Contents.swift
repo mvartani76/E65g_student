@@ -319,11 +319,15 @@ extension Grid {
     func neighbors(of cell: Cell) -> [Position] {
         return Grid.offsets.map {
             // ** Your Problem 9 Code goes here! replace the following line **
-            return Position(row: $0, col: $1)
+            let x = ((($0 + cell.position.0) % rows) + rows) % rows
+            let y = ((($1 + cell.position.1) % cols) + cols) % cols
+            return Position(x, y)
         }
     }
 }
 
+var myGrid2 = Grid.init(3,3)
+myGrid2.neighbors(of: myGrid2.cells[1][2])
 /*:
  ## Problem 11:
  I am providing the following function, reduce2. Answer the following questions
