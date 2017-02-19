@@ -407,11 +407,11 @@ extension Grid {
 // Code to initialize a 10x10 grid, set up every cell in the grid
 // and randomly turn each cell on or off.  Uncomment following 4 lines
 // and replace `.empty` with your one line of code
-//var grid = Grid(10, 10) { row, col in 
+var grid = Grid(10, 10) { row, col in
 //   // ** Your Problem 13 code goes here! **
-//   .empty
-//}
-//grid.numLiving
+    arc4random_uniform(3) == 2 ? .alive : .empty
+}
+grid.numLiving
 
 // ** Your Problem 13 comment goes here! **
 /*
