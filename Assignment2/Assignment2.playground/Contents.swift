@@ -378,7 +378,7 @@ extension Grid {
     var numLiving: Int {
         return reduce2(self.rows, self.cols) { total, row, col in
             // ** Your Problem 12 code goes here! replace the following line
-            return 0
+            return (self.cells[row][col].state.isAlive ? total + 1 : total)
         }
     }
 }
