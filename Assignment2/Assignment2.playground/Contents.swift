@@ -442,15 +442,32 @@ extension Grid {
     subscript (row: Int, col: Int) -> Cell? {
         get {
             // ** Your Problem 14 `get` code goes here! replace the following line **
-            return nil
+            //guard let x = cells[row][col], (row >= 0 && col >= 0 && row <= rows && col <= cols) else {
+            //guard case cells[row][col] = cells[row][col] else {
+            //    return nil
+            //}
+            
+            return cells[row][col]
         }
         set {
             // ** Your Problem 14 `set` code goes here! replace the following line **
-            return
+            guard let x = newValue, (row >= 0 && col >= 0 && row <= rows && col <= cols) else {
+                return
+            }
+            cells[row][col] = x
         }
     }
 }
 
+var celly = Cell(position: (1,1),state: .alive)
+print(celly)
+var gridy = Grid(3, 3)
+gridy[1,1] = celly
+let somecell = gridy[1,2]
+print(somecell!)
+gridy[1,2]?.state = .born
+let somecell1 = gridy[1,2]
+print(somecell1!)
 /*:
  The following 4 problems all refer to the extension to `Grid` immediately below
  
@@ -534,12 +551,18 @@ extension Grid {
             .reduce(0) {
                 guard let neighborCell = self[$1.row, $1.col] else { return $0 }
                 // ** Problem 18 code goes here!  replace the following 2 lines **
-                neighborCell
-                return $0
+                return (neighborCell.state.isAlive ? $0 + 1 : $0)
         }
     }
 }
 
+var gridyy = Grid(4, 4)
+var cellyy = gridyy[0,0]
+gridyy[1,0]?.state = .born
+gridyy[0,1]?.state = .born
+
+gridyy.livingNeighbors(of: cellyy!)
+print(gridyy.neighbors(of: cellyy!))
 /*:
  ## Problem 19:
  In the extension to `Grid` shown below, implement a function nextState which:
