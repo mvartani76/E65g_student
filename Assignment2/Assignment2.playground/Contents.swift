@@ -442,11 +442,9 @@ extension Grid {
     subscript (row: Int, col: Int) -> Cell? {
         get {
             // ** Your Problem 14 `get` code goes here! replace the following line **
-            //guard let x = cells[row][col], (row >= 0 && col >= 0 && row <= rows && col <= cols) else {
-            //guard case cells[row][col] = cells[row][col] else {
-            //    return nil
-            //}
-            
+            guard (row >= 0 && col >= 0 && row <= rows && col <= cols) else {
+                return nil
+            }
             return cells[row][col]
         }
         set {
