@@ -459,11 +459,13 @@ extension Grid {
 
 var celly = Cell(position: (1,1),state: .alive)
 print(celly)
+celly.state
 var gridy = Grid(3, 3)
 gridy[1,1] = celly
 let somecell = gridy[1,2]
 print(somecell!)
 gridy[1,2]?.state = .born
+gridy[2,1]?.state = .alive
 let somecell1 = gridy[1,2]
 print(somecell1!)
 /*:
@@ -590,10 +592,23 @@ print(gridyy.neighbors(of: cellyy!))
 extension Grid {
     func nextState(of cell: Cell) -> CellState {
         // ** Problem 19 code goes here! Replace the following line **
-        return .empty
+        let row = cell.position.0
+        let col = cell.position.1
+        
+        guard let cell = self[row,col] else {
+            return .empty
+        }
+
+        switch self.livingNeighbors(of: cell)
+        {
+            case 2 where cell.state.isAlive == true, 3:
+                return .alive
+            default:
+                return .empty
+        }
     }
 }
-
+gridy.nextState(of: celly)
 /*:
  ## Problem 20:
  In the location shown in the following extension of Grid, write precisely one line of
