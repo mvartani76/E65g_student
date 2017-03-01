@@ -619,9 +619,9 @@ gridy.nextState(of: celly)
 // An extension to grid to jump to the next state of Conway's GoL
 extension Grid {
     func next() -> Grid {
-        let nextGrid = Grid(rows, cols)
+        var nextGrid = Grid(rows, cols)
         map2(self.rows, self.cols) { (row, col)  in
-            // ** Problem 20 code goes here! **
+            nextGrid.cells[row][col].state = self.nextState(of: self.cells[row][col])
         }
         return nextGrid
     }
@@ -644,8 +644,8 @@ extension Grid {
  Verify that the number living is still in the neighborhood of 33
  If it is not please debug all your code
  */
-//grid = grid.next()
-//grid.numLiving
+grid = grid.next()
+grid.numLiving
 
 /*
  It works!
