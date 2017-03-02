@@ -415,7 +415,7 @@ grid.numLiving
 
 // ** Your Problem 13 comment goes here! **
 /*
- 
+ It is approximately but not necessarily exactly 33 since we are using a random number generator to determine whether the state should be alive or empty.
  */
 
 
