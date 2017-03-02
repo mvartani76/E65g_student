@@ -336,21 +336,21 @@ myGrid2.neighbors(of: myGrid2.cells[1][2])
  */
 // ** Your Problem 11.1 answer goes here **
 /*
- 
+ The combine argument enables the user to pass in a function or closure that takes two integer elements used for row/cols to compute a running sum and return that sum as an integer.
  */
 /*:
  2. what is the return type of reduce2
  */
 // ** Your Problem 11.2 answer goes here **
 /*
- 
+reduce2() returns returns an integer type.
  */
 /*:
  3. why is there no T parameter here as in map2 above
  */
 // ** Your Problem 11.3 answer goes here **
 /*
- 
+ There is no T parameter here since reduce2() does not accept generic types as inputs or outputs, only integers.
  */
 
 // A function which is useful for counting things in an array of arrays of things
