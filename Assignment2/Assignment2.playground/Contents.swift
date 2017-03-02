@@ -301,14 +301,14 @@ myGrid.cells
  */
 // ** your problem 10.1 answer goes here.
 /*
- 
+ The argument label "of" is used in the function declaration and function calls when we want to clearly indicate that we are trying to find neighbors "of" something.
  */
 /*:
  2. Explain in one sentence when you would use the word `cell` in relation to this function
  */
 // ** your problem 10.2 answer goes here.
 /*
- 
+ The parameter name "cell" is used in the function declaration and function calls to clearly indicate that we are trying to find neighbors of a "cell" struct and we use "cell" inside the function to reference this parameter.
  */
 
 // An extension of Grid to add a function for computing the positions
