@@ -526,7 +526,7 @@ print(somecell1!)
 
 // Problem 17 comment goes here
 /*
- 
+ $1 is a short hand notation of representing the 2nd (1 in base 0) argument name, Position, of the Cell struct.
  */
 
 /*:
