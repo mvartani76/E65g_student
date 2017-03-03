@@ -656,24 +656,24 @@ grid.numLiving
  ## For Fun
  Once you have everything above working, uncomment and think about the following lines of code
  */
-//func gliderInitializer(row: Int, col: Int) -> CellState {
-//    switch (row, col) {
-//    case (0, 1), (1, 2), (2, 0), (2, 1), (2, 2): return .alive
-//    default: return .empty
-//    }
-//}
-//
-//grid = Grid(10, 10, cellInitializer: gliderInitializer)
-//grid.numLiving
-//grid = grid.next()
-//grid.numLiving
-//grid = grid.next()
-//grid.numLiving
-//grid = grid.next()
-//grid.numLiving
-//grid = grid.next()
-//grid.numLiving
-//grid = grid.next()
-//grid.numLiving
+func gliderInitializer(row: Int, col: Int) -> CellState {
+    switch (row, col) {
+    case (0, 1), (1, 2), (2, 0), (2, 1), (2, 2): return .alive
+    default: return .empty
+    }
+}
+
+grid = Grid(10, 10, cellInitializer: gliderInitializer)
+grid.numLiving
+grid = grid.next()
+grid.numLiving
+grid = grid.next()
+grid.numLiving
+grid = grid.next()
+grid.numLiving
+grid = grid.next()
+grid.numLiving
+grid = grid.next()
+grid.numLiving
 
 let theEnd = "The End"
