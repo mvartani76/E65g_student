@@ -510,7 +510,7 @@ print(somecell1!)
 
 // Problem 16 comment goes here
 /*
- The reduce function returns the total number of neighbor cells that are either alive or born.
+ The reduce function returns the total number of neighbor cells that are either alive or born as returned by the isAlive() function.
  */
 
 /*:
