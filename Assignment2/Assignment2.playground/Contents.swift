@@ -148,7 +148,7 @@ struct Cell {
  */
 // ** Your Problem 4.1 answer goes here **
 /*
- The _ characters allow the label to be ignored and have the function called without parameter labels.
+ The _ characters allow the argument label to be ignored and have the function called without these labels.
  */
 /*:
  2. what is the type of the `transform` variable
