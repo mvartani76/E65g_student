@@ -155,7 +155,7 @@ struct Cell {
  */
 // ** Your Problem 4.2 answer goes here **
 /*
- transform is a computed variable that will be a Cell Struct
+ transform is a computed variable that will be a Cell Struct in our example.
  */
 /*:
  3. what is the return type of `map2`
