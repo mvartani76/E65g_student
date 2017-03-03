@@ -477,28 +477,28 @@ print(somecell1!)
  */
 // Problem 15.1 answer goes here
 /*
- 
+ cell is a struct value type.
  */
 /*:
  2. what the type of `self[row,col]`?
  */
 // Problem 15.2 answer goes here
 /*
- 
+ self[$1.row,$1.col] is an optional (struct) type.
  */
 /*:
  3. why those two types are different?
  */
 // Problem 15.3 comment goes here
 /*
- 
+ These two types are deifferent because self[$1.row,$1.nil] might be nil.
  */
 /*:
  4. what under what circumstances the else will be executed?
  */
 // Problem 15.4 comment goes here
 /*
- 
+ The else will be executed when neighborCell = nil.
  */
 /*:
  ## Problem 16:
