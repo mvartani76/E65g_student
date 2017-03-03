@@ -636,7 +636,7 @@ extension Grid {
 
 // ** Your Problem 21 comment goes here! **
 /*
- 
+ The nextGrid variable represents the next state of the GoL board/grid after one iteration of the rules.
  */
 /*:
  ## Problem 22:
