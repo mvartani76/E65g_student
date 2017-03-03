@@ -595,9 +595,7 @@ extension Grid {
         let row = cell.position.0
         let col = cell.position.1
         
-        guard let cell = self[row,col] else {
-            return .empty
-        }
+        guard let cell = self[row,col] else { return .empty }
 
         switch self.livingNeighbors(of: cell)
         {
