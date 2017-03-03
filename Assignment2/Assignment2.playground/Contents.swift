@@ -343,7 +343,7 @@ myGrid2.neighbors(of: myGrid2.cells[1][2])
  */
 // ** Your Problem 11.2 answer goes here **
 /*
-reduce2() returns returns an integer type.
+reduce2() returns returns an integer value type.
  */
 /*:
  3. why is there no T parameter here as in map2 above
