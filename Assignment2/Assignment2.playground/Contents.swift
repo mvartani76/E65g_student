@@ -546,14 +546,6 @@ extension Grid {
         }
     }
 }
-
-var gridyy = Grid(4, 4)
-var cellyy = gridyy[0,0]
-gridyy[1,0]?.state = .born
-gridyy[0,1]?.state = .born
-
-gridyy.livingNeighbors(of: cellyy!)
-print(gridyy.neighbors(of: cellyy!))
 /*:
  ## Problem 19:
  In the extension to `Grid` shown below, implement a function nextState which:
