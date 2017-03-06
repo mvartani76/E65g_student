@@ -319,9 +319,6 @@ extension Grid {
         }
     }
 }
-
-var myGrid2 = Grid.init(3,3)
-myGrid2.neighbors(of: myGrid2.cells[1][2])
 /*:
  ## Problem 11:
  I am providing the following function, reduce2. Answer the following questions
