@@ -197,7 +197,7 @@ func map2<T>(_ rows: Int, _ cols: Int, transform: (Int, Int) -> T) -> [[T]] {
  */
 // ** Your Problem 5 comment goes here! **
 /*
- Offsets contains the row/col information relative to the center cell location based on a with Offsets[0] being one col to the right and one row below the center and Offsets[7] being one col to the left and one row above the center.
+ Offsets contains the row/col information relative to the center cell location based on Offsets[0] being one col to the right and one row below the center and Offsets[7] being one col to the left and one row above the center.
  */
 
 /*:
@@ -343,7 +343,7 @@ myGrid2.neighbors(of: myGrid2.cells[1][2])
  */
 // ** Your Problem 11.2 answer goes here **
 /*
-reduce2() returns returns an integer value type.
+reduce2() returns an integer value type.
  */
 /*:
  3. why is there no T parameter here as in map2 above
@@ -491,7 +491,7 @@ print(somecell1!)
  */
 // Problem 15.3 comment goes here
 /*
- These two types are deifferent because self[$1.row,$1.nil] might be nil.
+ These two types are different because self[$1.row,$1.nil] might be nil.
  */
 /*:
  4. what under what circumstances the else will be executed?
