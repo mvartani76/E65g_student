@@ -259,12 +259,6 @@ struct Grid {
         }
     }
 }
-
-var myGrid = Grid.init(3,3)
-myGrid.rows
-myGrid.cols
-myGrid.cells
-
 /*:
  The next two problems apply to the extension to `Grid` immediately below.
  
