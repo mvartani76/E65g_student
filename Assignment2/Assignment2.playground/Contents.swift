@@ -447,18 +447,6 @@ extension Grid {
         }
     }
 }
-
-var celly = Cell(position: (1,1),state: .alive)
-print(celly)
-celly.state
-var gridy = Grid(3, 3)
-gridy[1,1] = celly
-let somecell = gridy[1,2]
-print(somecell!)
-gridy[1,2]?.state = .born
-gridy[2,1]?.state = .alive
-let somecell1 = gridy[1,2]
-print(somecell1!)
 /*:
  The following 4 problems all refer to the extension to `Grid` immediately below
  
