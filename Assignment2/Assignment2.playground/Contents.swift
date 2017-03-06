@@ -597,7 +597,6 @@ extension Grid {
         }
     }
 }
-gridy.nextState(of: celly)
 /*:
  ## Problem 20:
  In the location shown in the following extension of Grid, write precisely one line of
