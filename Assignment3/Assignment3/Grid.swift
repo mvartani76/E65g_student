@@ -36,6 +36,18 @@ public enum CellState: String {
         case .died: return self.rawValue
         }
     }
+ 
+    //func allValues() -> [String] {
+    //}
+    
+    func toggle(value:CellState)->CellState {
+        switch value {
+        case .empty, .died:
+            return .alive
+        case .alive, .born:
+            return .empty
+        }
+    }
     
     public var isAlive: Bool {
         switch self {
