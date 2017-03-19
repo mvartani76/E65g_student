@@ -80,7 +80,7 @@ import UIKit
             verticalPath.addLine(to: end)
             
             //draw the stroke
-            UIColor.cyan.setStroke()
+            gridColor.setStroke()
             verticalPath.stroke()
             
             let horizontalPath = UIBezierPath()
@@ -99,7 +99,7 @@ import UIKit
             //add a point to the path at the end of the stroke
             horizontalPath.addLine(to: end)
             horizontalPath.lineWidth = lineWidth
-            UIColor.green.setStroke()
+            gridColor.setStroke()
             horizontalPath.stroke()
         }
         
@@ -125,7 +125,8 @@ import UIKit
         verticalPath.addLine(to: end)
         
         //draw the stroke
-        UIColor.cyan.setStroke()
+        //UIColor.cyan.setStroke()
+        gridColor.setStroke()
         verticalPath.stroke()
         
         let horizontalPath = UIBezierPath()
@@ -144,7 +145,7 @@ import UIKit
         //add a point to the path at the end of the stroke
         horizontalPath.addLine(to: end)
         horizontalPath.lineWidth = lineWidth
-        UIColor.green.setStroke()
+        gridColor.setStroke()
         horizontalPath.stroke()
         
         
