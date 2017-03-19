@@ -17,9 +17,9 @@ import UIKit
                             blue: CGFloat(0/255),
                             alpha: CGFloat(1.0))
     @IBInspectable var emptyColor = UIColor.init(
-                            red: CGFloat(0/255),
-                            green: CGFloat(0/255),
-                            blue: CGFloat(0/255),
+                            red: CGFloat(255/255),
+                            green: CGFloat(255/255),
+                            blue: CGFloat(255/255),
                             alpha: CGFloat(1.0))
     @IBInspectable var bornColor = UIColor.init(
                             red: CGFloat(0/255),
@@ -63,9 +63,21 @@ import UIKit
                 let path = UIBezierPath(ovalIn: subRect)
                 
                 
-                print(drawGrid[(0,0)])
+                switch drawGrid[(i,j)].description()
+                {
+                    case "empty":
+                        emptyColor.setFill()
+                    case "alive":
+                        livingColor.setFill()
+                    case "born":
+                        bornColor.setFill()
+                    case "dead":
+                        diedColor.setFill()
+                    default:
+                        emptyColor.setFill()
+                }
                 
-                gridColor.setFill()
+                
                 path.fill()
             }
         }
