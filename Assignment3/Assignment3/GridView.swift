@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable class GridView: UIView {
     
-    @IBInspectable var size: Int = 20
+    @IBInspectable var size: Int = 5
     @IBInspectable var livingColor = UIColor.init(
                             red: CGFloat(0/255),
                             green: CGFloat(0/255),
@@ -42,7 +42,34 @@ import UIKit
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        _ = Grid(self.size, self.size)
+        //var drawGrid = Grid(self.size, self.size)
+        var drawGrid = Grid(5,5){ _,_ in arc4random_uniform(3) == 2 ? .alive : .empty }
+        
+        let drawSize = CGSize(
+            width: rect.size.width / CGFloat(size),
+            height: rect.size.height / CGFloat(size)
+        )
+        let base = rect.origin
+        (0 ..< size).forEach { i in
+            (0 ..< size).forEach { j in
+                let origin = CGPoint(
+                    x: base.x + (CGFloat(i) * drawSize.width),
+                    y: base.y + (CGFloat(j) * drawSize.height)
+                )
+                let subRect = CGRect(
+                    origin: origin,
+                    size: drawSize
+                )
+                let path = UIBezierPath(ovalIn: subRect)
+                
+                
+                print(drawGrid[(0,0)])
+                
+                gridColor.setFill()
+                path.fill()
+            }
+        }
+        
         
     }
 
