@@ -147,8 +147,7 @@ import UIKit
         horizontalPath.lineWidth = lineWidth
         gridColor.setStroke()
         horizontalPath.stroke()
-        
-        
+                
         // Draw Circles
         (0 ..< size).forEach { i in
             (0 ..< size).forEach { j in
@@ -161,7 +160,6 @@ import UIKit
                     size: drawSize
                 )
                 let path = UIBezierPath(ovalIn: subRect)
-                
                 
                 switch drawGrid[(i,j)].description()
                 {
@@ -176,7 +174,6 @@ import UIKit
                     default:
                         emptyColor.setFill()
                 }
-                
                 
                 path.fill()
             }
