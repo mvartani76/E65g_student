@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		223827431E78F82B00C3B64C /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		223827431E78F82B00C3B64C /* GridView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = GridView.swift; sourceTree = "<group>"; };
 		FB6A68541E6CA1CA0082EFF6 /* Assignment3.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Assignment3.rtf; sourceTree = "<group>"; };
 		FB6A68561E6CA3040082EFF6 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		FB6A68581E6CAB270082EFF6 /* NewGrid.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = NewGrid.playground; path = Assignment3/NewGrid.playground; sourceTree = "<group>"; };
