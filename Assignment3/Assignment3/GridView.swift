@@ -24,12 +24,12 @@ import UIKit
     @IBInspectable var bornColor = UIColor.init(
                             red: CGFloat(0/255),
                             green: CGFloat(0/255),
-                            blue: CGFloat(0/255),
+                            blue: CGFloat(244/255),
                             alpha: CGFloat(1.0))
     @IBInspectable var diedColor = UIColor.init(
                             red: CGFloat(0/255),
-                            green: CGFloat(0/255),
-                            blue: CGFloat(0/255),
+                            green: CGFloat(130/255),
+                            blue: CGFloat(130/255),
                             alpha: CGFloat(1.0))
     @IBInspectable var gridColor = UIColor.init(
                             red: CGFloat(0/255),
@@ -147,7 +147,7 @@ import UIKit
         horizontalPath.lineWidth = lineWidth
         gridColor.setStroke()
         horizontalPath.stroke()
-                
+        
         // Draw Circles
         (0 ..< size).forEach { i in
             (0 ..< size).forEach { j in
