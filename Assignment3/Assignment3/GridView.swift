@@ -11,27 +11,27 @@ import UIKit
 @IBDesignable class GridView: UIView {
     
     @IBInspectable var size: Int = 5
-    @IBInspectable var livingColor = UIColor.init(
+    @IBInspectable var livingColor: UIColor = UIColor.init(
                             red: CGFloat(0/255),
                             green: CGFloat(0/255),
                             blue: CGFloat(0/255),
                             alpha: CGFloat(1.0))
-    @IBInspectable var emptyColor = UIColor.init(
+    @IBInspectable var emptyColor: UIColor = UIColor.init(
                             red: CGFloat(255/255),
                             green: CGFloat(255/255),
                             blue: CGFloat(255/255),
                             alpha: CGFloat(1.0))
-    @IBInspectable var bornColor = UIColor.init(
+    @IBInspectable var bornColor: UIColor = UIColor.init(
                             red: CGFloat(0/255),
                             green: CGFloat(0/255),
                             blue: CGFloat(244/255),
                             alpha: CGFloat(1.0))
-    @IBInspectable var diedColor = UIColor.init(
+    @IBInspectable var diedColor: UIColor = UIColor.init(
                             red: CGFloat(0/255),
                             green: CGFloat(130/255),
                             blue: CGFloat(130/255),
                             alpha: CGFloat(1.0))
-    @IBInspectable var gridColor = UIColor.init(
+    @IBInspectable var gridColor: UIColor = UIColor.init(
                             red: CGFloat(0/255),
                             green: CGFloat(0/255),
                             blue: CGFloat(0/255),
