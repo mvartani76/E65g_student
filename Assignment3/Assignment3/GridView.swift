@@ -38,13 +38,12 @@ import UIKit
                             alpha: CGFloat(1.0))
     @IBInspectable var gridWidth = CGFloat(1.0)
     
+    var drawGrid = Grid(5,5){ _,_ in arc4random_uniform(3) == 2 ? .alive : .empty }
+    
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        //var drawGrid = Grid(self.size, self.size)
-        var drawGrid = Grid(5,5){ _,_ in arc4random_uniform(3) == 2 ? .alive : .empty }
-        
         let drawSize = CGSize(
             width: rect.size.width / CGFloat(size),
             height: rect.size.height / CGFloat(size)
