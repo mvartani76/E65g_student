@@ -29,13 +29,26 @@
                                     <constraint firstAttribute="width" secondItem="6hZ-uw-2uy" secondAttribute="height" multiplier="1:1" id="Pbd-n0-dFC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Th-fV-J7x">
+                                <rect key="frame" x="54" y="152" width="36" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Step"/>
+                                <connections>
+                                    <action selector="stepButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bG7-Ec-ZKB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="leading" secondItem="8Th-fV-J7x" secondAttribute="leading" constant="-6.5" id="Zr5-94-NXT"/>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="top" secondItem="8Th-fV-J7x" secondAttribute="bottom" constant="8.5" id="eke-PF-Jbg"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gcW-4l-apu"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hHi-qz-PKD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stepButton" destination="8Th-fV-J7x" id="klg-AB-eb3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
