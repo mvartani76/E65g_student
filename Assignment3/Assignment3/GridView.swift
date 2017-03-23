@@ -57,49 +57,27 @@ import UIKit
         // Not the most efficient but it is cleaner and easier to handle
         // the extra horizontal/vertical gridlines
         (0 ... size).forEach { i in
-            //create the path
-            let verticalPath = UIBezierPath()
-            var start = CGPoint(
-                x: rect.origin.x + (CGFloat(i)*drawSize.width),
-                y: rect.origin.y
-            )
-            var end = CGPoint(
-                x: rect.origin.x + (CGFloat(i)*drawSize.width),
-                y: rect.origin.y + rect.size.height
-            )
+            // Draw the Vertical Lines
+            drawLine(
+                start: CGPoint(
+                    x: rect.origin.x + (CGFloat(i)*drawSize.width),
+                    y: rect.origin.y),
+                end: CGPoint(
+                    x: rect.origin.x + (CGFloat(i)*drawSize.width),
+                    y: rect.origin.y + rect.size.height),
+                lineWidth: gridWidth,
+                lineColor: gridColor)
             
-            //set the path's line width to the height of the stroke
-            verticalPath.lineWidth = lineWidth
-            
-            //move the initial point of the path
-            //to the start of the horizontal stroke
-            verticalPath.move(to: start)
-            
-            //add a point to the path at the end of the stroke
-            verticalPath.addLine(to: end)
-            
-            //draw the stroke
-            gridColor.setStroke()
-            verticalPath.stroke()
-            
-            let horizontalPath = UIBezierPath()
-            start = CGPoint(
-                x: rect.origin.x,
-                y: rect.origin.y + (CGFloat(i)*drawSize.height)
-            )
-            end = CGPoint(
-                x: rect.origin.x + rect.size.width,
-                y: rect.origin.y + (CGFloat(i)*drawSize.height)
-            )
-            //move the initial point of the path
-            //to the start of the horizontal stroke
-            horizontalPath.move(to: start)
-            
-            //add a point to the path at the end of the stroke
-            horizontalPath.addLine(to: end)
-            horizontalPath.lineWidth = lineWidth
-            gridColor.setStroke()
-            horizontalPath.stroke()
+            // Draw the Horizontal Lines
+            drawLine(
+                start: CGPoint(
+                    x: rect.origin.x,
+                    y: rect.origin.y + (CGFloat(i)*drawSize.height)),
+                end: CGPoint(
+                    x: rect.origin.x + rect.size.width,
+                    y: rect.origin.y + (CGFloat(i)*drawSize.height)),
+                lineWidth: gridWidth,
+                lineColor: gridColor)
         }
 
         // Draw Circles
@@ -140,5 +118,33 @@ import UIKit
         }
         
     }
-
+    
+    // Function to draw lines
+    func drawLine(start: CGPoint, end: CGPoint, lineWidth: CGFloat, lineColor: UIColor){
+        //create the path
+        let path = UIBezierPath()
+        /*var start = CGPoint(
+            x: rect.origin.x + (CGFloat(i)*drawSize.width),
+            y: rect.origin.y
+        )
+        var end = CGPoint(
+            x: rect.origin.x + (CGFloat(i)*drawSize.width),
+            y: rect.origin.y + rect.size.height
+        )
+        */
+        //set the path's line width to the height of the stroke
+        path.lineWidth = lineWidth
+        
+        //move the initial point of the path
+        //to the start of the horizontal stroke
+        path.move(to: start)
+        
+        //add a point to the path at the end of the stroke
+        path.addLine(to: end)
+        
+        //draw the stroke
+        lineColor.setStroke()
+        path.stroke()
+        
+    }
 }
