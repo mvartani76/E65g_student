@@ -120,15 +120,7 @@ import UIKit
     func drawLine(start: CGPoint, end: CGPoint, lineWidth: CGFloat, lineColor: UIColor){
         //create the path
         let path = UIBezierPath()
-        /*var start = CGPoint(
-            x: rect.origin.x + (CGFloat(i)*drawSize.width),
-            y: rect.origin.y
-        )
-        var end = CGPoint(
-            x: rect.origin.x + (CGFloat(i)*drawSize.width),
-            y: rect.origin.y + rect.size.height
-        )
-        */
+
         //set the path's line width to the height of the stroke
         path.lineWidth = lineWidth
         
