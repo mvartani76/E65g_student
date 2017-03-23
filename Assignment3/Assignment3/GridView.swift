@@ -56,8 +56,7 @@ import UIKit
         // Create separate forEach loop for gridlines
         // Not the most efficient but it is cleaner and easier to handle
         // the extra horizontal/vertical gridlines
-        (0 ..< size).forEach { i in
-            
+        (0 ... size).forEach { i in
             //create the path
             let verticalPath = UIBezierPath()
             var start = CGPoint(
@@ -102,52 +101,7 @@ import UIKit
             gridColor.setStroke()
             horizontalPath.stroke()
         }
-        
-        //create the path
-        let verticalPath = UIBezierPath()
-        var start = CGPoint(
-            x: rect.origin.x + rect.size.width,
-            y: rect.origin.y
-        )
-        var end = CGPoint(
-            x: rect.origin.x + rect.size.width,
-            y: rect.origin.y + rect.size.height
-        )
-        
-        //set the path's line width to the height of the stroke
-        verticalPath.lineWidth = lineWidth
-        
-        //move the initial point of the path
-        //to the start of the horizontal stroke
-        verticalPath.move(to: start)
-        
-        //add a point to the path at the end of the stroke
-        verticalPath.addLine(to: end)
-        
-        //draw the stroke
-        //UIColor.cyan.setStroke()
-        gridColor.setStroke()
-        verticalPath.stroke()
-        
-        let horizontalPath = UIBezierPath()
-        start = CGPoint(
-            x: rect.origin.x,
-            y: rect.origin.y + rect.size.height
-        )
-        end = CGPoint(
-            x: rect.origin.x + rect.size.width,
-            y: rect.origin.y + rect.size.height
-        )
-        //move the initial point of the path
-        //to the start of the horizontal stroke
-        horizontalPath.move(to: start)
-        
-        //add a point to the path at the end of the stroke
-        horizontalPath.addLine(to: end)
-        horizontalPath.lineWidth = lineWidth
-        gridColor.setStroke()
-        horizontalPath.stroke()
-        
+
         // Draw Circles
         (0 ..< size).forEach { i in
             (0 ..< size).forEach { j in
