@@ -54,14 +54,14 @@ import UIKit
         // Create separate forEach loop for gridlines
         // Not the most efficient but it is cleaner and easier to handle
         // the extra horizontal/vertical gridlines
-        (0 ... size).forEach { i in
+        (0 ... size).forEach {
             // Draw the Vertical Lines
             drawLine(
                 start: CGPoint(
-                    x: rect.origin.x + (CGFloat(i)*drawSize.width),
+                    x: rect.origin.x + (CGFloat($0)*drawSize.width),
                     y: rect.origin.y),
                 end: CGPoint(
-                    x: rect.origin.x + (CGFloat(i)*drawSize.width),
+                    x: rect.origin.x + (CGFloat($0)*drawSize.width),
                     y: rect.origin.y + rect.size.height),
                 lineWidth: gridWidth,
                 lineColor: gridColor)
@@ -70,10 +70,10 @@ import UIKit
             drawLine(
                 start: CGPoint(
                     x: rect.origin.x,
-                    y: rect.origin.y + (CGFloat(i)*drawSize.height)),
+                    y: rect.origin.y + (CGFloat($0)*drawSize.height)),
                 end: CGPoint(
                     x: rect.origin.x + rect.size.width,
-                    y: rect.origin.y + (CGFloat(i)*drawSize.height)),
+                    y: rect.origin.y + (CGFloat($0)*drawSize.height)),
                 lineWidth: gridWidth,
                 lineColor: gridColor)
         }
