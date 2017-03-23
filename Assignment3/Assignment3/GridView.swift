@@ -51,8 +51,6 @@ import UIKit
         )
         let base = rect.origin
         
-        let lineWidth: CGFloat = gridWidth
-        
         // Create separate forEach loop for gridlines
         // Not the most efficient but it is cleaner and easier to handle
         // the extra horizontal/vertical gridlines
