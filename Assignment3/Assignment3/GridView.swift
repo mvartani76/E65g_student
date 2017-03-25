@@ -113,7 +113,6 @@ import UIKit
                 path.fill()
             }
         }
-        
     }
     
     // Function to draw lines
