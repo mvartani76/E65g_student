@@ -47,6 +47,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="GridView" destination="6hZ-uw-2uy" id="6Zq-hR-dgZ"/>
                         <outlet property="stepButton" destination="8Th-fV-J7x" id="klg-AB-eb3"/>
                     </connections>
                 </viewController>
