@@ -85,13 +85,13 @@ import UIKit
         (0 ..< size).forEach { i in
             (0 ..< size).forEach { j in
                 let origin = CGPoint(
-                    x: base.x + (CGFloat(i) * drawSize.width) + gridWidth + 1,
-                    y: base.y + (CGFloat(j) * drawSize.height) + gridWidth + 1
+                    x: base.x + (CGFloat(i) * drawSize.width) + gridWidth,
+                    y: base.y + (CGFloat(j) * drawSize.height) + gridWidth
                 )
                 
                 let subDrawSize = CGSize(
-                    width: rect.size.width / CGFloat(size) - gridWidth - 2,
-                    height: rect.size.height / CGFloat(size) - gridWidth - 2
+                    width: rect.size.width / CGFloat(size) - 2*gridWidth,
+                    height: rect.size.height / CGFloat(size) - 2*gridWidth
                 )
                 
                 let subRect = CGRect(
