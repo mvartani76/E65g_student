@@ -100,7 +100,7 @@ import UIKit
                 )
                 let path = UIBezierPath(ovalIn: subRect)
                 
-                switch drawGrid[(i,j)].description()
+                switch drawGrid[(j,i)].description()
                 {
                     case "empty":
                         emptyColor.setFill()
@@ -138,5 +138,44 @@ import UIKit
         lineColor.setStroke()
         path.stroke()
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchedPosition = process(touches: touches)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchedPosition = process(touches: touches)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchedPosition = nil
+    }
+    
+    // Updated since class
+    typealias Position = (row: Int, col: Int)
+    var lastTouchedPosition: Position?
+    
+    func process(touches: Set<UITouch>) -> Position? {
+        guard touches.count == 1 else { return nil }
+        let pos = convert(touch: touches.first!)
+        guard lastTouchedPosition?.row != pos.row
+            || lastTouchedPosition?.col != pos.col
+            else { return pos }
+        
+        drawGrid[pos] = drawGrid[pos].isAlive ? .empty : .alive
+        setNeedsDisplay()
+        return pos
+    }
+    
+    func convert(touch: UITouch) -> Position {
+        let touchY = touch.location(in: self).y
+        let gridHeight = frame.size.height
+        let row = touchY / gridHeight * CGFloat(size)
+        let touchX = touch.location(in: self).x
+        let gridWidth = frame.size.width
+        let col = touchX / gridWidth * CGFloat(size)
+        let position = (row: Int(row), col: Int(col))
+        return position
     }
 }
