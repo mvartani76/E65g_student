@@ -152,8 +152,6 @@ import UIKit
         lastTouchedPosition = nil
     }
     
-    // Updated since class
-    typealias Position = (row: Int, col: Int)
     var lastTouchedPosition: Position?
     
     func process(touches: Set<UITouch>) -> Position? {
