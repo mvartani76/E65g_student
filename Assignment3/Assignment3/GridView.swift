@@ -163,7 +163,7 @@ import UIKit
             || lastTouchedPosition?.col != pos.col
             else { return pos }
         
-        drawGrid[pos] = drawGrid[pos].isAlive ? .empty : .alive
+        drawGrid[pos] = drawGrid[pos].toggle(value: drawGrid[pos])
         setNeedsDisplay()
         return pos
     }
