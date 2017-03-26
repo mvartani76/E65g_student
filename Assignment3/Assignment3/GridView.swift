@@ -40,7 +40,7 @@ import UIKit
                             green: CGFloat(0/255),
                             blue: CGFloat(0/255),
                             alpha: CGFloat(1.0))
-    @IBInspectable var gridWidth = CGFloat(1.0)
+    @IBInspectable var gridWidth = CGFloat(2.0)
     
     var drawGrid = Grid(20,20)
     
