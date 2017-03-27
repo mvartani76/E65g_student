@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +23,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hZ-uw-2uy" customClass="GridView" customModule="Assignment3" customModuleProvider="target">
-                                <rect key="frame" x="47.5" y="193.5" width="280" height="280"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="FNV-ts-6NA"/>
                                     <constraint firstAttribute="width" secondItem="6hZ-uw-2uy" secondAttribute="height" multiplier="1:1" id="Pbd-n0-dFC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -39,18 +39,18 @@
                                         <color key="value" red="0.12309695512820518" green="0.12309695512820518" blue="0.12309695512820518" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="diedColor">
-                                        <color key="value" red="0.12309695512820518" green="0.12309695512820518" blue="0.12309695512820518" alpha="0.6" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.12309695512820518" green="0.12309695512820518" blue="0.12309695512820518" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="livingColor">
                                         <color key="value" red="0.12309695512820518" green="0.53069945469798663" blue="0.12309695512820518" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bornColor">
-                                        <color key="value" red="0.12156862745098039" green="0.52941176470588236" blue="0.12156862745098039" alpha="0.6" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.12156862745098039" green="0.52941176470588236" blue="0.12156862745098039" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Th-fV-J7x">
-                                <rect key="frame" x="54" y="152" width="36" height="33"/>
+                                <rect key="frame" x="44" y="148" width="36" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Step"/>
                                 <connections>
@@ -60,10 +60,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="50" id="BtB-w5-7Rb"/>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="EqZ-Vv-jXp"/>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="F4v-cQ-THj"/>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" priority="750" id="Xsn-69-GLC"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="leading" secondItem="8Th-fV-J7x" secondAttribute="leading" constant="-6.5" id="Zr5-94-NXT"/>
-                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="top" secondItem="8Th-fV-J7x" secondAttribute="bottom" constant="8.5" id="eke-PF-Jbg"/>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="top" secondItem="8Th-fV-J7x" secondAttribute="bottom" constant="2.5" id="eke-PF-Jbg"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gcW-4l-apu"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hHi-qz-PKD"/>
+                            <constraint firstItem="6hZ-uw-2uy" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" priority="750" id="vSX-xw-K8X"/>
                         </constraints>
                     </view>
                     <connections>
