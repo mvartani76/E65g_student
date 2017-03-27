@@ -60,13 +60,26 @@
                                     <action selector="stepButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bG7-Ec-ZKB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nh-hw-nLZ">
+                                <rect key="frame" x="299" y="148.5" width="32" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                </variation>
+                                <connections>
+                                    <action selector="playButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cH1-bB-ayu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="50" id="BtB-w5-7Rb"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="EqZ-Vv-jXp"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="F4v-cQ-THj"/>
+                            <constraint firstItem="4Nh-hw-nLZ" firstAttribute="trailing" secondItem="6hZ-uw-2uy" secondAttribute="trailing" constant="-6.5" id="Gfu-Dy-Pw3"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" priority="750" id="Xsn-69-GLC"/>
+                            <constraint firstItem="8Th-fV-J7x" firstAttribute="centerY" secondItem="4Nh-hw-nLZ" secondAttribute="centerY" id="Z5l-5E-csk"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="leading" secondItem="8Th-fV-J7x" secondAttribute="leading" constant="-6.5" id="Zr5-94-NXT"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="top" secondItem="8Th-fV-J7x" secondAttribute="bottom" constant="2.5" id="eke-PF-Jbg"/>
                             <constraint firstItem="6hZ-uw-2uy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gcW-4l-apu"/>
@@ -76,6 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="GridView" destination="6hZ-uw-2uy" id="6Zq-hR-dgZ"/>
+                        <outlet property="playButton" destination="4Nh-hw-nLZ" id="Gvo-Hz-3Ay"/>
                         <outlet property="stepButton" destination="8Th-fV-J7x" id="klg-AB-eb3"/>
                     </connections>
                 </viewController>

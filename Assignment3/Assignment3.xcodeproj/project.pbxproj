@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		223827441E78F82B00C3B64C /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223827431E78F82B00C3B64C /* GridView.swift */; };
+		22A0E4A61E88D51B008F63C7 /* TexasTwoStep.aif in Resources */ = {isa = PBXBuildFile; fileRef = 22A0E4A51E88D51B008F63C7 /* TexasTwoStep.aif */; };
 		FB6A68551E6CA1CA0082EFF6 /* Assignment3.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB6A68541E6CA1CA0082EFF6 /* Assignment3.rtf */; };
 		FB6A68571E6CA3040082EFF6 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A68561E6CA3040082EFF6 /* Grid.swift */; };
 		FBAD2DE91E2BE34F008207C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD2DE81E2BE34F008207C0 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		223827431E78F82B00C3B64C /* GridView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = GridView.swift; sourceTree = "<group>"; };
+		22A0E4A51E88D51B008F63C7 /* TexasTwoStep.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = TexasTwoStep.aif; sourceTree = "<group>"; };
 		FB6A68541E6CA1CA0082EFF6 /* Assignment3.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Assignment3.rtf; sourceTree = "<group>"; };
 		FB6A68561E6CA3040082EFF6 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		FB6A68581E6CAB270082EFF6 /* NewGrid.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = NewGrid.playground; path = Assignment3/NewGrid.playground; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				FBAD2DF41E2BE34F008207C0 /* Info.plist */,
 				FB6A68561E6CA3040082EFF6 /* Grid.swift */,
 				223827431E78F82B00C3B64C /* GridView.swift */,
+				22A0E4A51E88D51B008F63C7 /* TexasTwoStep.aif */,
 			);
 			path = Assignment3;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 				FBAD2DF31E2BE34F008207C0 /* LaunchScreen.storyboard in Resources */,
 				FB6A68551E6CA1CA0082EFF6 /* Assignment3.rtf in Resources */,
 				FBAD2DF01E2BE34F008207C0 /* Assets.xcassets in Resources */,
+				22A0E4A61E88D51B008F63C7 /* TexasTwoStep.aif in Resources */,
 				FBAD2DEE1E2BE34F008207C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
