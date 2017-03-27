@@ -82,6 +82,7 @@ import UIKit
         }
 
         // Draw Circles
+        // Add gridWidth to each of the origin values and subtract 2*gridWidth from the width/height to fit the circle inside the gridlines with no overlap
         (0 ..< size).forEach { i in
             (0 ..< size).forEach { j in
                 let origin = CGPoint(
