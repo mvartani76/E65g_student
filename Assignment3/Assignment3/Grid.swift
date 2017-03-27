@@ -37,6 +37,7 @@ public enum CellState: String {
         }
     }
  
+    // allValues method returns all available "hard coded" values for the enum
     func allValues() -> [String] {
         return ["alive", "empty", "born", "died"]
     }
