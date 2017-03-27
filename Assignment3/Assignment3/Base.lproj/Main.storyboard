@@ -39,13 +39,13 @@
                                         <color key="value" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="diedColor">
-                                        <color key="value" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.6" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="livingColor">
                                         <color key="value" red="0.12309695512820518" green="0.53069945469798663" blue="0.12309695512820518" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bornColor">
-                                        <color key="value" red="0.12156862745098039" green="0.52941176470588236" blue="0.12156862745098039" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.12156862745098039" green="0.52941176470588236" blue="0.12156862745098039" alpha="0.6" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="gridWidth">
                                         <real key="value" value="2"/>
