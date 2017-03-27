@@ -53,6 +53,9 @@
                                 <rect key="frame" x="44" y="148" width="36" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Step"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                </variation>
                                 <connections>
                                     <action selector="stepButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bG7-Ec-ZKB"/>
                                 </connections>
