@@ -101,6 +101,7 @@ import UIKit
                 )
                 let path = UIBezierPath(ovalIn: subRect)
                 
+                // Set the color based on the CellState using the description method
                 switch drawGrid[(j,i)].description()
                 {
                     case "empty":
