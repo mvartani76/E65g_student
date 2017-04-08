@@ -19,13 +19,25 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imG-mU-sCL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.32888596763501998" green="0.34501201923076918" blue="0.34330519488783123" alpha="0.32850215517241377" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="imG-mU-sCL" secondAttribute="bottom" id="2c7-gv-Whi"/>
+                            <constraint firstItem="imG-mU-sCL" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="SzC-0r-9vB"/>
+                            <constraint firstItem="imG-mU-sCL" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="cfa-hY-4VJ"/>
+                            <constraint firstAttribute="trailing" secondItem="imG-mU-sCL" secondAttribute="trailing" id="j6b-hG-yZF"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Instrumentation" image="InstrumentationIcon" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="l3A-EP-rJk">
@@ -38,13 +50,25 @@
                     <view key="view" contentMode="scaleToFill" id="eG8-mB-yFc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhe-Wr-M2H">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.95379056264720785" green="0.18226613273134518" blue="1" alpha="0.3279094827586207" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mhe-Wr-M2H" firstAttribute="leading" secondItem="eG8-mB-yFc" secondAttribute="leading" id="3aF-Ef-dao"/>
+                            <constraint firstItem="GJP-O2-mpb" firstAttribute="top" secondItem="Mhe-Wr-M2H" secondAttribute="bottom" id="8pM-lv-WYR"/>
+                            <constraint firstItem="Mhe-Wr-M2H" firstAttribute="top" secondItem="Lom-0S-IrR" secondAttribute="bottom" id="iPb-hs-gNT"/>
+                            <constraint firstAttribute="trailing" secondItem="Mhe-Wr-M2H" secondAttribute="trailing" id="lTh-EG-Jzg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="StatisticsIcon" id="11l-km-aQx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PA9-fP-a3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="826"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="825.33733133433293"/>
         </scene>
         <!--Simulation-->
         <scene sceneID="wg7-f3-ORb">
@@ -57,13 +81,25 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2y-XD-nxw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.11307530043557956" green="0.44804512098082161" blue="1" alpha="0.3279094827586207" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="q2y-XD-nxw" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="Hdj-nf-Vha"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="q2y-XD-nxw" secondAttribute="bottom" id="RWb-bo-aN1"/>
+                            <constraint firstItem="q2y-XD-nxw" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Xul-8r-Str"/>
+                            <constraint firstAttribute="trailing" secondItem="q2y-XD-nxw" secondAttribute="trailing" id="n9m-E7-yeP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulation" image="SimulationIcon" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
