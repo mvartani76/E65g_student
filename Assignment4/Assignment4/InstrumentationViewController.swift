@@ -14,6 +14,8 @@ class InstrumentationViewController: UIViewController {
     @IBOutlet weak var colStepper: UIStepper!
     @IBOutlet weak var refreshRate: UISlider!
     @IBOutlet weak var refreshOnOff: UISwitch!
+    @IBOutlet weak var numRowsTextField: UITextField!
+    @IBOutlet weak var numColsTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

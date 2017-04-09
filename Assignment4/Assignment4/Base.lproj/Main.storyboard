@@ -122,6 +122,8 @@
                     <tabBarItem key="tabBarItem" title="Instrumentation" image="InstrumentationIcon" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="colStepper" destination="asB-5H-CO1" id="1My-DC-4eC"/>
+                        <outlet property="numColsTextField" destination="tcE-Wp-pNh" id="ese-vH-eWZ"/>
+                        <outlet property="numRowsTextField" destination="ucT-I0-Rud" id="H0Y-AQ-naw"/>
                         <outlet property="refreshOnOff" destination="UnT-Cr-Fes" id="LTh-0M-9qY"/>
                         <outlet property="refreshRate" destination="MZx-vw-kli" id="koe-lY-Xgg"/>
                         <outlet property="rowStepper" destination="vvE-qd-fti" id="jJW-Jm-Kwz"/>
