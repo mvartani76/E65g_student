@@ -10,6 +10,11 @@ import UIKit
 
 class InstrumentationViewController: UIViewController {
 
+    @IBOutlet weak var rowStepper: UIStepper!
+    @IBOutlet weak var colStepper: UIStepper!
+    @IBOutlet weak var refreshRate: UISlider!
+    @IBOutlet weak var refreshOnOff: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +25,12 @@ class InstrumentationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK: Row Stepper Event Handling
+    @IBAction func rowStep(_ sender: UIStepper) {
+    }
 
+    //MARK: Column Stepper Event Handling
+    @IBAction func colStep(_ sender: UIStepper) {
+    }
 }
 
