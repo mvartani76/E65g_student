@@ -1,64 +1,46 @@
 //
 //  Grid.swift
 //
-public typealias GridPosition = (row: Int, col: Int)
-public typealias GridSize = (rows: Int, cols: Int)
 
 fileprivate func norm(_ val: Int, to size: Int) -> Int { return ((val % size) + size) % size }
-
-public enum CellState {
-    case alive, empty, born, died
-
-    public func toggle(value:CellState)->CellState {
-        switch value {
-        case .empty, .died:
-            return .alive
-        case .alive, .born:
-            return .empty
-        }
-    }
-    
-    public func description() -> String {
-        switch self {
-        case .alive: return "alive"
-        case .empty: return "empty"
-        case .born: return "born"
-        case .died: return "died"
-        }
-    }
-    
-    public var isAlive: Bool {
-        switch self {
-        case .alive, .born: return true
-        default: return false
-        }
-    }
-}
-
-public protocol GridProtocol {
-    init(_ rows: Int, _ cols: Int, cellInitializer: (GridPosition) -> CellState)
-    var description: String { get }
-    var size: GridSize { get }
-    subscript (row: Int, col: Int) -> CellState { get set }
-    func next() -> Self 
-}
 
 public let lazyPositions = { (size: GridSize) in
     return (0 ..< size.rows)
         .lazy
         .map { zip( [Int](repeating: $0, count: size.cols) , 0 ..< size.cols ) }
         .flatMap { $0 }
-        .map { GridPosition($0) }
+        .map { GridPosition(row: $0.0,col: $0.1) }
 }
 
-
-let offsets: [GridPosition] = [
-    (row: -1, col:  -1), (row: -1, col:  0), (row: -1, col:  1),
-    (row:  0, col:  -1),                     (row:  0, col:  1),
-    (row:  1, col:  -1), (row:  1, col:  0), (row:  1, col:  1)
+fileprivate let offsets: [GridPosition] = [
+    GridPosition(row: -1, col:  -1), GridPosition(row: -1, col:  0), GridPosition(row: -1, col:  1),
+    GridPosition(row:  0, col:  -1),                                 GridPosition(row:  0, col:  1),
+    GridPosition(row:  1, col:  -1), GridPosition(row:  1, col:  0), GridPosition(row:  1, col:  1)
 ]
 
-extension GridProtocol {
+public extension GridProtocol {
+}
+
+public struct Grid: GridProtocol, GridViewDataSource {
+    private var _cells: [[CellState]]
+    public let size: GridSize
+
+    public subscript (row: Int, col: Int) -> CellState {
+        get { return _cells[norm(row, to: size.rows)][norm(col, to: size.cols)] }
+        set { _cells[norm(row, to: size.rows)][norm(col, to: size.cols)] = newValue }
+    }
+    
+    public init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState = { _ in .empty }) {
+        _cells = [[CellState]](
+            repeatElement(
+                [CellState]( repeatElement(.empty, count: size.rows)),
+                count: size.cols
+            )
+        )
+        self.size = size
+        lazyPositions(self.size).forEach { self[$0.row, $0.col] = cellInitializer($0) }
+    }
+    
     public var description: String {
         return lazyPositions(self.size)
             .map { (self[$0.row, $0.col].isAlive ? "*" : " ") + ($0.col == self.size.cols - 1 ? "\n" : "") }
@@ -79,26 +61,10 @@ extension GridProtocol {
         }
     }
     
-    public func next() -> Self {
-        var nextGrid = Self(size.rows, size.cols) { _, _ in .empty }
+    public func next() -> Grid {
+        var nextGrid = Grid(size) { _ in .empty }
         lazyPositions(self.size).forEach { nextGrid[$0.row, $0.col] = self.nextState(of: $0) }
         return nextGrid
-    }
-}
-
-public struct Grid: GridProtocol {
-    private var _cells: [[CellState]]
-    public let size: GridSize
-
-    public subscript (row: Int, col: Int) -> CellState {
-        get { return _cells[norm(row, to: size.rows)][norm(col, to: size.cols)] }
-        set { _cells[norm(row, to: size.rows)][norm(col, to: size.cols)] = newValue }
-    }
-    
-    public init(_ rows: Int, _ cols: Int, cellInitializer: (GridPosition) -> CellState = { _, _ in .empty }) {
-        _cells = [[CellState]](repeatElement( [CellState](repeatElement(.empty, count: rows)), count: cols))
-        size = GridSize(rows, cols)
-        lazyPositions(self.size).forEach { self[$0.row, $0.col] = cellInitializer($0) }
     }
 }
 
@@ -154,8 +120,18 @@ extension Grid: Sequence {
 public extension Grid {
     public static func gliderInitializer(pos: GridPosition) -> CellState {
         switch pos {
-        case (0, 1), (1, 2), (2, 0), (2, 1), (2, 2): return .alive
+        case GridPosition(row: 0, col: 1), GridPosition(row: 1, col: 2), GridPosition(row: 2, col: 0),
+             GridPosition(row: 2, col: 1), GridPosition(row: 2, col: 2): return .alive
         default: return .empty
         }
+    }
+}
+
+class Engine {
+
+    var grid: Grid
+    
+    init(size: Int) {
+        grid = Grid(GridSize(rows: size, cols: size))
     }
 }

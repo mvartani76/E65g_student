@@ -10,11 +10,8 @@ import UIKit
 
 @IBDesignable class GridView: UIView {
     
-    @IBInspectable var size: Int = 20 {
-        didSet {
-            drawGrid = Grid(size, size)
-        }
-    }
+    @IBInspectable var gridSize: Int = 20
+    
     @IBInspectable var livingColor: UIColor = UIColor.init(
                             red: CGFloat(0/255),
                             green: CGFloat(0/255),
@@ -42,22 +39,22 @@ import UIKit
                             alpha: CGFloat(1.0))
     @IBInspectable var gridWidth: CGFloat = CGFloat(2.0)
     
-    var drawGrid = Grid(20,20)
+    var drawGrid: GridViewDataSource?
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
         let drawSize = CGSize(
-            width: rect.size.width / CGFloat(size),
-            height: rect.size.height / CGFloat(size)
+            width: rect.size.width / CGFloat(gridSize),
+            height: rect.size.height / CGFloat(gridSize)
         )
         let base = rect.origin
         
         // Create separate forEach loop for gridlines
         // Not the most efficient but it is cleaner and easier to handle
         // the extra horizontal/vertical gridlines
-        (0 ... size).forEach {
+        (0 ... gridSize).forEach {
             // Draw the Vertical Lines
             drawLine(
                 start: CGPoint(
@@ -83,16 +80,16 @@ import UIKit
 
         // Draw Circles
         // Add gridWidth to each of the origin values and subtract 2*gridWidth from the width/height to fit the circle inside the gridlines with no overlap
-        (0 ..< size).forEach { i in
-            (0 ..< size).forEach { j in
+        (0 ..< gridSize).forEach { i in
+            (0 ..< gridSize).forEach { j in
                 let origin = CGPoint(
                     x: base.x + (CGFloat(i) * drawSize.width) + gridWidth,
                     y: base.y + (CGFloat(j) * drawSize.height) + gridWidth
                 )
                 
                 let subDrawSize = CGSize(
-                    width: rect.size.width / CGFloat(size) - 2*gridWidth,
-                    height: rect.size.height / CGFloat(size) - 2*gridWidth
+                    width: rect.size.width / CGFloat(gridSize) - 2*gridWidth,
+                    height: rect.size.height / CGFloat(gridSize) - 2*gridWidth
                 )
                 
                 let subRect = CGRect(
@@ -101,22 +98,26 @@ import UIKit
                 )
                 let path = UIBezierPath(ovalIn: subRect)
                 
-                // Set the color based on the CellState using the description method
-                switch drawGrid[(j,i)].description()
-                {
-                    case "empty":
-                        emptyColor.setFill()
-                    case "alive":
-                        livingColor.setFill()
-                    case "born":
-                        bornColor.setFill()
-                    case "dead":
-                        diedColor.setFill()
-                    default:
-                        emptyColor.setFill()
-                }
                 
-                path.fill()
+                if let drawGrid = drawGrid {
+                
+                    // Set the color based on the CellState using the description method
+                    switch drawGrid[(j,i)].description()
+                    {
+                        case "empty":
+                            emptyColor.setFill()
+                        case "alive":
+                            livingColor.setFill()
+                        case "born":
+                            bornColor.setFill()
+                        case "dead":
+                            diedColor.setFill()
+                        default:
+                            emptyColor.setFill()
+                    }
+                    
+                    path.fill()
+                }
             }
         }
     }
@@ -164,7 +165,7 @@ import UIKit
             else { return pos }
 
         if drawGrid != nil {
-            drawGrid[pos.row, pos.col] = drawGrid[pos.row, pos.col].isAlive ? .empty : .alive
+            drawGrid![pos.row, pos.col] = drawGrid![pos.row, pos.col].isAlive ? .empty : .alive
             setNeedsDisplay()
         }
         
@@ -174,11 +175,13 @@ import UIKit
     func convert(touch: UITouch) -> GridPosition {
         let touchY = touch.location(in: self).y
         let gridHeight = frame.size.height
-        let row = touchY / gridHeight * CGFloat(size)
+        let row = touchY / gridHeight * CGFloat(gridSize)
+        
         let touchX = touch.location(in: self).x
         let gridWidth = frame.size.width
-        let col = touchX / gridWidth * CGFloat(size)
-        let position = (row: Int(row), col: Int(col))
-        return position
+        let col = touchX / gridWidth * CGFloat(gridSize)
+        
+        return GridPosition(row: Int(row), col: Int(col))
     }
+    
 }
