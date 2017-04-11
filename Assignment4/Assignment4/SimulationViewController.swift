@@ -18,7 +18,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let size = GridView.gridSize
-        engine = Engine(size: size)
+        engine = Engine(rows: size, cols: size)
         engine.delegate = self
         GridView.drawGrid = self
     }

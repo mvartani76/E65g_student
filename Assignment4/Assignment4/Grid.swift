@@ -132,12 +132,12 @@ protocol EngineDelegate {
 }
 
 class Engine {
-    static var engine: Engine = Engine(size: 10)
+    static var engine: Engine = Engine(rows: 10, cols: 10)
     var grid: Grid
     var delegate: EngineDelegate?
     
-    init(size: Int) {
-        grid = Grid(GridSize(rows: size, cols: size))
+    init(rows: Int, cols: Int) {
+        self.grid = Grid(GridSize(rows: rows, cols: cols))
     }
     
     func step() {
