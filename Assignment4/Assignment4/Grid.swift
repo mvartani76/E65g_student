@@ -127,11 +127,22 @@ public extension Grid {
     }
 }
 
-class Engine {
+protocol EngineDelegate {
+    func engineDidUpdate(engine: Engine)
+}
 
+class Engine {
+    static var engine: Engine = Engine(size: 10)
     var grid: Grid
+    var delegate: EngineDelegate?
     
     init(size: Int) {
         grid = Grid(GridSize(rows: size, cols: size))
+    }
+    
+    func step() {
+        let newGrid = grid.next()
+        grid = newGrid
+        delegate?.engineDidUpdate(engine: self)
     }
 }
