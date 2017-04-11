@@ -34,5 +34,14 @@ class InstrumentationViewController: UIViewController {
     //MARK: Column Stepper Event Handling
     @IBAction func colStep(_ sender: UIStepper) {
     }
+    
+    //MARK: Row TextField Event Handling
+    @IBAction func rowEditingEndedOnExit(_ sender: UITextField) {
+    }
+    
+    //MARK: Col TextField Event Handling
+    @IBAction func colEditingEndedOnExit(_ sender: UITextField) {
+    }
+    
 }
 

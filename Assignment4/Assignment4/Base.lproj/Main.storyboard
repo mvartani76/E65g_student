@@ -48,6 +48,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="rowEditingEndedOnExit:" destination="9pv-A4-QxB" eventType="editingDidEndOnExit" id="UOo-jG-AoC"/>
+                                        </connections>
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnT-Cr-Fes">
                                         <rect key="frame" x="272.5" y="446" width="51" height="31"/>
@@ -81,6 +84,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="colEditingEndedOnExit:" destination="9pv-A4-QxB" eventType="editingDidEndOnExit" id="NTN-C2-sfx"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.32888596763501998" green="0.34501201923076918" blue="0.34330519488783123" alpha="0.32850215517241377" colorSpace="calibratedRGB"/>
