@@ -181,17 +181,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2y-XD-nxw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itI-vz-UXy" customClass="GridView" customModule="Assignment4" customModuleProvider="target">
-                                        <rect key="frame" x="37" y="56" width="300" height="300"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itI-vz-UXy" customClass="GridView" customModule="Assignment4" customModuleProvider="target">
+                                        <rect key="frame" x="37" y="149" width="300" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="itI-vz-UXy" secondAttribute="height" multiplier="1:1" id="ic3-fY-VoI"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-xQ-Iga">
+                                        <rect key="frame" x="37" y="109" width="32" height="30"/>
+                                        <state key="normal" title="Step"/>
+                                        <connections>
+                                            <action selector="stepButtonAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="WFE-sT-Cw4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.11307530043557956" green="0.44804512098082161" blue="1" alpha="0.3279094827586207" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="width" secondItem="q2y-XD-nxw" secondAttribute="width" multiplier="0.8" priority="750" id="9et-Wp-QbZ"/>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="top" secondItem="h7a-xQ-Iga" secondAttribute="bottom" constant="10" id="DPR-qr-loN"/>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="leading" secondItem="h7a-xQ-Iga" secondAttribute="leading" id="IFG-Q9-Qm9"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="height" relation="lessThanOrEqual" secondItem="q2y-XD-nxw" secondAttribute="height" multiplier="0.8" id="fZj-w1-biM"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="centerX" secondItem="q2y-XD-nxw" secondAttribute="centerX" id="fxt-ep-D29"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="centerY" secondItem="q2y-XD-nxw" secondAttribute="centerY" id="qi0-fJ-oiA"/>
@@ -211,6 +220,7 @@
                     <tabBarItem key="tabBarItem" title="Simulation" image="SimulationIcon" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="GridView" destination="itI-vz-UXy" id="S00-nD-dZF"/>
+                        <outlet property="stepButton" destination="h7a-xQ-Iga" id="Ojn-eK-EbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

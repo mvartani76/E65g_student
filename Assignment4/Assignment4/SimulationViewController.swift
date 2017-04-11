@@ -10,6 +10,7 @@ import UIKit
 
 class SimulationViewController: UIViewController {
     @IBOutlet weak var GridView: GridView!
+    @IBOutlet weak var stepButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,10 @@ class SimulationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func stepButtonAction(_ sender: UIButton) {
+        GridView.drawGrid = GridView.drawGrid.next()
+        GridView.setNeedsDisplay()
+    }
 
 }
 
