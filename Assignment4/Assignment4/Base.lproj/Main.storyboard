@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -178,18 +180,38 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2y-XD-nxw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itI-vz-UXy" customClass="GridView" customModule="Assignment4" customModuleProvider="target">
+                                        <rect key="frame" x="37" y="56" width="300" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="itI-vz-UXy" secondAttribute="height" multiplier="1:1" id="ic3-fY-VoI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.11307530043557956" green="0.44804512098082161" blue="1" alpha="0.3279094827586207" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="width" secondItem="q2y-XD-nxw" secondAttribute="width" multiplier="0.8" priority="750" id="9et-Wp-QbZ"/>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="height" relation="lessThanOrEqual" secondItem="q2y-XD-nxw" secondAttribute="height" multiplier="0.8" id="fZj-w1-biM"/>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="centerX" secondItem="q2y-XD-nxw" secondAttribute="centerX" id="fxt-ep-D29"/>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="centerY" secondItem="q2y-XD-nxw" secondAttribute="centerY" id="qi0-fJ-oiA"/>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="height" secondItem="q2y-XD-nxw" secondAttribute="height" multiplier="0.8" priority="750" id="vYI-xC-P6e"/>
+                                    <constraint firstItem="itI-vz-UXy" firstAttribute="width" relation="lessThanOrEqual" secondItem="q2y-XD-nxw" secondAttribute="width" multiplier="0.8" id="w19-xG-oel"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="q2y-XD-nxw" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="Hdj-nf-Vha"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="q2y-XD-nxw" secondAttribute="bottom" id="RWb-bo-aN1"/>
+                            <constraint firstItem="q2y-XD-nxw" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="VZi-SA-Msn"/>
                             <constraint firstItem="q2y-XD-nxw" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Xul-8r-Str"/>
                             <constraint firstAttribute="trailing" secondItem="q2y-XD-nxw" secondAttribute="trailing" id="n9m-E7-yeP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulation" image="SimulationIcon" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="GridView" destination="itI-vz-UXy" id="S00-nD-dZF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

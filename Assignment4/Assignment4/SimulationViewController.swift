@@ -9,6 +9,7 @@
 import UIKit
 
 class SimulationViewController: UIViewController {
+    @IBOutlet weak var GridView: GridView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

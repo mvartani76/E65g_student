@@ -8,6 +8,24 @@ fileprivate func norm(_ val: Int, to size: Int) -> Int { return ((val % size) + 
 
 public enum CellState {
     case alive, empty, born, died
+
+    public func toggle(value:CellState)->CellState {
+        switch value {
+        case .empty, .died:
+            return .alive
+        case .alive, .born:
+            return .empty
+        }
+    }
+    
+    public func description() -> String {
+        switch self {
+        case .alive: return "alive"
+        case .empty: return "empty"
+        case .born: return "born"
+        case .died: return "died"
+        }
+    }
     
     public var isAlive: Bool {
         switch self {
