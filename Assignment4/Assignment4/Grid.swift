@@ -44,6 +44,7 @@ public protocol GridViewDataSource {
 
 public protocol GridProtocol: CustomStringConvertible {
     init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState)
+    subscript (row: Int, col: Int) -> CellState { get set }
     var size: GridSize { get }
     func next() -> Self
 }
@@ -172,36 +173,48 @@ public extension Grid {
 }
 
 protocol EngineDelegate {
-    func engineDidUpdate(engine: StandardEngine)
+    func engineDidUpdate(withGrid: GridProtocol)
 }
 
 protocol EngineProtocol {
+    var delegate: EngineDelegate? { get set }
     var grid: GridProtocol { get }
     var refreshRate: Double { get set }
-    var refreshTimer: Timer { get set }
+    var refreshTimer: Timer? { get set }
     var rows: Int { get set }
     var cols: Int { get set }
-    
+    func step() -> GridProtocol
 }
 
-class StandardEngine {
-    private static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10)
-    var grid: Grid
+class StandardEngine: EngineProtocol {
     var delegate: EngineDelegate?
+    var grid: GridProtocol
+    var refreshTimer: Timer?
+    internal var refreshRate: Double = 0.0
+    var rows: Int
+    var cols: Int
+
+
+    private static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10, refreshRate: 1.0)
     
-    init(rows: Int, cols: Int) {
+    init(rows: Int, cols: Int, refreshRate: Double) {
         self.grid = Grid(GridSize(rows: rows, cols: cols))
+        self.rows = rows
+        self.cols = cols
+        self.refreshRate = refreshRate
     }
     
-    func step() {
+    func step() -> GridProtocol {
         let newGrid = grid.next()
         grid = newGrid
-        delegate?.engineDidUpdate(engine: self)
+        delegate?.engineDidUpdate(withGrid: grid)
+        return grid
     }
     func updateNumRows(Rows: Int) {
-        grid.size.rows = Rows
-        StandardEngine.shared().grid.size.rows = Rows
+        //grid.size.rows = Rows
+        //StandardEngine.shared().grid.size.rows = Rows
         //delegate?.engineDidUpdate(engine: self)
+        StandardEngine.shared().rows = Rows
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: name,
