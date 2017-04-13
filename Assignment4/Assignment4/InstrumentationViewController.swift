@@ -17,11 +17,15 @@ class InstrumentationViewController: UIViewController {
     @IBOutlet weak var numRowsTextField: UITextField!
     @IBOutlet weak var numColsTextField: UITextField!
     
+    var engine: Engine!
+    var GridView: GridView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        engine = Engine.shared()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,6 +33,9 @@ class InstrumentationViewController: UIViewController {
 
     //MARK: Row Stepper Event Handling
     @IBAction func rowStep(_ sender: UIStepper) {
+        let numRows = Int(sender.value)
+        numRowsTextField.text = "\(numRows)"
+        engine.updateNumRows(Rows: numRows)
     }
 
     //MARK: Column Stepper Event Handling
