@@ -233,7 +233,7 @@ struct Grid {
         cells = [[Cell]](repeatElement([Cell](repeatElement(Cell(position:(0,0), state: .empty), count: cols)), count: rows))
         
         map2(rows, cols) { row, col in
-            cells[row][col].position = (row,col)
+            cells[row][col].position = (row: row, col: col)
             cells[row][col].state = cellInitializer(row,col)
         }
     }
@@ -439,7 +439,11 @@ extension Grid {
  */
 // Problem 15.2 answer goes here
 /*
+<<<<<<< HEAD
  Cell?
+=======
+ Cell? or Optional<Cell>
+>>>>>>> 61b1b8186a4b8a392856c41f2ba173b838eb95fe
  */
 /*:
  3. why those two types are different?
@@ -481,7 +485,11 @@ extension Grid {
 
 // Problem 17 comment goes here
 /*
+<<<<<<< HEAD
   returns the Cell at position row and col
+=======
+  $1 is a Position to be used to reference a cell in the grid
+>>>>>>> 61b1b8186a4b8a392856c41f2ba173b838eb95fe
  */
 
 /*:
@@ -503,7 +511,8 @@ extension Grid {
     func livingNeighbors(of cell: Cell) -> Int {
         return self
             .neighbors(of: cell)
-            .reduce(0) {
+
+            .reduce(0) { 
                 guard let neighborCell = self[$1.row, $1.col] else { return $0 }
                 // ** Problem 18 code goes here!  replace the following 2 lines **
                 return neighborCell.state.isAlive ? $0 + 1 : $0
