@@ -1,6 +1,7 @@
 //
 //  Grid.swift
 //
+import Foundation
 
 fileprivate func norm(_ val: Int, to size: Int) -> Int { return ((val % size) + size) % size }
 
@@ -23,7 +24,7 @@ public extension GridProtocol {
 
 public struct Grid: GridProtocol, GridViewDataSource {
     private var _cells: [[CellState]]
-    public let size: GridSize
+    public var size: GridSize
 
     public subscript (row: Int, col: Int) -> CellState {
         get { return _cells[norm(row, to: size.rows)][norm(col, to: size.cols)] }
@@ -132,7 +133,7 @@ protocol EngineDelegate {
 }
 
 class Engine {
-    static var engine: Engine = Engine(rows: 10, cols: 10)
+    private static var engine: Engine = Engine(rows: 10, cols: 10)
     var grid: Grid
     var delegate: EngineDelegate?
     
@@ -144,5 +145,21 @@ class Engine {
         let newGrid = grid.next()
         grid = newGrid
         delegate?.engineDidUpdate(engine: self)
+    }
+    func updateNumRows(Rows: Int) {
+        grid.size.rows = Rows
+        Engine.shared().grid.size.rows = Rows
+        //delegate?.engineDidUpdate(engine: self)
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        let n = Notification(name: name,
+                             object: nil,
+                             userInfo: ["engine" : self])
+        nc.post(n)
+    
+    }
+    
+    class func shared() -> Engine {
+        return engine
     }
 }
