@@ -129,11 +129,11 @@ public extension Grid {
 }
 
 protocol EngineDelegate {
-    func engineDidUpdate(engine: Engine)
+    func engineDidUpdate(engine: StandardEngine)
 }
 
-class Engine {
-    private static var engine: Engine = Engine(rows: 10, cols: 10)
+class StandardEngine {
+    private static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10)
     var grid: Grid
     var delegate: EngineDelegate?
     
@@ -148,7 +148,7 @@ class Engine {
     }
     func updateNumRows(Rows: Int) {
         grid.size.rows = Rows
-        Engine.shared().grid.size.rows = Rows
+        StandardEngine.shared().grid.size.rows = Rows
         //delegate?.engineDidUpdate(engine: self)
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
@@ -159,7 +159,7 @@ class Engine {
     
     }
     
-    class func shared() -> Engine {
+    class func shared() -> StandardEngine {
         return engine
     }
 }

@@ -17,13 +17,12 @@ class InstrumentationViewController: UIViewController {
     @IBOutlet weak var numRowsTextField: UITextField!
     @IBOutlet weak var numColsTextField: UITextField!
     
-    var engine: Engine!
-    var GridView: GridView!
+    var engine: StandardEngine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        engine = Engine.shared()
+        engine = StandardEngine.shared()
     }
     
     override func didReceiveMemoryWarning() {
