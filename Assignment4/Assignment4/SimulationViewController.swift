@@ -17,10 +17,25 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let size = GridView.gridSize
+        let size = Engine.shared().grid.size.rows
         engine = Engine(rows: size, cols: size)
         engine.delegate = self
         GridView.drawGrid = self
+        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        nc.addObserver(
+            forName: name,
+            object: nil,
+            queue: nil) { (n) in
+                self.GridView.gridSize = Engine.shared().grid.size.rows
+                self.GridView.setNeedsDisplay()
+        }
     }
     
     func engineDidUpdate(engine: Engine) {
