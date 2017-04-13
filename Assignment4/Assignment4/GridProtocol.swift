@@ -5,6 +5,7 @@
 //  Created by Michael Vartanian on 4/11/17.
 //  Copyright © 2017 Harvard Division of Continuing Education. All rights reserved.
 //
+import UIKit
 
 public struct GridPosition: Equatable {
     var row: Int
@@ -46,6 +47,18 @@ public protocol GridViewDataSource {
 public protocol GridProtocol: CustomStringConvertible {
     init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState)
     var size: GridSize { get }
-    subscript (row: Int, col: Int) -> CellState { get set }
     func next() -> Self
+}
+
+public protocol EngineDelegateProtocol {
+    func engineDidUpdate(withGrid: GridProtocol)
+}
+
+public protocol EngineProtocol {
+    var grid: GridProtocol { get }
+    var refreshRate: Double { get set }
+    var refreshTimer: Timer { get set }
+    var rows: Int { get set }
+    var cols: Int { get set }
+    
 }
