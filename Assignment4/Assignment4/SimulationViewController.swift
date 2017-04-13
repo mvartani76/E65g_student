@@ -12,17 +12,22 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     @IBOutlet weak var GridView: GridView!
     @IBOutlet weak var stepButton: UIButton!
 
-    var engine: Engine!
+    var engine: StandardEngine!
+    var delegate: EngineDelegate?
+
+    var refreshRate: Double = 0.0
+    var rows: Int = 10
+    var cols: Int = 10
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let size = Engine.shared().grid.size.rows
-        engine = Engine(rows: size, cols: size)
+        let size = StandardEngine.shared().grid.size.rows
+        engine = StandardEngine(rows: size, cols: size, refreshRate: refreshRate)
         engine.delegate = self
         GridView.drawGrid = self
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +38,12 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
             forName: name,
             object: nil,
             queue: nil) { (n) in
-                self.GridView.gridSize = Engine.shared().grid.size.rows
+                self.GridView.gridSize = StandardEngine.shared().grid.size.rows
                 self.GridView.setNeedsDisplay()
         }
     }
     
-    func engineDidUpdate(engine: Engine) {
+    func engineDidUpdate(withGrid: GridProtocol) {
         self.GridView.setNeedsDisplay()
     }
 
@@ -53,7 +58,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
 
     @IBAction func stepButtonAction(_ sender: UIButton) {
-        engine.step()
+        engine.grid = engine.step()
     }
 
 }

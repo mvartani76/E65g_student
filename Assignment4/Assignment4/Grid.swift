@@ -5,6 +5,50 @@ import Foundation
 
 fileprivate func norm(_ val: Int, to size: Int) -> Int { return ((val % size) + size) % size }
 
+public struct GridPosition: Equatable {
+    var row: Int
+    var col: Int
+    
+    public static func == (lhs: GridPosition, rhs: GridPosition) -> Bool {
+        return (lhs.row == rhs.row && lhs.col == rhs.col)
+    }
+}
+
+public struct GridSize {
+    var rows: Int
+    var cols: Int
+}
+
+public enum CellState {
+    case alive, empty, born, died
+    
+    public var isAlive: Bool {
+        switch self {
+        case .alive, .born: return true
+        default: return false
+        }
+    }
+    func description() -> String {
+        switch self {
+        case .alive: return "alive"
+        case .empty: return "empty"
+        case .born: return "born"
+        case .died: return "died"
+        }
+    }
+}
+
+public protocol GridViewDataSource {
+    subscript (row: Int, col: Int) -> CellState { get set }
+}
+
+public protocol GridProtocol: CustomStringConvertible {
+    init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState)
+    subscript (row: Int, col: Int) -> CellState { get set }
+    var size: GridSize { get }
+    func next() -> Self
+}
+
 public let lazyPositions = { (size: GridSize) in
     return (0 ..< size.rows)
         .lazy
@@ -129,27 +173,48 @@ public extension Grid {
 }
 
 protocol EngineDelegate {
-    func engineDidUpdate(engine: Engine)
+    func engineDidUpdate(withGrid: GridProtocol)
 }
 
-class Engine {
-    private static var engine: Engine = Engine(rows: 10, cols: 10)
-    var grid: Grid
+protocol EngineProtocol {
+    var delegate: EngineDelegate? { get set }
+    var grid: GridProtocol { get }
+    var refreshRate: Double { get set }
+    var refreshTimer: Timer? { get set }
+    var rows: Int { get set }
+    var cols: Int { get set }
+    func step() -> GridProtocol
+}
+
+class StandardEngine: EngineProtocol {
     var delegate: EngineDelegate?
+    var grid: GridProtocol
+    var refreshTimer: Timer?
+    internal var refreshRate: Double = 0.0
+    var rows: Int
+    var cols: Int
+
+
+    private static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10, refreshRate: 1.0)
     
-    init(rows: Int, cols: Int) {
+    init(rows: Int, cols: Int, refreshRate: Double) {
         self.grid = Grid(GridSize(rows: rows, cols: cols))
+        self.rows = rows
+        self.cols = cols
+        self.refreshRate = refreshRate
     }
     
-    func step() {
+    func step() -> GridProtocol {
         let newGrid = grid.next()
         grid = newGrid
-        delegate?.engineDidUpdate(engine: self)
+        delegate?.engineDidUpdate(withGrid: grid)
+        return grid
     }
     func updateNumRows(Rows: Int) {
-        grid.size.rows = Rows
-        Engine.shared().grid.size.rows = Rows
+        //grid.size.rows = Rows
+        //StandardEngine.shared().grid.size.rows = Rows
         //delegate?.engineDidUpdate(engine: self)
+        StandardEngine.shared().rows = Rows
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: name,
@@ -159,7 +224,7 @@ class Engine {
     
     }
     
-    class func shared() -> Engine {
+    class func shared() -> StandardEngine {
         return engine
     }
 }
