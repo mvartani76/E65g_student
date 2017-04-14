@@ -190,10 +190,25 @@ class StandardEngine: EngineProtocol {
     var delegate: EngineDelegate?
     var grid: GridProtocol
     var refreshTimer: Timer?
-    internal var refreshRate: Double = 0.0
+    var refreshRate: Double = 0.0 {
+        didSet {
+            if refreshRate > 0.0 {
+                refreshTimer = Timer.scheduledTimer(
+                    withTimeInterval: refreshRate,
+                    repeats: true
+                ) { (t: Timer) in
+                    self.step()
+                }
+            }
+            else {
+                refreshTimer?.invalidate()
+                refreshTimer = nil
+            }
+        }
+    }
+
     var rows: Int
     var cols: Int
-
 
     private static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10, refreshRate: 1.0)
     
@@ -211,16 +226,17 @@ class StandardEngine: EngineProtocol {
         return grid
     }
     func updateNumRowsOrCols(rowOrCol: String, num: Int) {
-        //grid.size.rows = Rows
         if rowOrCol == "row"
         {
             StandardEngine.engine.rows = num
+            self.rows = num
         }
         else
         {
-            StandardEngine.engine.rows = num
+            StandardEngine.engine.cols = num
+            self.cols = num
         }
-            delegate?.engineDidUpdate(withGrid: grid)
+        delegate?.engineDidUpdate(withGrid: grid)
         
         
         let nc = NotificationCenter.default

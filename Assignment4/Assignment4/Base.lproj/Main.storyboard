@@ -43,6 +43,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Ajh-0k-WFf"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="updateTimerRefreshRate:" destination="9pv-A4-QxB" eventType="valueChanged" id="pf8-g5-bLJ"/>
+                                        </connections>
                                     </slider>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucT-I0-Rud">
                                         <rect key="frame" x="167.5" y="140" width="40" height="29"/>

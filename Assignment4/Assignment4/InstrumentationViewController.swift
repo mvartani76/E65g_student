@@ -75,6 +75,11 @@ class InstrumentationViewController: UIViewController {
         StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "col", num: val)
     }
 
+    @IBAction func updateTimerRefreshRate(_ sender: UISlider) {
+        engine.refreshTimer?.invalidate()
+        engine.refreshRate = Double(Double(sender.value))
+    }
+
     //MARK: AlertController Handling
     func showErrorAlert(withMessage msg:String, action: (() -> Void)? ) {
         let alert = UIAlertController(
