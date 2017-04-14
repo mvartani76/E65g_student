@@ -210,11 +210,19 @@ class StandardEngine: EngineProtocol {
         delegate?.engineDidUpdate(withGrid: grid)
         return grid
     }
-    func updateNumRows(Rows: Int) {
+    func updateNumRowsOrCols(rowOrCol: String, num: Int) {
         //grid.size.rows = Rows
-        //StandardEngine.shared().grid.size.rows = Rows
-        //delegate?.engineDidUpdate(engine: self)
-        StandardEngine.shared().rows = Rows
+        if rowOrCol == "row"
+        {
+            StandardEngine.engine.rows = num
+        }
+        else
+        {
+            StandardEngine.engine.rows = num
+        }
+            delegate?.engineDidUpdate(withGrid: grid)
+        
+        
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: name,
