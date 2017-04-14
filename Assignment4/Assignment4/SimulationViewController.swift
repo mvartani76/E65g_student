@@ -9,7 +9,7 @@
 import UIKit
 
 class SimulationViewController: UIViewController, GridViewDataSource, EngineDelegate {
-    @IBOutlet weak var GridView: GridView!
+    @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var stepButton: UIButton!
 
     var engine: StandardEngine!
@@ -19,32 +19,35 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     var rows: Int = 10
     var cols: Int = 10
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let size = StandardEngine.shared().grid.size.rows
-        engine = StandardEngine(rows: size, cols: size, refreshRate: refreshRate)
+
+        engine = StandardEngine.shared()
+        
         engine.delegate = self
-        GridView.drawGrid = self
+        gridView.drawGrid = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        engine = StandardEngine.shared()
+        engine.delegate = self
+        
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         nc.addObserver(
             forName: name,
             object: nil,
             queue: nil) { (n) in
-                self.GridView.gridSize = StandardEngine.shared().grid.size.rows
-                self.GridView.setNeedsDisplay()
+                self.gridView.gridSize = StandardEngine.shared().rows
+                self.gridView.setNeedsDisplay()
         }
     }
     
     func engineDidUpdate(withGrid: GridProtocol) {
-        self.GridView.setNeedsDisplay()
+        self.gridView.setNeedsDisplay()
     }
 
     public subscript (row: Int, col: Int) -> CellState {
