@@ -79,6 +79,11 @@ class InstrumentationViewController: UIViewController {
         engine.refreshTimer?.invalidate()
         engine.refreshRate = Double(Double(sender.value))
     }
+    
+    @IBAction func toggleTimer(_ sender: UISwitch) {
+        StandardEngine.shared().toggleTimer(switchOn: refreshOnOff.isOn)
+    }
+    
 
     //MARK: AlertController Handling
     func showErrorAlert(withMessage msg:String, action: (() -> Void)? ) {

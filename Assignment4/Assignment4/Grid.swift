@@ -192,7 +192,7 @@ class StandardEngine: EngineProtocol {
     var refreshTimer: Timer?
     var refreshRate: Double = 0.0 {
         didSet {
-            if refreshRate > 0.0 {
+            if (timerOn && (refreshRate > 0.0)) {
                 refreshTimer = Timer.scheduledTimer(
                     withTimeInterval: refreshRate,
                     repeats: true
@@ -206,7 +206,7 @@ class StandardEngine: EngineProtocol {
             }
         }
     }
-
+    var timerOn = false
     var rows: Int
     var cols: Int
 
@@ -246,6 +246,16 @@ class StandardEngine: EngineProtocol {
                              userInfo: ["engine" : self])
         nc.post(n)
     
+    }
+    
+    // MARK: Engine toggleTimer
+    func toggleTimer(switchOn: Bool) {
+        // set the internal switch state value to what was passed in by the function
+        // need to set refreshRate equal to itself to force the didSet{} code to run
+        // we want this code to run as it enables/disables the timer through the
+        // invalide method
+        timerOn = switchOn
+        refreshRate = StandardEngine.engine.refreshRate
     }
     
     class func shared() -> StandardEngine {
