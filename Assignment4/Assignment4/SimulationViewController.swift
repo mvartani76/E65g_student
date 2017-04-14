@@ -24,11 +24,13 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         // Do any additional setup after loading the view, typically from a nib.
 
         engine = StandardEngine.shared()
-        
         engine.delegate = self
+        StandardEngine.shared().delegate = self
         gridView.drawGrid = self
+        self.gridView.gridSize = StandardEngine.shared().rows
+        gridView.setNeedsDisplay()
     }
-    
+    #if false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -45,8 +47,9 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
                 self.gridView.setNeedsDisplay()
         }
     }
-    
+    #endif
     func engineDidUpdate(withGrid: GridProtocol) {
+        self.gridView.gridSize = StandardEngine.shared().rows
         self.gridView.setNeedsDisplay()
     }
 
