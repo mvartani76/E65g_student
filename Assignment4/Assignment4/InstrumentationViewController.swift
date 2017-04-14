@@ -23,6 +23,7 @@ class InstrumentationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.shared()
+        refreshOnOff.setOn(false, animated: false)
     }
 
     override func viewWillAppear(_ animated: Bool) {
