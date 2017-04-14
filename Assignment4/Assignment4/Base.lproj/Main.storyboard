@@ -95,6 +95,15 @@
                                             <action selector="colEditingEndedOnExit:" destination="9pv-A4-QxB" eventType="editingDidEndOnExit" id="NTN-C2-sfx"/>
                                         </connections>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instrumentation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvl-2k-7K3">
+                                        <rect key="frame" x="92.5" y="40" width="190" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="190" id="JRB-n0-hUl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.32888596763501998" green="0.34501201923076918" blue="0.34330519488783123" alpha="0.32850215517241377" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -106,9 +115,11 @@
                                     <constraint firstItem="ucT-I0-Rud" firstAttribute="top" secondItem="imG-mU-sCL" secondAttribute="top" constant="140" id="9QM-x9-YZU"/>
                                     <constraint firstItem="crD-a5-I7O" firstAttribute="top" secondItem="imG-mU-sCL" secondAttribute="top" constant="140" id="FoA-fp-wkK"/>
                                     <constraint firstItem="asB-5H-CO1" firstAttribute="centerY" secondItem="wfT-R0-u7z" secondAttribute="centerY" id="HUK-V6-WLm"/>
+                                    <constraint firstItem="Rvl-2k-7K3" firstAttribute="top" secondItem="imG-mU-sCL" secondAttribute="top" constant="40" id="JQa-2S-RbC"/>
                                     <constraint firstItem="wfT-R0-u7z" firstAttribute="centerX" secondItem="crD-a5-I7O" secondAttribute="centerX" id="KYc-84-ULu"/>
                                     <constraint firstItem="UnT-Cr-Fes" firstAttribute="centerX" secondItem="vvE-qd-fti" secondAttribute="centerX" id="M6m-C9-3g9"/>
                                     <constraint firstItem="vvE-qd-fti" firstAttribute="centerY" secondItem="crD-a5-I7O" secondAttribute="centerY" id="NJj-v0-BxJ"/>
+                                    <constraint firstItem="Rvl-2k-7K3" firstAttribute="centerX" secondItem="imG-mU-sCL" secondAttribute="centerX" id="PNC-oz-xwh"/>
                                     <constraint firstItem="wfT-R0-u7z" firstAttribute="top" secondItem="crD-a5-I7O" secondAttribute="bottom" constant="80" id="VJO-nY-afz"/>
                                     <constraint firstItem="ucT-I0-Rud" firstAttribute="centerY" secondItem="crD-a5-I7O" secondAttribute="centerY" id="VPu-En-z1z"/>
                                     <constraint firstItem="MZx-vw-kli" firstAttribute="centerY" secondItem="Dng-iJ-Jwa" secondAttribute="centerY" id="VWm-U1-oNe"/>
@@ -349,12 +360,23 @@
                                             <action selector="stepButtonAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="WFE-sT-Cw4"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95e-HG-4Ur">
+                                        <rect key="frame" x="122.5" y="40" width="130" height="31.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="eo0-Mw-VtD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.11307530043557956" green="0.44804512098082161" blue="1" alpha="0.3279094827586207" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="width" secondItem="q2y-XD-nxw" secondAttribute="width" multiplier="0.8" priority="750" id="9et-Wp-QbZ"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="top" secondItem="h7a-xQ-Iga" secondAttribute="bottom" constant="10" id="DPR-qr-loN"/>
+                                    <constraint firstItem="95e-HG-4Ur" firstAttribute="top" secondItem="q2y-XD-nxw" secondAttribute="top" constant="40" id="EyX-3U-MZI"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="leading" secondItem="h7a-xQ-Iga" secondAttribute="leading" id="IFG-Q9-Qm9"/>
+                                    <constraint firstItem="95e-HG-4Ur" firstAttribute="centerX" secondItem="q2y-XD-nxw" secondAttribute="centerX" id="aC9-Zm-kOk"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="height" relation="lessThanOrEqual" secondItem="q2y-XD-nxw" secondAttribute="height" multiplier="0.8" id="fZj-w1-biM"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="centerX" secondItem="q2y-XD-nxw" secondAttribute="centerX" id="fxt-ep-D29"/>
                                     <constraint firstItem="itI-vz-UXy" firstAttribute="centerY" secondItem="q2y-XD-nxw" secondAttribute="centerY" id="qi0-fJ-oiA"/>
