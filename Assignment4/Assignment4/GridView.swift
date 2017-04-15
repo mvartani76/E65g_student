@@ -10,7 +10,8 @@ import UIKit
 
 @IBDesignable class GridView: UIView {
     
-    @IBInspectable var gridSize: Int = 20
+    @IBInspectable var gridRows: Int = 10
+    @IBInspectable var gridCols: Int = 10
     
     @IBInspectable var livingColor: UIColor = UIColor.init(
                             red: CGFloat(0/255),
@@ -46,15 +47,15 @@ import UIKit
     override func draw(_ rect: CGRect) {
         // Drawing code
         let drawSize = CGSize(
-            width: rect.size.width / CGFloat(gridSize),
-            height: rect.size.height / CGFloat(gridSize)
+            width: rect.size.width / CGFloat(gridCols),
+            height: rect.size.height / CGFloat(gridRows)
         )
         let base = rect.origin
         
         // Create separate forEach loop for gridlines
         // Not the most efficient but it is cleaner and easier to handle
         // the extra horizontal/vertical gridlines
-        (0 ... gridSize).forEach {
+        (0 ... gridCols).forEach {
             // Draw the Vertical Lines
             drawLine(
                 start: CGPoint(
@@ -65,7 +66,8 @@ import UIKit
                     y: rect.origin.y + rect.size.height),
                 lineWidth: gridWidth,
                 lineColor: gridColor)
-            
+        }
+        (0 ... gridRows).forEach {
             // Draw the Horizontal Lines
             drawLine(
                 start: CGPoint(
@@ -80,16 +82,16 @@ import UIKit
 
         // Draw Circles
         // Add gridWidth to each of the origin values and subtract 2*gridWidth from the width/height to fit the circle inside the gridlines with no overlap
-        (0 ..< gridSize).forEach { i in
-            (0 ..< gridSize).forEach { j in
+        (0 ..< gridCols).forEach { i in
+            (0 ..< gridRows).forEach { j in
                 let origin = CGPoint(
                     x: base.x + (CGFloat(i) * drawSize.width) + gridWidth,
                     y: base.y + (CGFloat(j) * drawSize.height) + gridWidth
                 )
                 
                 let subDrawSize = CGSize(
-                    width: rect.size.width / CGFloat(gridSize) - 2*gridWidth,
-                    height: rect.size.height / CGFloat(gridSize) - 2*gridWidth
+                    width: rect.size.width / CGFloat(gridCols) - 2*gridWidth,
+                    height: rect.size.height / CGFloat(gridRows) - 2*gridWidth
                 )
                 
                 let subRect = CGRect(
@@ -175,11 +177,11 @@ import UIKit
     func convert(touch: UITouch) -> GridPosition {
         let touchY = touch.location(in: self).y
         let gridHeight = frame.size.height
-        let row = touchY / gridHeight * CGFloat(gridSize)
+        let row = touchY / gridHeight * CGFloat(gridRows)
         
         let touchX = touch.location(in: self).x
         let gridWidth = frame.size.width
-        let col = touchX / gridWidth * CGFloat(gridSize)
+        let col = touchX / gridWidth * CGFloat(gridCols)
         
         return GridPosition(row: Int(row), col: Int(col))
     }

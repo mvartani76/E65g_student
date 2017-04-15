@@ -78,8 +78,8 @@ public struct Grid: GridProtocol, GridViewDataSource {
     public init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState = { _ in .empty }) {
         _cells = [[CellState]](
             repeatElement(
-                [CellState]( repeatElement(.empty, count: size.rows)),
-                count: size.cols
+                [CellState]( repeatElement(.empty, count: size.cols)),
+                count: size.rows
             )
         )
         self.size = size

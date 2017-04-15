@@ -29,7 +29,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         
         // Make sure that the SimulationViewController knows about updated row/col size
         // before first time displayed
-        self.gridView.gridSize = engine.rows
+        self.gridView.gridRows = engine.rows
+        self.gridView.gridCols = engine.cols
         gridView.setNeedsDisplay()
     }
     #if false
@@ -51,7 +52,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     #endif
     func engineDidUpdate(withGrid: GridProtocol) {
-        self.gridView.gridSize = StandardEngine.shared().rows
+        self.gridView.gridRows = StandardEngine.shared().rows
+        self.gridView.gridCols = StandardEngine.shared().cols
         self.gridView.setNeedsDisplay()
     }
 
