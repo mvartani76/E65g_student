@@ -25,9 +25,11 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
 
         engine = StandardEngine.shared()
         engine.delegate = self
-        StandardEngine.shared().delegate = self
         gridView.drawGrid = self
-        self.gridView.gridSize = StandardEngine.shared().rows
+        
+        // Make sure that the SimulationViewController knows about updated row/col size
+        // before first time displayed
+        self.gridView.gridSize = engine.rows
         gridView.setNeedsDisplay()
     }
     #if false
