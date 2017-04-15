@@ -197,7 +197,7 @@ class StandardEngine: EngineProtocol {
                     withTimeInterval: refreshRate,
                     repeats: true
                 ) { (t: Timer) in
-                    self.step()
+                    _ = self.step()
                 }
             }
             else {
@@ -236,6 +236,8 @@ class StandardEngine: EngineProtocol {
             StandardEngine.engine.cols = num
             self.cols = num
         }
+        
+        grid = Grid(GridSize(rows: self.rows, cols: self.cols))
         delegate?.engineDidUpdate(withGrid: grid)
         
         
