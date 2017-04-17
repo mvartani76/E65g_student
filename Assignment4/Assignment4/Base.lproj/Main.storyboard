@@ -288,6 +288,11 @@
                                             <constraint firstItem="Ekw-Ge-zlQ" firstAttribute="height" secondItem="Z6N-3w-gcW" secondAttribute="height" id="ezJ-1I-owl"/>
                                             <constraint firstItem="Ekw-Ge-zlQ" firstAttribute="width" secondItem="Z6N-3w-gcW" secondAttribute="width" id="lQg-gj-oWq"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.32888596763501998" green="0.34501201923076918" blue="0.34330519488783123" alpha="0.32850215517241377" colorSpace="calibratedRGB"/>
@@ -583,6 +588,11 @@
                                             <constraint firstItem="GA0-LD-WOx" firstAttribute="centerY" secondItem="AWT-Cj-DSY" secondAttribute="centerY" id="YZT-kB-3gd"/>
                                             <constraint firstItem="GA0-LD-WOx" firstAttribute="width" secondItem="AWT-Cj-DSY" secondAttribute="width" id="rzu-ie-aMc"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95379056264720785" green="0.18226613273134518" blue="1" alpha="0.3279094827586207" colorSpace="calibratedRGB"/>
@@ -700,6 +710,11 @@
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="height" relation="lessThanOrEqual" secondItem="V84-kB-HlS" secondAttribute="height" multiplier="0.8" id="jPh-Ay-YOU"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="leading" secondItem="h7a-xQ-Iga" secondAttribute="leading" id="mA3-OJ-Bxy"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95e-HG-4Ur">
                                         <rect key="frame" x="32.5" y="-1" width="256" height="31.5"/>
