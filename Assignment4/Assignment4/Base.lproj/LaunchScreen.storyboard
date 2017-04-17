@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,39 +22,135 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignment 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-Jc-JpV">
-                                <rect key="frame" x="95.5" y="188" width="184" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tab Icons courtesy of Sibcode" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-2y-Vnr">
-                                <rect key="frame" x="115" y="269" width="145" height="41"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QbC-GA-idQ" userLabel="PanelView">
+                                <rect key="frame" x="28" y="66.5" width="319" height="534"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XKT-lk-Jsr" userLabel="VerticalStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="534"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf1-a8-k2B" userLabel="AssignmentView">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="107"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignment 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-Jc-JpV">
+                                                        <rect key="frame" x="67.5" y="35.5" width="184" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="e7j-Jc-JpV" firstAttribute="centerX" secondItem="Kf1-a8-k2B" secondAttribute="centerX" id="FCT-cM-93w"/>
+                                                    <constraint firstItem="e7j-Jc-JpV" firstAttribute="centerY" secondItem="Kf1-a8-k2B" secondAttribute="centerY" id="zhw-T6-oMy"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3br-va-Fpj" userLabel="TabIconView">
+                                                <rect key="frame" x="0.0" y="107" width="319" height="106.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tab Icons courtesy of Sibcode" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-2y-Vnr">
+                                                        <rect key="frame" x="0.0" y="43.5" width="319" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="DG2-2y-Vnr" firstAttribute="centerY" secondItem="3br-va-Fpj" secondAttribute="centerY" id="8jq-sr-2Oq"/>
+                                                    <constraint firstItem="DG2-2y-Vnr" firstAttribute="width" secondItem="3br-va-Fpj" secondAttribute="width" id="FCS-T5-Y22"/>
+                                                    <constraint firstItem="DG2-2y-Vnr" firstAttribute="centerX" secondItem="3br-va-Fpj" secondAttribute="centerX" id="Qia-4e-2UI"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WF-mk-aHc" userLabel="TabURLView">
+                                                <rect key="frame" x="0.0" y="213.5" width="319" height="107"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.sibcode.com/stock-icons/tab-bar-ios-icons.htm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC2-MR-Ndx">
+                                                        <rect key="frame" x="0.0" y="33" width="319" height="41"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="hC2-MR-Ndx" firstAttribute="centerY" secondItem="9WF-mk-aHc" secondAttribute="centerY" id="1bS-dv-eXc"/>
+                                                    <constraint firstItem="hC2-MR-Ndx" firstAttribute="width" secondItem="9WF-mk-aHc" secondAttribute="width" id="8x3-8d-6fj"/>
+                                                    <constraint firstItem="hC2-MR-Ndx" firstAttribute="centerX" secondItem="9WF-mk-aHc" secondAttribute="centerX" id="GvS-sC-xvo"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-8c-ew6" userLabel="AppIconView">
+                                                <rect key="frame" x="0.0" y="320.5" width="319" height="106.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppIcons courtesy of Digital2Go Media Networks (my startup)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcM-jZ-gZu">
+                                                        <rect key="frame" x="0.0" y="33" width="319" height="41"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="PcM-jZ-gZu" firstAttribute="width" secondItem="1Il-8c-ew6" secondAttribute="width" id="RPO-md-gFQ"/>
+                                                    <constraint firstItem="PcM-jZ-gZu" firstAttribute="centerY" secondItem="1Il-8c-ew6" secondAttribute="centerY" id="kgt-3g-tRn"/>
+                                                    <constraint firstItem="PcM-jZ-gZu" firstAttribute="centerX" secondItem="1Il-8c-ew6" secondAttribute="centerX" id="zjS-xc-mbe"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rr1-Us-FJs" userLabel="AppURLView">
+                                                <rect key="frame" x="0.0" y="427" width="319" height="107"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.digital2go.com" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ey6-FD-BsT">
+                                                        <rect key="frame" x="0.5" y="43.5" width="319" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Ey6-FD-BsT" firstAttribute="centerY" secondItem="Rr1-Us-FJs" secondAttribute="centerY" id="3YS-lq-SWz"/>
+                                                    <constraint firstItem="Ey6-FD-BsT" firstAttribute="width" secondItem="Rr1-Us-FJs" secondAttribute="width" id="rns-ed-vb0"/>
+                                                    <constraint firstItem="Ey6-FD-BsT" firstAttribute="centerX" secondItem="Rr1-Us-FJs" secondAttribute="centerX" id="ssE-QE-sqD"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="3br-va-Fpj" firstAttribute="height" secondItem="9WF-mk-aHc" secondAttribute="height" id="2OO-Tc-JI0"/>
+                                            <constraint firstItem="Kf1-a8-k2B" firstAttribute="height" secondItem="3br-va-Fpj" secondAttribute="height" id="Fk7-FL-UIt"/>
+                                            <constraint firstItem="9WF-mk-aHc" firstAttribute="height" secondItem="1Il-8c-ew6" secondAttribute="height" id="wld-t8-yL2"/>
+                                            <constraint firstItem="1Il-8c-ew6" firstAttribute="height" secondItem="Rr1-Us-FJs" secondAttribute="height" id="xrE-ng-xpi"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="145" id="GJd-bh-UM1"/>
+                                    <constraint firstItem="XKT-lk-Jsr" firstAttribute="width" secondItem="QbC-GA-idQ" secondAttribute="width" id="b9i-hW-Kf4"/>
+                                    <constraint firstItem="XKT-lk-Jsr" firstAttribute="centerY" secondItem="QbC-GA-idQ" secondAttribute="centerY" id="flN-cw-OvI"/>
+                                    <constraint firstItem="XKT-lk-Jsr" firstAttribute="centerX" secondItem="QbC-GA-idQ" secondAttribute="centerX" id="i77-ky-bdR"/>
+                                    <constraint firstItem="XKT-lk-Jsr" firstAttribute="height" secondItem="QbC-GA-idQ" secondAttribute="height" id="vMr-k9-gwV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.sibcode.com/stock-icons/tab-bar-ios-icons.htm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC2-MR-Ndx">
-                                <rect key="frame" x="60" y="362" width="255" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="255" id="0jj-hb-8Ac"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="e7j-Jc-JpV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="168" id="4WS-7Q-BgM"/>
-                            <constraint firstItem="hC2-MR-Ndx" firstAttribute="top" secondItem="DG2-2y-Vnr" secondAttribute="bottom" constant="52" id="Gdm-YR-cQU"/>
-                            <constraint firstItem="e7j-Jc-JpV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Gpb-8q-IKI"/>
-                            <constraint firstItem="DG2-2y-Vnr" firstAttribute="top" secondItem="e7j-Jc-JpV" secondAttribute="bottom" constant="45" id="gJo-Zj-uxc"/>
-                            <constraint firstItem="hC2-MR-Ndx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sDA-Fs-THB"/>
-                            <constraint firstItem="DG2-2y-Vnr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vUj-YT-eVj"/>
+                            <constraint firstItem="QbC-GA-idQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1cO-MW-lca"/>
+                            <constraint firstItem="QbC-GA-idQ" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.85" id="Uux-GF-r9Y"/>
+                            <constraint firstItem="QbC-GA-idQ" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.8" id="ZeN-mZ-duk"/>
+                            <constraint firstItem="QbC-GA-idQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="caI-4i-KvK"/>
                         </constraints>
                     </view>
                 </viewController>
