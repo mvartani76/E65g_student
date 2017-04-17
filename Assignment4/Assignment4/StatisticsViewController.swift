@@ -50,12 +50,16 @@ class StatisticsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.shared()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        engine = StandardEngine.shared()
         updateCounts(withGrid: engine.grid)
+        
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        nc.addObserver(
+            forName: name,
+            object: nil,
+            queue: nil) { (n) in
+                self.updateCounts(withGrid: self.engine.grid)
+        }
     }
     
     override func didReceiveMemoryWarning() {

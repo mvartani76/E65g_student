@@ -223,8 +223,11 @@ class StandardEngine: EngineProtocol {
         let newGrid = grid.next()
         grid = newGrid
         delegate?.engineDidUpdate(withGrid: grid)
+        engineUpdateNotify()
+        
         return grid
     }
+    
     func updateNumRowsOrCols(rowOrCol: String, num: Int) {
         if rowOrCol == "row"
         {
@@ -237,17 +240,21 @@ class StandardEngine: EngineProtocol {
             self.cols = num
         }
         
+        // Create New Grid Instance
         grid = Grid(GridSize(rows: self.rows, cols: self.cols))
         delegate?.engineDidUpdate(withGrid: grid)
         
-        
+        engineUpdateNotify()
+    }
+    
+    public func engineUpdateNotify()
+    {
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: name,
                              object: nil,
                              userInfo: ["engine" : self])
         nc.post(n)
-    
     }
     
     // MARK: Engine toggleTimer

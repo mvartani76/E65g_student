@@ -155,6 +155,10 @@ import UIKit
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         lastTouchedPosition = nil
+
+        // Engine has updated based on touch events so we need to send out a notification
+        let engine = StandardEngine.shared()
+        engine.engineUpdateNotify()
     }
     
     var lastTouchedPosition: GridPosition?
