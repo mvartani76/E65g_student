@@ -365,16 +365,15 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQU-eg-kBb">
-                                        <rect key="frame" x="98" y="-4" width="125" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="bEt-ET-jD6"/>
-                                            <constraint firstAttribute="width" constant="125" id="gTI-Ct-DfF"/>
-                                        </constraints>
+                                        <rect key="frame" x="32.5" y="-0.5" width="256" height="31.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWT-Cj-DSY" userLabel="PanelView">
@@ -394,6 +393,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -409,6 +411,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -434,6 +439,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -449,6 +457,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -474,6 +485,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -489,6 +503,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -514,6 +531,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -529,6 +549,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -568,8 +591,11 @@
                                     <constraint firstItem="AWT-Cj-DSY" firstAttribute="width" secondItem="Mhe-Wr-M2H" secondAttribute="width" multiplier="0.85" id="7Do-6s-WIH"/>
                                     <constraint firstItem="AWT-Cj-DSY" firstAttribute="height" secondItem="Mhe-Wr-M2H" secondAttribute="height" multiplier="0.8" id="DxT-xQ-ZyE"/>
                                     <constraint firstItem="kQU-eg-kBb" firstAttribute="centerX" secondItem="Mhe-Wr-M2H" secondAttribute="centerX" id="MgD-bZ-uQD"/>
+                                    <constraint firstItem="kQU-eg-kBb" firstAttribute="width" secondItem="Mhe-Wr-M2H" secondAttribute="width" multiplier="0.8" id="Rxq-dg-Yhn"/>
                                     <constraint firstItem="AWT-Cj-DSY" firstAttribute="centerX" secondItem="Mhe-Wr-M2H" secondAttribute="centerX" id="Up5-P2-DxB"/>
-                                    <constraint firstItem="AWT-Cj-DSY" firstAttribute="top" secondItem="kQU-eg-kBb" secondAttribute="bottom" constant="10" id="iuQ-W0-GaR"/>
+                                    <constraint firstItem="AWT-Cj-DSY" firstAttribute="top" secondItem="kQU-eg-kBb" secondAttribute="bottom" constant="10" id="iuQ-W0-GaR">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="2"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                         </subviews>
