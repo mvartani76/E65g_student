@@ -594,6 +594,7 @@
                                     <constraint firstItem="kQU-eg-kBb" firstAttribute="width" secondItem="Mhe-Wr-M2H" secondAttribute="width" multiplier="0.8" id="Rxq-dg-Yhn"/>
                                     <constraint firstItem="AWT-Cj-DSY" firstAttribute="centerX" secondItem="Mhe-Wr-M2H" secondAttribute="centerX" id="Up5-P2-DxB"/>
                                     <constraint firstItem="AWT-Cj-DSY" firstAttribute="top" secondItem="kQU-eg-kBb" secondAttribute="bottom" constant="10" id="iuQ-W0-GaR">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="2"/>
                                         <variation key="heightClass=regular-widthClass=regular" constant="2"/>
                                     </constraint>
                                 </constraints>
