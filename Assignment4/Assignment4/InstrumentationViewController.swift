@@ -24,6 +24,12 @@ class InstrumentationViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.shared()
         refreshOnOff.setOn(false, animated: false)
+        
+        rowStepper.value = Double(engine.rows)
+        colStepper.value = Double(engine.cols)
+        
+        numRowsTextField.text = "\(engine.rows)"
+        numColsTextField.text = "\(engine.cols)"
     }
 
     override func viewWillAppear(_ animated: Bool) {
