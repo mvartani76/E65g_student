@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FinalProject
+//  Assignment4
 //
 //  Created by Van Simmons on 1/15/17.
 //  Copyright © 2017 Harvard Division of Continuing Education. All rights reserved.
@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Added delay to show tab bar icon credits -- probably not a good idea to delay main thread though
+        sleep(1)
         return true
     }
 
