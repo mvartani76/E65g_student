@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -694,11 +695,36 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEE-S6-mt3">
+                                                <rect key="frame" x="117.5" y="12.5" width="37" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Save"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLY-T2-iua">
+                                                <rect key="frame" x="201" y="12.5" width="44" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Reset"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                </variation>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.11307530043557956" green="0.44804512098082161" blue="1" alpha="0.20999999999999999" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="itI-vz-UXy" firstAttribute="top" secondItem="uLY-T2-iua" secondAttribute="bottom" constant="10" id="2KD-S8-G7S"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="centerX" secondItem="V84-kB-HlS" secondAttribute="centerX" id="4dW-do-LQb"/>
+                                            <constraint firstItem="UEE-S6-mt3" firstAttribute="centerX" secondItem="V84-kB-HlS" secondAttribute="centerX" id="8H1-2r-0BH"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="centerY" secondItem="V84-kB-HlS" secondAttribute="centerY" id="BQP-en-6pc"/>
+                                            <constraint firstItem="itI-vz-UXy" firstAttribute="top" secondItem="UEE-S6-mt3" secondAttribute="bottom" constant="10" id="Hhn-f8-va5"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="width" relation="lessThanOrEqual" secondItem="V84-kB-HlS" secondAttribute="width" multiplier="0.8" id="LNd-4o-Ytr"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="width" secondItem="V84-kB-HlS" secondAttribute="width" multiplier="0.8" priority="750" id="PXG-YQ-cXL"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="top" secondItem="h7a-xQ-Iga" secondAttribute="bottom" constant="10" id="XwI-hS-8mz">
@@ -707,6 +733,7 @@
                                             </constraint>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="height" secondItem="V84-kB-HlS" secondAttribute="height" multiplier="0.8" priority="750" id="hwh-8o-Dp4"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="height" relation="lessThanOrEqual" secondItem="V84-kB-HlS" secondAttribute="height" multiplier="0.8" id="jPh-Ay-YOU"/>
+                                            <constraint firstItem="uLY-T2-iua" firstAttribute="trailing" secondItem="itI-vz-UXy" secondAttribute="trailing" id="lQc-xp-hjR"/>
                                             <constraint firstItem="itI-vz-UXy" firstAttribute="leading" secondItem="h7a-xQ-Iga" secondAttribute="leading" id="mA3-OJ-Bxy"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
