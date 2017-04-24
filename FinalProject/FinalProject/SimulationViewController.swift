@@ -11,6 +11,8 @@ import UIKit
 class SimulationViewController: UIViewController, GridViewDataSource, EngineDelegate {
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var stepButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
 
     var engine: StandardEngine!
     var delegate: EngineDelegate?
@@ -71,5 +73,10 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine.grid = engine.step()
     }
 
+    @IBAction func saveButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func resetButtonAction(_ sender: UIButton) {
+    }
 }
 

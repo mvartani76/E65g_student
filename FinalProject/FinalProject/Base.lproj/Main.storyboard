@@ -705,6 +705,9 @@
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="saveButtonAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="BNp-a7-2CC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLY-T2-iua">
                                                 <rect key="frame" x="201" y="12.5" width="44" height="33"/>
@@ -716,6 +719,9 @@
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="resetButtonAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="HZK-tJ-mOx"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.11307530043557956" green="0.44804512098082161" blue="1" alpha="0.20999999999999999" colorSpace="calibratedRGB"/>
@@ -781,6 +787,8 @@
                     <tabBarItem key="tabBarItem" title="Simulation" image="SimulationIcon" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="GridView" destination="itI-vz-UXy" id="S00-nD-dZF"/>
+                        <outlet property="resetButton" destination="uLY-T2-iua" id="MCU-7F-dPw"/>
+                        <outlet property="saveButton" destination="UEE-S6-mt3" id="TGQ-ZX-TdL"/>
                         <outlet property="stepButton" destination="h7a-xQ-Iga" id="Ojn-eK-EbO"/>
                     </connections>
                 </viewController>
