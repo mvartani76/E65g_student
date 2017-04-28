@@ -407,24 +407,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mf-Nl-dey" customClass="GridView" customModule="FinalProject" customModuleProvider="target">
-                                <rect key="frame" x="40" y="176" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRk-l1-9nq" userLabel="GreenBackgroundView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKS-Dw-HMj" userLabel="PanelView">
+                                        <rect key="frame" x="24" y="36" width="272" height="294"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Mf-Nl-dey" customClass="GridView" customModule="FinalProject" customModuleProvider="target">
+                                                <rect key="frame" x="27" y="38" width="218" height="218"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="4Mf-Nl-dey" secondAttribute="height" multiplier="1:1" id="q83-Ex-SbK"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.20999999999999999" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="4Mf-Nl-dey" firstAttribute="width" relation="lessThanOrEqual" secondItem="uKS-Dw-HMj" secondAttribute="width" multiplier="0.8" id="6V9-86-c1V"/>
+                                            <constraint firstItem="4Mf-Nl-dey" firstAttribute="centerX" secondItem="uKS-Dw-HMj" secondAttribute="centerX" id="RUk-iN-LN8"/>
+                                            <constraint firstItem="4Mf-Nl-dey" firstAttribute="centerY" secondItem="uKS-Dw-HMj" secondAttribute="centerY" id="bl2-FI-bY7"/>
+                                            <constraint firstItem="4Mf-Nl-dey" firstAttribute="height" secondItem="uKS-Dw-HMj" secondAttribute="height" multiplier="0.8" priority="750" id="djh-m9-DgS"/>
+                                            <constraint firstItem="4Mf-Nl-dey" firstAttribute="height" relation="lessThanOrEqual" secondItem="uKS-Dw-HMj" secondAttribute="height" multiplier="0.8" id="fU4-wX-BOu"/>
+                                            <constraint firstItem="4Mf-Nl-dey" firstAttribute="width" secondItem="uKS-Dw-HMj" secondAttribute="width" multiplier="0.8" priority="750" id="sBB-bq-7SJ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uKS-Dw-HMj" firstAttribute="centerY" secondItem="DRk-l1-9nq" secondAttribute="centerY" id="C8J-9X-Wet"/>
+                                    <constraint firstItem="uKS-Dw-HMj" firstAttribute="height" secondItem="DRk-l1-9nq" secondAttribute="height" multiplier="0.8" id="JaW-py-yfu"/>
+                                    <constraint firstItem="uKS-Dw-HMj" firstAttribute="centerX" secondItem="DRk-l1-9nq" secondAttribute="centerX" id="PcQ-w3-eq6"/>
+                                    <constraint firstItem="uKS-Dw-HMj" firstAttribute="width" secondItem="DRk-l1-9nq" secondAttribute="width" multiplier="0.85" id="xSd-G6-s44"/>
+                                </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RJx-mG-MO8">
-                                <rect key="frame" x="40" y="117" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DRk-l1-9nq" secondAttribute="trailing" id="52k-Fd-Y7a"/>
+                            <constraint firstAttribute="leading" secondItem="DRk-l1-9nq" secondAttribute="leading" id="Sjh-Wo-Yei"/>
+                            <constraint firstItem="cke-k7-AGX" firstAttribute="top" secondItem="DRk-l1-9nq" secondAttribute="bottom" id="cea-3F-wul"/>
+                            <constraint firstItem="DRk-l1-9nq" firstAttribute="top" secondItem="tGh-HW-Gp9" secondAttribute="bottom" id="zA2-aE-ris"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="VgC-Jk-kYL"/>
                     <connections>
-                        <outlet property="fruitValueTextField" destination="RJx-mG-MO8" id="sh2-jf-Syt"/>
                         <outlet property="gridView" destination="4Mf-Nl-dey" id="nCM-aT-YJH"/>
                     </connections>
                 </viewController>
