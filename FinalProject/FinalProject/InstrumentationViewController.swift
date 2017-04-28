@@ -146,9 +146,10 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "col", num: val)
     }
 
+    //MARK: Timer RefreshRate Event Handling
     @IBAction func updateTimerRefreshRate(_ sender: UISlider) {
         engine.refreshTimer?.invalidate()
-        engine.refreshRate = Double(Double(sender.value))
+        engine.refreshRate = 1 / Double(Double(sender.value))
     }
     
     @IBAction func toggleTimer(_ sender: UISwitch) {
