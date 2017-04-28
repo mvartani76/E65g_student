@@ -11,7 +11,9 @@ import UIKit
 class GridEditorViewController: UIViewController {
     
     var fruitValue: String?
+    var gridStruct: GridInit?
     var saveClosure: ((String) -> Void)?
+    var sampleEngine: StandardEngine!
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var fruitValueTextField: UITextField!
@@ -19,8 +21,11 @@ class GridEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
-        if let fruitValue = fruitValue {
-            fruitValueTextField.text = fruitValue
+        if let gridStruct = gridStruct {
+            sampleEngine = StandardEngine(rows: 2*gridStruct.maxDim, cols: 2*gridStruct.maxDim, refreshRate: 1)
+            self.gridView.gridRows = sampleEngine.rows
+            self.gridView.gridCols = sampleEngine.cols
+            gridView.setNeedsDisplay()
         }
     }
     

@@ -87,8 +87,9 @@ var data = [
 let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
 
 struct GridInit {
-    let title: String
+    var title: String
     let contents: [[Int]]
+    let maxDim: Int
 }
 
 
@@ -134,6 +135,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 return
             }
 
+            var maxDim: Int
+            var temp: Int
             let resultString = (json as AnyObject).description
             let jsonArray = json as! NSArray
             
@@ -142,8 +145,24 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             
                 let jsonTitle = jsonDictionary["title"] as! String
                 let jsonContents = jsonDictionary["contents"] as! [[Int]]
-            
-                let gridInit = GridInit(title: jsonTitle, contents: jsonContents)
+                
+                maxDim = 0
+                temp = 0
+                for j in 0..<(jsonContents.count) {
+                    if (jsonContents[j][0] > jsonContents[j][1])
+                    {
+                        temp = jsonContents[j][0]
+                    }
+                    else
+                    {
+                        temp = jsonContents[j][1]
+                    }
+                    if (temp > maxDim)
+                    {
+                        maxDim = temp
+                    }
+                }
+                let gridInit = GridInit(title: jsonTitle, contents: jsonContents, maxDim: maxDim)
                 self.gridInits.append(gridInit)
             }
             
@@ -244,6 +263,20 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         label.text = gridInits[indexPath.item].title
 
         return cell
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow
+        if let indexPath = indexPath {
+            let gridStruct = gridInits[indexPath.row]
+            if let vc = segue.destination as? GridEditorViewController {
+                vc.gridStruct = gridStruct
+                vc.saveClosure = { newValue in
+                    self.gridInits[indexPath.row] = gridStruct
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
 }
