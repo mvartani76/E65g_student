@@ -398,7 +398,7 @@
         <!--GridEditor-->
         <scene sceneID="7Lz-4b-qal">
             <objects>
-                <viewController id="Woa-hw-NYx" userLabel="GridEditor" sceneMemberID="viewController">
+                <viewController id="Woa-hw-NYx" userLabel="GridEditor" customClass="GridEditorViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tGh-HW-Gp9"/>
                         <viewControllerLayoutGuide type="bottom" id="cke-k7-AGX"/>
@@ -412,14 +412,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RJx-mG-MO8">
+                                <rect key="frame" x="40" y="117" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="VgC-Jk-kYL"/>
+                    <connections>
+                        <outlet property="fruitValueTextField" destination="RJx-mG-MO8" id="sh2-jf-Syt"/>
+                        <outlet property="gridView" destination="4Mf-Nl-dey" id="nCM-aT-YJH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZd-Rn-nJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="-385"/>
+            <point key="canvasLocation" x="2707.5" y="-385"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="l3A-EP-rJk">

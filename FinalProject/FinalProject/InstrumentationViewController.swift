@@ -84,6 +84,16 @@ var data = [
     ]
 ]
 
+let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
+
+struct GridInit {
+    let title: String
+    let contents: [[Int]]
+}
+
+
+var jsonTitles:Array<String> = Array<String>()
+
 class InstrumentationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var rowStepper: UIStepper!
@@ -95,6 +105,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: UITableView!
     
     var engine: StandardEngine!
+    var jsonTitles2:Array<String> = Array<String>()
+    var gridInits: [GridInit] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,8 +119,39 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         
         numRowsTextField.text = "\(engine.rows)"
         numColsTextField.text = "\(engine.cols)"
-    }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        let fetcher = Fetcher()
+        fetcher.fetchJSON(url: URL(string:finalProjectURL)!) { (json: Any?, message: String?) in
+            guard message == nil else {
+                print(message ?? "nil")
+                return
+            }
+            guard let json = json else {
+                print("no json")
+                return
+            }
 
+            let resultString = (json as AnyObject).description
+            let jsonArray = json as! NSArray
+            
+            for i in 0..<jsonArray.count {
+                let jsonDictionary = jsonArray[i] as! NSDictionary
+            
+                let jsonTitle = jsonDictionary["title"] as! String
+                let jsonContents = jsonDictionary["contents"] as! [[Int]]
+            
+                let gridInit = GridInit(title: jsonTitle, contents: jsonContents)
+                self.gridInits.append(gridInit)
+            }
+            
+            OperationQueue.main.addOperation ({
+                self.tableView.reloadData()
+            })
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         engine = StandardEngine.shared()
@@ -187,48 +230,21 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
+        return gridInits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "basic"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let label = cell.contentView.subviews.first as! UILabel
-        label.text = data[indexPath.section][indexPath.item]
-        
+        label.text = gridInits[indexPath.item].title
+
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionHeaders[section]
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            var newData = data[indexPath.section]
-            newData.remove(at: indexPath.row)
-            data[indexPath.section] = newData
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.reloadData()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = tableView.indexPathForSelectedRow
-        if let indexPath = indexPath {
-            let fruitValue = data[indexPath.section][indexPath.row]
-            if let vc = segue.destination as? GridEditorViewController {
-                vc.fruitValue = fruitValue
-                vc.saveClosure = { newValue in
-                    data[indexPath.section][indexPath.row] = newValue
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
+
 }
 

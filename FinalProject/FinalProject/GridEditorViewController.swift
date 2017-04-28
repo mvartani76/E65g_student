@@ -13,6 +13,7 @@ class GridEditorViewController: UIViewController {
     var fruitValue: String?
     var saveClosure: ((String) -> Void)?
     
+    @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var fruitValueTextField: UITextField!
     
     override func viewDidLoad() {
