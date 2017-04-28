@@ -35,24 +35,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         self.gridView.gridCols = engine.cols
         gridView.setNeedsDisplay()
     }
-    #if false
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        engine = StandardEngine.shared()
-        engine.delegate = self
-        
-        let nc = NotificationCenter.default
-        let name = Notification.Name(rawValue: "EngineUpdate")
-        nc.addObserver(
-            forName: name,
-            object: nil,
-            queue: nil) { (n) in
-                self.gridView.gridSize = StandardEngine.shared().rows
-                self.gridView.setNeedsDisplay()
-        }
-    }
-    #endif
+
     func engineDidUpdate(withGrid: GridProtocol) {
         self.gridView.gridRows = StandardEngine.shared().rows
         self.gridView.gridCols = StandardEngine.shared().cols
