@@ -8,82 +8,6 @@
 
 import UIKit
 
-var sectionHeaders = [
-    "One", "Two", "Three", "Four", "Five", "Six"
-]
-
-var data = [
-    [
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date"
-    ],
-    [
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana"
-    ],
-    [
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry"
-    ],
-    [
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Blueberry"
-    ]
-]
-
 let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
 
 struct GridInit {
@@ -91,7 +15,6 @@ struct GridInit {
     let contents: [[Int]]
     let maxDim: Int
 }
-
 
 var jsonTitles:Array<String> = Array<String>()
 
