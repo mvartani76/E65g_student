@@ -156,7 +156,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         StandardEngine.shared().toggleTimer(switchOn: refreshOnOff.isOn)
     }
     
-
     //MARK: AlertController Handling
     func showErrorAlert(withMessage msg:String, action: (() -> Void)? ) {
         let alert = UIAlertController(
