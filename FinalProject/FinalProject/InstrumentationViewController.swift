@@ -193,6 +193,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         if let indexPath = indexPath {
             let gridStruct = gridInits[indexPath.row]
             if let vc = segue.destination as? GridEditorViewController {
+                navigationItem.title = "Cancel"
                 vc.gridStruct = gridStruct
                 vc.saveClosure = { newValue in
                     self.gridInits[indexPath.row] = gridStruct
