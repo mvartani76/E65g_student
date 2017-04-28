@@ -12,6 +12,8 @@
 		224FD31C1EAD559000E9876E /* InstrumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD3171EAD559000E9876E /* InstrumentationViewController.swift */; };
 		224FD31D1EAD559000E9876E /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD3181EAD559000E9876E /* SimulationViewController.swift */; };
 		224FD31E1EAD559000E9876E /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD3191EAD559000E9876E /* StatisticsViewController.swift */; };
+		229726811EAD9231007874A0 /* GridEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229726801EAD9231007874A0 /* GridEditorViewController.swift */; };
+		229726831EB237F4007874A0 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229726821EB237F4007874A0 /* Fetcher.swift */; };
 		FBAD2E271E2BE417008207C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD2E261E2BE417008207C0 /* AppDelegate.swift */; };
 		FBAD2E2E1E2BE417008207C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2E2C1E2BE417008207C0 /* Main.storyboard */; };
 		FBAD2E301E2BE417008207C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2E2F1E2BE417008207C0 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		224FD3171EAD559000E9876E /* InstrumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentationViewController.swift; sourceTree = "<group>"; };
 		224FD3181EAD559000E9876E /* SimulationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		224FD3191EAD559000E9876E /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		229726801EAD9231007874A0 /* GridEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridEditorViewController.swift; sourceTree = "<group>"; };
+		229726821EB237F4007874A0 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		FBAD2E231E2BE417008207C0 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAD2E261E2BE417008207C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAD2E2D1E2BE417008207C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,12 +70,14 @@
 				224FD3151EAD559000E9876E /* Grid.swift */,
 				224FD3161EAD559000E9876E /* GridView.swift */,
 				224FD3171EAD559000E9876E /* InstrumentationViewController.swift */,
+				229726821EB237F4007874A0 /* Fetcher.swift */,
 				224FD3181EAD559000E9876E /* SimulationViewController.swift */,
 				224FD3191EAD559000E9876E /* StatisticsViewController.swift */,
 				FBAD2E2C1E2BE417008207C0 /* Main.storyboard */,
 				FBAD2E2F1E2BE417008207C0 /* Assets.xcassets */,
 				FBAD2E311E2BE417008207C0 /* LaunchScreen.storyboard */,
 				FBAD2E341E2BE417008207C0 /* Info.plist */,
+				229726801EAD9231007874A0 /* GridEditorViewController.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -150,10 +156,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBAD2E271E2BE417008207C0 /* AppDelegate.swift in Sources */,
+				229726831EB237F4007874A0 /* Fetcher.swift in Sources */,
 				224FD31E1EAD559000E9876E /* StatisticsViewController.swift in Sources */,
 				224FD31C1EAD559000E9876E /* InstrumentationViewController.swift in Sources */,
 				224FD31D1EAD559000E9876E /* SimulationViewController.swift in Sources */,
 				224FD31B1EAD559000E9876E /* GridView.swift in Sources */,
+				229726811EAD9231007874A0 /* GridEditorViewController.swift in Sources */,
 				224FD31A1EAD559000E9876E /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
