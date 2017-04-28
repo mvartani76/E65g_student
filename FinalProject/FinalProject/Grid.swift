@@ -241,9 +241,15 @@ class StandardEngine: EngineProtocol {
         }
         
         // Create New Grid Instance
+        engineCreateNewGrid()
+    }
+    
+    public func engineCreateNewGrid()
+    {
+       // Create New Grid Instance
         grid = Grid(GridSize(rows: self.rows, cols: self.cols))
         delegate?.engineDidUpdate(withGrid: grid)
-        
+    
         engineUpdateNotify()
     }
     

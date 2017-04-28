@@ -77,6 +77,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
+        // Reset grid by creating a new empty grid
+        engine.engineCreateNewGrid()
     }
 }
 
