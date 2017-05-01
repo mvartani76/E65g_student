@@ -212,11 +212,19 @@ class StandardEngine: EngineProtocol {
 
     private static var engine: StandardEngine = StandardEngine(rows: 10, cols: 10, refreshRate: 1.0)
     
+    // Initialize grid with refreshRate
     init(rows: Int, cols: Int, refreshRate: Double) {
         self.grid = Grid(GridSize(rows: rows, cols: cols))
         self.rows = rows
         self.cols = cols
         self.refreshRate = refreshRate
+    }
+    
+    // Initialize grid without refreshRate
+    init(rows: Int, cols: Int) {
+        self.grid = Grid(GridSize(rows: rows, cols: cols))
+        self.rows = rows
+        self.cols = cols
     }
     
     func step() -> GridProtocol {
@@ -272,7 +280,7 @@ class StandardEngine: EngineProtocol {
         timerOn = switchOn
         refreshRate = StandardEngine.engine.refreshRate
     }
-    
+
     class func shared() -> StandardEngine {
         return engine
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GridEditorViewController: UIViewController {
+class GridEditorViewController: UIViewController, GridViewDataSource {
     
     var fruitValue: String?
     var gridStruct: GridInit?
@@ -22,11 +22,25 @@ class GridEditorViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         if let gridStruct = gridStruct {
-            sampleEngine = StandardEngine(rows: 2*gridStruct.maxDim, cols: 2*gridStruct.maxDim, refreshRate: 1)
+            sampleEngine = StandardEngine(rows: 2*gridStruct.maxDim, cols: 2*gridStruct.maxDim)
             self.gridView.gridRows = sampleEngine.rows
             self.gridView.gridCols = sampleEngine.cols
+            
+            for cell in gridStruct.contents {
+                let row = cell[0]
+                let col = cell[1]
+                sampleEngine.grid[row,col] = CellState.alive
+            }
+            
+            gridView.drawGrid = self
+            
             gridView.setNeedsDisplay()
         }
+    }
+    
+    public subscript (row: Int, col: Int) -> CellState {
+        get { return sampleEngine.grid[row,col] }
+        set { sampleEngine.grid[row,col] = newValue }
     }
     
     override func didReceiveMemoryWarning() {
