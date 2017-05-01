@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+
+var gridValues = String()
 
 class SimulationViewController: UIViewController, GridViewDataSource, EngineDelegate {
     @IBOutlet weak var gridView: GridView!
@@ -14,6 +17,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
 
+    var container: NSPersistentContainer!
+    
     var engine: StandardEngine!
     var delegate: EngineDelegate?
 
@@ -21,19 +26,60 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     var rows: Int = 10
     var cols: Int = 10
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
+        let defaults = UserDefaults.standard
+        
         engine = StandardEngine.shared()
         engine.delegate = self
         gridView.drawGrid = self
         
+        //engine.grid = defaults.object(forKey: "MyKey") as! GridProtocol!
+
         // Make sure that the SimulationViewController knows about updated row/col size
         // before first time displayed
         self.gridView.gridRows = engine.rows
         self.gridView.gridCols = engine.cols
+        
+        
+        #if true
+        let fileName = "Test"
+        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        
+        let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+        
+        var readString = "" // Used to store the file contents
+        do {
+            // Read the file contents
+            readString = try String(contentsOf: fileURL)
+        } catch let error as NSError {
+            print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+        }
+        print("File Text: \(readString)")
+        
+        let sArray = readString.components(separatedBy: ",")
+        let sArraySize = sArray.count/2
+        var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
+        print(sArray)
+        for i in 0..<(sArraySize) {
+            for j in 0..<2 {
+                iArray[i][j] = Int(sArray[2*i+j])!
+            }
+        }
+        print(iArray)
+        
+        for cell in iArray {
+            let row = cell[0]
+            let col = cell[1]
+            engine.grid[row,col] = CellState.alive
+        }
+        
+        #endif
+        
         gridView.setNeedsDisplay()
         
     }
@@ -60,84 +106,33 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
 
     @IBAction func saveButtonAction(_ sender: UIButton) {
         
-        let validDictionary = [
-            "numericalValue": 1,
-            "stringValue": "JSON",
-            "arrayValue": [0, 1, 2, 3, 4, 5]
-        ] as [String : Any]
         
-        let rawData: NSData!
-        
-        
-       print(JSONSerialization.isValidJSONObject(validDictionary))
-        
-        
-        if JSONSerialization.isValidJSONObject(validDictionary) { // True
-            do {
-                rawData = try JSONSerialization.data(withJSONObject: validDictionary, options: .prettyPrinted) as NSData!
-                try rawData.write(to: URL(fileURLWithPath: "newdata.json"), options: .atomic)
-                
-                let jsonData = NSData(contentsOfFile: "newdata.json")
-                let jsonDict = try JSONSerialization.jsonObject(with: jsonData! as Data, options: .mutableContainers)
-                // -> ["stringValue": "JSON", "arrayValue": [0, 1, 2, 3, 4, 5], "numericalValue": 1]
-                print(jsonDict)
-                
-            } catch {
-                // Handle Error
-                print("error")
-                print(error.localizedDescription)
+        // Load gridStruct.contents with values in grid
+        var gridValues = String()
+        (0 ..< engine.grid.size.rows).forEach { row in
+            (0 ..< engine.grid.size.cols).forEach { col in
+                let cell = engine.grid[row,col]
+                if (cell.isAlive) {
+                    gridValues.append("\(row),")
+                    gridValues.append("\(col),")
+                }
             }
         }
         
-        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
-
+        // Save data to file
+        let fileName = "Test"
+        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         
-        let jsonFilePath = documentsDirectoryPath.appendingPathComponent("test.json")
-        let fileManager = FileManager.default
-        var isDirectory: ObjCBool = false
+        let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+        print("FilePath: \(fileURL.path)")
         
-        // creating a .json file in the Documents folder
-        if !fileManager.fileExists(atPath: (jsonFilePath?.absoluteString)!, isDirectory: &isDirectory) {
-            let created = fileManager.createFile(atPath: (jsonFilePath?.absoluteString)!, contents: nil, attributes: nil)
-            if created {
-                print("File created ")
-            } else {
-                print("Couldn't create file for some reason")
-            }
-        } else {
-            print("File already exists")
-        }
-        
-        // creating an array of test data
-        var numbers = [String]()
-        for i in 0 ..< 100 {
-            numbers.append("Test\(i)")
-        }
-        
-        // creating JSON out of the above array
-        var jsonData: NSData!
+        let writeString = "Write this text to the fileURL as text in iOS using Swift"
         do {
-            //jsonData = try JSONSerialization.data(withJSONObject: validDictionary, options: JSONSerialization.WritingOptions()) as NSData!
-            jsonData = try JSONSerialization.data(withJSONObject: numbers, options: JSONSerialization.WritingOptions()) as NSData!
-            let jsonString = String(data: jsonData as Data, encoding: String.Encoding.utf8)
-            print(jsonString)
+            // Write to the file
+            try gridValues.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
         } catch let error as NSError {
-            print("Array to JSON conversion failed: \(error.localizedDescription)")
+            print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
         }
-        
-        // Write that JSON to the file created earlier
-        let jsonFilePath2 = documentsDirectoryPath.appendingPathComponent("test.json")
-        do {
-            let file = try FileHandle(forWritingTo: jsonFilePath2!)
-            file.write(jsonData as Data)
-            print("JSON data was written to teh file successfully!")
-        } catch let error as NSError {
-            print("Couldn't write to file: \(error.localizedDescription)")
-        }
-        
-        
-        
         
     }
     
@@ -146,26 +141,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine.engineCreateNewGrid()
         
         
-        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
-        
-        
-        let jsonFilePath3 = documentsDirectoryPath.appendingPathComponent("test.json")
-        do {
-            let file = try FileHandle(forReadingFrom: jsonFilePath3!)
-            let data = file.readDataToEndOfFile()
-            //var data:NSData = NSData(contentsOfFile: file   )
-            let jsony = try JSONSerialization.jsonObject(with: data, options: [])
-            //let jsonString = String(data: jsony as! Data, encoding: String.Encoding.utf8)
-            print(jsony)
-            
-            
-            print("JSON data was written to teh file successfully!")
-        } catch let error as NSError {
-            print("Couldn't write to file: \(error.localizedDescription)")
-        }
-        
-        
+        gridView.setNeedsDisplay()
         
     }
     
