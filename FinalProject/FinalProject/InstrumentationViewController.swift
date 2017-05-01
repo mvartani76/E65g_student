@@ -12,8 +12,8 @@ let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
 
 struct GridInit {
     var title: String
-    let contents: [[Int]]
-    let maxDim: Int
+    var contents: [[Int]]
+    var maxDim: Int
 }
 
 var jsonTitles:Array<String> = Array<String>()
@@ -196,7 +196,11 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 navigationItem.title = "Cancel"
                 vc.gridStruct = gridStruct
                 vc.saveClosure = { newValue in
-                    self.gridInits[indexPath.row] = gridStruct
+                    self.gridInits[indexPath.row].contents = []
+                    for j in 0..<(newValue.contents.count)
+                    {
+                        self.gridInits[indexPath.row].contents.append(newValue.contents[j])
+                    }
                     self.tableView.reloadData()
                 }
             }
