@@ -35,6 +35,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             
             gridView.drawGrid = self
             
+            self.navigationController?.navigationBar.topItem?.title = gridStruct?.title
+            
             gridView.setNeedsDisplay()
         }
     }
