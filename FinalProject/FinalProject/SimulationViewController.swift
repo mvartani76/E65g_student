@@ -20,6 +20,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     var refreshRate: Double = 0.0
     var rows: Int = 10
     var cols: Int = 10
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         self.gridView.gridRows = engine.rows
         self.gridView.gridCols = engine.cols
         gridView.setNeedsDisplay()
+        
     }
 
     func engineDidUpdate(withGrid: GridProtocol) {
@@ -57,11 +59,120 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
 
     @IBAction func saveButtonAction(_ sender: UIButton) {
+        
+        let validDictionary = [
+            "numericalValue": 1,
+            "stringValue": "JSON",
+            "arrayValue": [0, 1, 2, 3, 4, 5]
+        ] as [String : Any]
+        
+        let rawData: NSData!
+        
+        
+       print(JSONSerialization.isValidJSONObject(validDictionary))
+        
+        
+        if JSONSerialization.isValidJSONObject(validDictionary) { // True
+            do {
+                rawData = try JSONSerialization.data(withJSONObject: validDictionary, options: .prettyPrinted) as NSData!
+                try rawData.write(to: URL(fileURLWithPath: "newdata.json"), options: .atomic)
+                
+                let jsonData = NSData(contentsOfFile: "newdata.json")
+                let jsonDict = try JSONSerialization.jsonObject(with: jsonData! as Data, options: .mutableContainers)
+                // -> ["stringValue": "JSON", "arrayValue": [0, 1, 2, 3, 4, 5], "numericalValue": 1]
+                print(jsonDict)
+                
+            } catch {
+                // Handle Error
+                print("error")
+                print(error.localizedDescription)
+            }
+        }
+        
+        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+
+        
+        let jsonFilePath = documentsDirectoryPath.appendingPathComponent("test.json")
+        let fileManager = FileManager.default
+        var isDirectory: ObjCBool = false
+        
+        // creating a .json file in the Documents folder
+        if !fileManager.fileExists(atPath: (jsonFilePath?.absoluteString)!, isDirectory: &isDirectory) {
+            let created = fileManager.createFile(atPath: (jsonFilePath?.absoluteString)!, contents: nil, attributes: nil)
+            if created {
+                print("File created ")
+            } else {
+                print("Couldn't create file for some reason")
+            }
+        } else {
+            print("File already exists")
+        }
+        
+        // creating an array of test data
+        var numbers = [String]()
+        for i in 0 ..< 100 {
+            numbers.append("Test\(i)")
+        }
+        
+        // creating JSON out of the above array
+        var jsonData: NSData!
+        do {
+            //jsonData = try JSONSerialization.data(withJSONObject: validDictionary, options: JSONSerialization.WritingOptions()) as NSData!
+            jsonData = try JSONSerialization.data(withJSONObject: numbers, options: JSONSerialization.WritingOptions()) as NSData!
+            let jsonString = String(data: jsonData as Data, encoding: String.Encoding.utf8)
+            print(jsonString)
+        } catch let error as NSError {
+            print("Array to JSON conversion failed: \(error.localizedDescription)")
+        }
+        
+        // Write that JSON to the file created earlier
+        let jsonFilePath2 = documentsDirectoryPath.appendingPathComponent("test.json")
+        do {
+            let file = try FileHandle(forWritingTo: jsonFilePath2!)
+            file.write(jsonData as Data)
+            print("JSON data was written to teh file successfully!")
+        } catch let error as NSError {
+            print("Couldn't write to file: \(error.localizedDescription)")
+        }
+        
+        
+        
+        
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
         // Reset grid by creating a new empty grid
         engine.engineCreateNewGrid()
+        
+        
+        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+        
+        
+        let jsonFilePath3 = documentsDirectoryPath.appendingPathComponent("test.json")
+        do {
+            let file = try FileHandle(forReadingFrom: jsonFilePath3!)
+            let data = file.readDataToEndOfFile()
+            //var data:NSData = NSData(contentsOfFile: file   )
+            let jsony = try JSONSerialization.jsonObject(with: data, options: [])
+            //let jsonString = String(data: jsony as! Data, encoding: String.Encoding.utf8)
+            print(jsony)
+            
+            
+            print("JSON data was written to teh file successfully!")
+        } catch let error as NSError {
+            print("Couldn't write to file: \(error.localizedDescription)")
+        }
+        
+        
+        
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
 }
 
