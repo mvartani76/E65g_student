@@ -158,10 +158,49 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     //MARK: Add Config Event Handler
     @IBAction func addConfig(_ sender: UIButton) {
         
-        let newConfig = GridConfig(title: "New Config",contents: [], maxDim: engine.rows)
-        gridConfigs.insert(newConfig, at: 0)
-
-        self.tableView.reloadData()
+        let alert = UIAlertController(title: "Add Grid Config",
+                                      message: "Submit something",
+                                      preferredStyle: .alert)
+        
+        // Submit button
+        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { (action) -> Void in
+            // Get TextField's text
+            let configTitle = alert.textFields![0]
+            let configMaxDim = alert.textFields![1]
+            
+            let newConfig = GridConfig(title: configTitle.text!, contents: [], maxDim: Int(configMaxDim.text!)!/2)
+            self.gridConfigs.insert(newConfig, at: 0)
+            
+            self.tableView.reloadData()
+            
+        })
+        
+        // Cancel button
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
+        
+        // Add configTitle textField and customize it
+        alert.addTextField { (textField: UITextField) in
+            textField.keyboardAppearance = .dark
+            textField.keyboardType = .default
+            textField.autocorrectionType = .default
+            textField.placeholder = "New Config"
+            textField.clearButtonMode = .whileEditing
+        }
+        
+        // Add configTitle textField and customize it
+        alert.addTextField { (textField: UITextField) in
+            textField.keyboardAppearance = .dark
+            textField.keyboardType = .numberPad
+            textField.autocorrectionType = .default
+            textField.placeholder = "Number of Rows/Cols"
+            textField.clearButtonMode = .whileEditing
+        }
+        
+        // Add action buttons and present the Alert
+        alert.addAction(submitAction)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
     }
     
     //MARK: AlertController Handling
