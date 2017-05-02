@@ -56,7 +56,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="42"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Rows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crD-a5-I7O">
-                                                                        <rect key="frame" x="7" y="11" width="76" height="21"/>
+                                                                        <rect key="frame" x="7.5" y="11.5" width="75.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                                                                 <rect key="frame" x="89" y="0.0" width="89" height="42"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucT-I0-Rud">
-                                                                        <rect key="frame" x="23" y="6" width="45" height="30"/>
+                                                                        <rect key="frame" x="22" y="6" width="45" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="pXL-Pn-cQg"/>
                                                                         </constraints>
@@ -130,7 +130,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="42"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Cols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfT-R0-u7z">
-                                                                        <rect key="frame" x="11" y="11" width="69" height="21"/>
+                                                                        <rect key="frame" x="10.5" y="11.5" width="68.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                                                                 <rect key="frame" x="89" y="0.0" width="89" height="42"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-Wp-pNh">
-                                                                        <rect key="frame" x="23" y="6" width="45" height="30"/>
+                                                                        <rect key="frame" x="22" y="6" width="45" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="f3N-wA-dIR"/>
                                                                         </constraints>
@@ -243,7 +243,7 @@
                                                                 <rect key="frame" x="0.0" y="21" width="272" height="21"/>
                                                                 <subviews>
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="MZx-vw-kli">
-                                                                        <rect key="frame" x="26" y="-4" width="222" height="31"/>
+                                                                        <rect key="frame" x="25" y="-4" width="222" height="31"/>
                                                                         <color key="tintColor" red="0.32941176470588235" green="0.34509803921568627" blue="0.34509803921568627" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                                                         <color key="minimumTrackTintColor" red="0.32941176470588235" green="0.34509803921568627" blue="0.34509803921568627" alpha="0.5" colorSpace="calibratedRGB"/>
                                                                         <color key="maximumTrackTintColor" red="0.3294117647" green="0.34509803919999998" blue="0.34509803919999998" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -344,7 +344,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instrumentation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvl-2k-7K3">
-                                <rect key="frame" x="32" y="59" width="256" height="32"/>
+                                <rect key="frame" x="32" y="59.5" width="256" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -380,7 +380,17 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Instrumentation" image="InstrumentationIcon" id="acW-dT-cKf"/>
-                    <navigationItem key="navigationItem" id="S7l-lv-xTd"/>
+                    <navigationItem key="navigationItem" id="S7l-lv-xTd">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dmN-Ad-kz6">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="+"/>
+                            <connections>
+                                <action selector="addConfig:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WDR-vf-wdS"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                     <connections>
                         <outlet property="colStepper" destination="asB-5H-CO1" id="1My-DC-4eC"/>
                         <outlet property="numColsTextField" destination="tcE-Wp-pNh" id="ese-vH-eWZ"/>

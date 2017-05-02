@@ -97,7 +97,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         super.viewWillAppear(animated)
         engine = StandardEngine.shared()
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -153,6 +153,15 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBAction func toggleTimer(_ sender: UISwitch) {
         StandardEngine.shared().toggleTimer(switchOn: refreshOnOff.isOn)
+    }
+
+    //MARK: Add Config Event Handler
+    @IBAction func addConfig(_ sender: UIButton) {
+        
+        let newConfig = GridConfig(title: "New Config",contents: [], maxDim: engine.rows)
+        gridConfigs.insert(newConfig, at: 0)
+
+        self.tableView.reloadData()
     }
     
     //MARK: AlertController Handling
