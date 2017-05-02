@@ -10,7 +10,7 @@ import UIKit
 
 let finalProjectURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
 
-struct GridInit {
+struct GridConfig {
     var title: String
     var contents: [[Int]]
     var maxDim: Int
@@ -29,8 +29,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: UITableView!
     
     var engine: StandardEngine!
-    var jsonTitles2:Array<String> = Array<String>()
-    var gridInits: [GridInit] = []
+    var gridConfigs: [GridConfig] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,8 +84,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                         maxDim = temp
                     }
                 }
-                let gridInit = GridInit(title: jsonTitle, contents: jsonContents, maxDim: maxDim)
-                self.gridInits.append(gridInit)
+                let gridConfig = GridConfig(title: jsonTitle, contents: jsonContents, maxDim: maxDim)
+                self.gridConfigs.append(gridConfig)
             }
             
             OperationQueue.main.addOperation ({
@@ -176,14 +175,14 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gridInits.count
+        return gridConfigs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "basic"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let label = cell.contentView.subviews.first as! UILabel
-        label.text = gridInits[indexPath.item].title
+        label.text = gridConfigs[indexPath.item].title
 
         return cell
     }
@@ -191,15 +190,15 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = tableView.indexPathForSelectedRow
         if let indexPath = indexPath {
-            let gridStruct = gridInits[indexPath.row]
+            let gridStruct = gridConfigs[indexPath.row]
             if let vc = segue.destination as? GridEditorViewController {
                 navigationItem.title = "Cancel"
                 vc.gridStruct = gridStruct
                 vc.saveClosure = { newValue in
-                    self.gridInits[indexPath.row].contents = []
+                    self.gridConfigs[indexPath.row].contents = []
                     for j in 0..<(newValue.contents.count)
                     {
-                        self.gridInits[indexPath.row].contents.append(newValue.contents[j])
+                        self.gridConfigs[indexPath.row].contents.append(newValue.contents[j])
                     }
                     self.tableView.reloadData()
                 }

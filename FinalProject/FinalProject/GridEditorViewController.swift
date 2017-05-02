@@ -11,8 +11,8 @@ import UIKit
 class GridEditorViewController: UIViewController, GridViewDataSource {
     
     var fruitValue: String?
-    var gridStruct: GridInit?
-    var saveClosure: ((GridInit) -> Void)?
+    var gridStruct: GridConfig?
+    var saveClosure: ((GridConfig) -> Void)?
     var sampleEngine: StandardEngine!
     
     @IBOutlet weak var gridView: GridView!
