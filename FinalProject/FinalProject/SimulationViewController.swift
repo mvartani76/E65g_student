@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 var gridValues = String()
 
@@ -16,8 +15,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     @IBOutlet weak var stepButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-
-    var container: NSPersistentContainer!
     
     var engine: StandardEngine!
     var delegate: EngineDelegate?
@@ -26,27 +23,19 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     var rows: Int = 10
     var cols: Int = 10
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        let defaults = UserDefaults.standard
         
         engine = StandardEngine.shared()
         engine.delegate = self
         gridView.drawGrid = self
         
-        //engine.grid = defaults.object(forKey: "MyKey") as! GridProtocol!
-
         // Make sure that the SimulationViewController knows about updated row/col size
         // before first time displayed
         self.gridView.gridRows = engine.rows
         self.gridView.gridCols = engine.cols
         
-        
-        #if true
         let fileName = "Test"
         let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         
@@ -64,24 +53,20 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         let sArray = readString.components(separatedBy: ",")
         let sArraySize = sArray.count/2
         var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
-        print(sArray)
+
         for i in 0..<(sArraySize) {
             for j in 0..<2 {
                 iArray[i][j] = Int(sArray[2*i+j])!
             }
         }
-        print(iArray)
-        
+
         for cell in iArray {
             let row = cell[0]
             let col = cell[1]
             engine.grid[row,col] = CellState.alive
         }
         
-        #endif
-        
         gridView.setNeedsDisplay()
-        
     }
 
     func engineDidUpdate(withGrid: GridProtocol) {
@@ -133,16 +118,13 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         } catch let error as NSError {
             print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
         }
-        
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
         // Reset grid by creating a new empty grid
         engine.engineCreateNewGrid()
         
-        
         gridView.setNeedsDisplay()
-        
     }
     
     func getDocumentsDirectory() -> URL {
