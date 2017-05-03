@@ -159,20 +159,52 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBAction func addConfig(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Add Grid Config",
-                                      message: "Submit something",
+                                      message: "Please enter a name for the Grid Config and a positive integer for the Grid Size.",
                                       preferredStyle: .alert)
         
         // Submit button
         let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { (action) -> Void in
-            // Get TextField's text
-            let configTitle = alert.textFields![0]
-            let configMaxDim = alert.textFields![1]
-            
-            let newConfig = GridConfig(title: configTitle.text!, contents: [], maxDim: Int(configMaxDim.text!)!/2)
-            self.gridConfigs.insert(newConfig, at: 0)
-            
-            self.tableView.reloadData()
-            
+
+            if let configMaxDim = alert.textFields?[1] {
+                if let configMaxDim = configMaxDim.text {
+                    // Check if Grid Size Text Field is not an integer
+                    if !(Int(configMaxDim) != nil) {
+                        let emptyError = UIAlertController(title: "Grid Size Error", message:
+                            "Please enter an Integer Grid Size ", preferredStyle: UIAlertControllerStyle.alert)
+                        emptyError.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                        self.present(emptyError, animated: true, completion: nil)
+                    }
+                    // Check if input text field integer is less than zero
+                    else if (Int(configMaxDim)! <= 0) {
+                        let negError = UIAlertController(title: "Grid Size Error", message:
+                            "Grid Size must be Positive", preferredStyle: UIAlertControllerStyle.alert)
+                        negError.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                        self.present(negError, animated: true, completion: nil)
+                    }
+                    else
+                    {
+                        // Grid Size value is verified, now lets check the Config Name
+                        if let configTitle = alert.textFields?[0] {
+                            if let configTitle = configTitle.text {
+                                // Check if a Config Name has been entered
+                                if (configTitle == "") {
+                                    let emptyTitleError = UIAlertController(title: "Config Name Error", message:
+                                        "Missing Config Name", preferredStyle: UIAlertControllerStyle.alert)
+                                    emptyTitleError.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                                    self.present(emptyTitleError, animated: true, completion: nil)
+                                }
+                                else
+                                {
+                                    let newConfig = GridConfig(title: configTitle, contents: [], maxDim: Int(configMaxDim)!/2)
+                                    self.gridConfigs.insert(newConfig, at: 0)
+                                    
+                                    self.tableView.reloadData()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         })
         
         // Cancel button
@@ -183,16 +215,16 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             textField.keyboardAppearance = .dark
             textField.keyboardType = .default
             textField.autocorrectionType = .default
-            textField.placeholder = "New Config"
+            textField.placeholder = "Config Name"
             textField.clearButtonMode = .whileEditing
         }
         
-        // Add configTitle textField and customize it
+        // Add configMaxNum textField and customize it
         alert.addTextField { (textField: UITextField) in
             textField.keyboardAppearance = .dark
             textField.keyboardType = .numberPad
             textField.autocorrectionType = .default
-            textField.placeholder = "Number of Rows/Cols"
+            textField.placeholder = "Grid Size"
             textField.clearButtonMode = .whileEditing
         }
         
