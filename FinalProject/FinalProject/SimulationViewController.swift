@@ -32,35 +32,9 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine = StandardEngine.shared()
         engine.delegate = self
         gridView.drawGrid = self
-        
-        if let gridValues = defaults.object(forKey: "simConfig_gridValues")
-        {
-            if let gridRows = defaults.object(forKey: "simConfig_rows")
-            {
-                if let gridCols = defaults.object(forKey: "simConfig_cols")
-                {
-                    let sArray = String(describing: gridValues).components(separatedBy: ",")
-                    let sArraySize = sArray.count/2
-                    var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
 
-                    for i in 0..<(sArraySize) {
-                        for j in 0..<2 {
-                            iArray[i][j] = Int(sArray[2*i+j])!
-                        }
-                    }
-                    
-                    StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "both", numRows: gridRows as! Int, numCols: gridCols as! Int)
-                    
-                    gridView.setNeedsDisplay()
-
-                    for cell in iArray {
-                        let row = cell[0]
-                        let col = cell[1]
-                        engine.grid[row,col] = CellState.alive
-                    }
-                }
-            }
-        }
+        // Load Configuration from UserDefaults
+        loadConfigDefaults(config_gridValues: "simConfig_gridValues", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
         
         // Make sure that the SimulationViewController knows about updated row/col size
         // before first time displayed
@@ -105,9 +79,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         }
 
         // Store user defaults for num rows/cols & grid values (only alive/empty)
-        defaults.set(gridValues, forKey: "simConfig_gridValues")
-        defaults.set(engine.grid.size.rows, forKey: "simConfig_rows")
-        defaults.set(engine.grid.size.cols, forKey: "simConfig_cols")
+        saveConfigDefaults(config_gridValues: "simConfig_gridValues", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
@@ -115,6 +87,45 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine.engineCreateNewGrid()
         
         gridView.setNeedsDisplay()
+    }
+    
+    // Function to load configuration values from user defaults
+    func loadConfigDefaults(config_gridValues: String, config_NumRows: String, config_NumCols: String) {
+        
+        if let gridValues = defaults.object(forKey: config_gridValues)
+        {
+            if let gridRows = defaults.object(forKey: config_NumRows)
+            {
+                if let gridCols = defaults.object(forKey: config_NumCols)
+                {
+                    let sArray = String(describing: gridValues).components(separatedBy: ",")
+                    let sArraySize = sArray.count/2
+                    var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
+                    
+                    for i in 0..<(sArraySize) {
+                        for j in 0..<2 {
+                            iArray[i][j] = Int(sArray[2*i+j])!
+                        }
+                    }
+                    
+                    StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "both", numRows: gridRows as! Int, numCols: gridCols as! Int)
+                    
+                    gridView.setNeedsDisplay()
+                    
+                    for cell in iArray {
+                        let row = cell[0]
+                        let col = cell[1]
+                        engine.grid[row,col] = CellState.alive
+                    }
+                }
+            }
+        }
+    }
+    // Function to save configuration values to user defaults
+    func saveConfigDefaults(config_gridValues: String, config_NumRows: String, config_NumCols: String) {
+        defaults.set(gridValues, forKey: config_gridValues)
+        defaults.set(engine.grid.size.rows, forKey: config_NumRows)
+        defaults.set(engine.grid.size.cols, forKey: config_NumCols)
     }
 }
 
