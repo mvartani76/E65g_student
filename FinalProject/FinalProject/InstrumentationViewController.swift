@@ -109,14 +109,14 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBAction func rowStep(_ sender: UIStepper) {
         let numRows = Int(sender.value)
         numRowsTextField.text = "\(numRows)"
-        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "row", num: numRows)
+        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "row", numRows: numRows, numCols: engine.cols)
     }
 
     //MARK: Column Stepper Event Handling
     @IBAction func colStep(_ sender: UIStepper) {
         let numCols = Int(sender.value)
         numColsTextField.text = "\(numCols)"
-        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "col", num: numCols)
+        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "col", numRows: engine.rows, numCols: numCols)
     }
     
     //MARK: Row TextField Event Handling
@@ -129,7 +129,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             return
         }
         rowStepper.value = Double(val)
-        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "row", num: val)
+        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "row", numRows: val, numCols: engine.cols)
     }
     
     //MARK: Col TextField Event Handling
@@ -142,7 +142,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             return
         }
         colStepper.value = Double(val)
-        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "col", num: val)
+        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "col", numRows: engine.rows, numCols: val)
     }
 
     //MARK: Timer RefreshRate Event Handling

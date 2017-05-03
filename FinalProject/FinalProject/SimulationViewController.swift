@@ -33,11 +33,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine.delegate = self
         gridView.drawGrid = self
         
-        // Make sure that the SimulationViewController knows about updated row/col size
-        // before first time displayed
-        self.gridView.gridRows = engine.rows
-        self.gridView.gridCols = engine.cols
-
         if let gridValues = defaults.object(forKey: "simConfig_gridValues")
         {
             if let gridRows = defaults.object(forKey: "simConfig_rows")
@@ -54,13 +49,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
                         }
                     }
                     
-                    engine.rows = gridRows as! Int
-                    engine.cols = gridCols as! Int
-                    
-                    self.gridView.gridRows = engine.rows
-                    self.gridView.gridCols = engine.cols
-                    
-                    engine.engineCreateNewGrid()
+                    StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "both", numRows: gridRows as! Int, numCols: gridCols as! Int)
                     
                     gridView.setNeedsDisplay()
 
@@ -72,6 +61,12 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
                 }
             }
         }
+        
+        // Make sure that the SimulationViewController knows about updated row/col size
+        // before first time displayed
+        self.gridView.gridRows = engine.rows
+        self.gridView.gridCols = engine.cols
+
         gridView.setNeedsDisplay()
     }
 

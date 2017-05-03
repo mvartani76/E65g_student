@@ -236,16 +236,23 @@ class StandardEngine: EngineProtocol {
         return grid
     }
     
-    func updateNumRowsOrCols(rowOrCol: String, num: Int) {
+    func updateNumRowsOrCols(rowOrCol: String, numRows: Int, numCols: Int) {
         if rowOrCol == "row"
         {
-            StandardEngine.engine.rows = num
-            self.rows = num
+            StandardEngine.engine.rows = numRows
+            self.rows = numRows
+        }
+        else if rowOrCol == "col"
+        {
+            StandardEngine.engine.cols = numCols
+            self.cols = numCols
         }
         else
         {
-            StandardEngine.engine.cols = num
-            self.cols = num
+            StandardEngine.engine.rows = numRows
+            self.cols = numRows
+            StandardEngine.engine.cols = numCols
+            self.cols = numCols
         }
         
         // Create New Grid Instance
