@@ -37,40 +37,40 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         // before first time displayed
         self.gridView.gridRows = engine.rows
         self.gridView.gridCols = engine.cols
-        
-        #if false
-        let fileName = "Test"
-        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        
-        let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
-        
-        var readString = "" // Used to store the file contents
-        do {
-            // Read the file contents
-            readString = try String(contentsOf: fileURL)
-        } catch let error as NSError {
-            print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
-        }
-        print("File Text: \(readString)")
-        #endif
 
-        if let gridValues = defaults.object(forKey: "simulationConfiguration")
+        if let gridValues = defaults.object(forKey: "simConfig_gridValues")
         {
-        let sArray = String(describing: gridValues).components(separatedBy: ",")
-        let sArraySize = sArray.count/2
-        var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
+            if let gridRows = defaults.object(forKey: "simConfig_rows")
+            {
+                if let gridCols = defaults.object(forKey: "simConfig_cols")
+                {
+                    let sArray = String(describing: gridValues).components(separatedBy: ",")
+                    let sArraySize = sArray.count/2
+                    var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
 
-        for i in 0..<(sArraySize) {
-            for j in 0..<2 {
-                iArray[i][j] = Int(sArray[2*i+j])!
+                    for i in 0..<(sArraySize) {
+                        for j in 0..<2 {
+                            iArray[i][j] = Int(sArray[2*i+j])!
+                        }
+                    }
+                    
+                    engine.rows = gridRows as! Int
+                    engine.cols = gridCols as! Int
+                    
+                    self.gridView.gridRows = engine.rows
+                    self.gridView.gridCols = engine.cols
+                    
+                    engine.engineCreateNewGrid()
+                    
+                    gridView.setNeedsDisplay()
+
+                    for cell in iArray {
+                        let row = cell[0]
+                        let col = cell[1]
+                        engine.grid[row,col] = CellState.alive
+                    }
+                }
             }
-        }
-
-        for cell in iArray {
-            let row = cell[0]
-            let col = cell[1]
-            engine.grid[row,col] = CellState.alive
-        }
         }
         gridView.setNeedsDisplay()
     }
@@ -97,7 +97,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
 
     @IBAction func saveButtonAction(_ sender: UIButton) {
         
-        
         // Load gridStruct.contents with values in grid
         var gridValues = String()
         (0 ..< engine.grid.size.rows).forEach { row in
@@ -109,28 +108,11 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
                 }
             }
         }
-        
-        
-        
-        defaults.set(gridValues, forKey: "simulationConfiguration")
-        
-        
-        #if false
-        // Save data to file
-        let fileName = "Test"
-        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        
-        let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
-        print("FilePath: \(fileURL.path)")
-        
-        let writeString = "Write this text to the fileURL as text in iOS using Swift"
-        do {
-            // Write to the file
-            try gridValues.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
-        } catch let error as NSError {
-            print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
-        }
-        #endif
+
+        // Store user defaults for num rows/cols & grid values (only alive/empty)
+        defaults.set(gridValues, forKey: "simConfig_gridValues")
+        defaults.set(engine.grid.size.rows, forKey: "simConfig_rows")
+        defaults.set(engine.grid.size.cols, forKey: "simConfig_cols")
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
