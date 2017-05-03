@@ -23,6 +23,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     var rows: Int = 10
     var cols: Int = 10
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,6 +38,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         self.gridView.gridRows = engine.rows
         self.gridView.gridCols = engine.cols
         
+        #if false
         let fileName = "Test"
         let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         
@@ -49,8 +52,11 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
             print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
         }
         print("File Text: \(readString)")
-        
-        let sArray = readString.components(separatedBy: ",")
+        #endif
+
+        if let gridValues = defaults.object(forKey: "simulationConfiguration")
+        {
+        let sArray = String(describing: gridValues).components(separatedBy: ",")
         let sArraySize = sArray.count/2
         var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
 
@@ -65,7 +71,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
             let col = cell[1]
             engine.grid[row,col] = CellState.alive
         }
-        
+        }
         gridView.setNeedsDisplay()
     }
 
@@ -104,6 +110,12 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
             }
         }
         
+        
+        
+        defaults.set(gridValues, forKey: "simulationConfiguration")
+        
+        
+        #if false
         // Save data to file
         let fileName = "Test"
         let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -118,6 +130,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         } catch let error as NSError {
             print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
         }
+        #endif
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
