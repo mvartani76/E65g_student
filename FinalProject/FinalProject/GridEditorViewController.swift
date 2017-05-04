@@ -10,13 +10,11 @@ import UIKit
 
 class GridEditorViewController: UIViewController, GridViewDataSource {
     
-    var fruitValue: String?
     var gridStruct: GridConfig?
     var saveClosure: ((GridConfig) -> Void)?
     var sampleEngine: StandardEngine!
     
     @IBOutlet weak var gridView: GridView!
-    @IBOutlet weak var fruitValueTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
