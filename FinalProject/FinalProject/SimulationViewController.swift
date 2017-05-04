@@ -77,7 +77,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         }
 
         // Store user defaults for num rows/cols & grid values (only alive/empty)
-        saveConfigDefaults(gridValues: gridValues, config_gridValues: "simConfig_gridValues", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
+        saveConfigDefaults(gridValues: gridValues, config_gridValuesKeyName: "simConfig_gridValues", config_NumRowsKeyName: "simConfig_rows", config_NumColsKeyName: "simConfig_cols")
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
@@ -120,10 +120,10 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         }
     }
     // Function to save configuration values to user defaults
-    func saveConfigDefaults(gridValues: String, config_gridValues: String, config_NumRows: String, config_NumCols: String) {
-        defaults.set(gridValues, forKey: config_gridValues)
-        defaults.set(engine.grid.size.rows, forKey: config_NumRows)
-        defaults.set(engine.grid.size.cols, forKey: config_NumCols)
+    func saveConfigDefaults(gridValues: String, config_gridValuesKeyName: String, config_NumRowsKeyName: String, config_NumColsKeyName: String) {
+        defaults.set(gridValues, forKey: config_gridValuesKeyName)
+        defaults.set(engine.grid.size.rows, forKey: config_NumRowsKeyName)
+        defaults.set(engine.grid.size.cols, forKey: config_NumColsKeyName)
     }
 }
 
