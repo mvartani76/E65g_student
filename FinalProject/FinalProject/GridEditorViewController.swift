@@ -35,7 +35,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             
             gridView.drawGrid = self
             
-            self.navigationController?.navigationBar.topItem?.title = gridStruct?.title
+            // Display the name of the gridConfig in the title bar
+            self.title = gridStruct?.title
             
             gridView.setNeedsDisplay()
         }
