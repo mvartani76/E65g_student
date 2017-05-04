@@ -852,7 +852,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="resetButtonAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="HZK-tJ-mOx"/>
