@@ -484,7 +484,9 @@
                             <constraint firstItem="cke-k7-AGX" firstAttribute="top" secondItem="DRk-l1-9nq" secondAttribute="bottom" id="cea-3F-wul"/>
                             <constraint firstItem="x0e-Xo-FQx" firstAttribute="centerX" secondItem="DRk-l1-9nq" secondAttribute="centerX" id="kNb-yR-QlV"/>
                             <constraint firstItem="DRk-l1-9nq" firstAttribute="top" secondItem="tGh-HW-Gp9" secondAttribute="bottom" id="zA2-aE-ris"/>
-                            <constraint firstItem="cke-k7-AGX" firstAttribute="top" secondItem="x0e-Xo-FQx" secondAttribute="bottom" constant="10" id="zio-qv-Otg"/>
+                            <constraint firstItem="cke-k7-AGX" firstAttribute="top" secondItem="x0e-Xo-FQx" secondAttribute="bottom" constant="10" id="zio-qv-Otg">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="VgC-Jk-kYL"/>
