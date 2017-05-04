@@ -50,10 +50,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="294"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-p7-Iir" userLabel="RowStackView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="41.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhh-Pl-9D5" userLabel="RSVLeftView">
-                                                                <rect key="frame" x="0.0" y="0.0" width="89" height="42"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="89" height="41.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Rows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crD-a5-I7O">
                                                                         <rect key="frame" x="7.5" y="10.5" width="75.5" height="20.5"/>
@@ -71,7 +71,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRF-fI-jAo" userLabel="RSVCenterView">
-                                                                <rect key="frame" x="89" y="0.0" width="89" height="42"/>
+                                                                <rect key="frame" x="89" y="0.0" width="89" height="41.5"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucT-I0-Rud">
                                                                         <rect key="frame" x="22.5" y="5.5" width="44" height="30"/>
@@ -96,7 +96,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxM-ON-LUj" userLabel="RSVRightView">
-                                                                <rect key="frame" x="178" y="0.0" width="89" height="42"/>
+                                                                <rect key="frame" x="178" y="0.0" width="89" height="41.5"/>
                                                                 <subviews>
                                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="vvE-qd-fti">
                                                                         <rect key="frame" x="-2" y="6.5" width="94" height="29"/>
@@ -112,7 +112,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F07-pL-H0a" userLabel="RSVBorderView">
-                                                                <rect key="frame" x="267" y="0.0" width="5" height="42"/>
+                                                                <rect key="frame" x="267" y="0.0" width="5" height="41.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="5" id="etW-re-Unj"/>
                                                                 </constraints>
@@ -124,10 +124,10 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WS6-uk-Uoe" userLabel="ColStackView">
-                                                        <rect key="frame" x="0.0" y="42" width="272" height="42"/>
+                                                        <rect key="frame" x="0.0" y="41.5" width="272" height="42.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAS-z3-h4d" userLabel="CSVLeftView">
-                                                                <rect key="frame" x="0.0" y="0.0" width="89" height="42"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="89" height="42.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Cols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfT-R0-u7z">
                                                                         <rect key="frame" x="10.5" y="11.5" width="68.5" height="20.5"/>
@@ -145,7 +145,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yf-0K-pDC" userLabel="CSVCenterView">
-                                                                <rect key="frame" x="89" y="0.0" width="89" height="42"/>
+                                                                <rect key="frame" x="89" y="0.0" width="89" height="42.5"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-Wp-pNh">
                                                                         <rect key="frame" x="22.5" y="6" width="44" height="30"/>
@@ -170,7 +170,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWy-F1-dZ2" userLabel="CSVRightView">
-                                                                <rect key="frame" x="178" y="0.0" width="89" height="42"/>
+                                                                <rect key="frame" x="178" y="0.0" width="89" height="42.5"/>
                                                                 <subviews>
                                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="asB-5H-CO1">
                                                                         <rect key="frame" x="-2" y="7" width="94" height="29"/>
@@ -186,7 +186,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Db1-mh-iz3" userLabel="CSVBorderView">
-                                                                <rect key="frame" x="267" y="0.0" width="5" height="42"/>
+                                                                <rect key="frame" x="267" y="0.0" width="5" height="42.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="5" id="gz0-s9-uOU"/>
                                                                 </constraints>
@@ -228,10 +228,10 @@
                                                         </connections>
                                                     </tableView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yag-4Z-P2y" userLabel="RefreshRateVerticalStackView">
-                                                        <rect key="frame" x="0.0" y="210" width="272" height="42"/>
+                                                        <rect key="frame" x="0.0" y="210" width="272" height="42.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dng-iJ-Jwa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="272" height="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="272" height="21.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -240,7 +240,7 @@
                                                                 </variation>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDb-bR-hkT" userLabel="RRSliderView">
-                                                                <rect key="frame" x="0.0" y="21" width="272" height="21"/>
+                                                                <rect key="frame" x="0.0" y="21.5" width="272" height="21"/>
                                                                 <subviews>
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="MZx-vw-kli">
                                                                         <rect key="frame" x="25" y="-4.5" width="222" height="31"/>
@@ -275,10 +275,10 @@
                                                         </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30n-Kw-GFz" userLabel="RefreshOnOffVerticalStackView">
-                                                        <rect key="frame" x="0.0" y="252" width="272" height="42"/>
+                                                        <rect key="frame" x="0.0" y="252.5" width="272" height="41.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh On/Off" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLl-0e-cyp">
-                                                                <rect key="frame" x="0.0" y="0.0" width="136" height="42"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="136" height="41.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -287,10 +287,10 @@
                                                                 </variation>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNN-3F-f6e" userLabel="ROOView">
-                                                                <rect key="frame" x="136" y="0.0" width="136" height="42"/>
+                                                                <rect key="frame" x="136" y="0.0" width="136" height="41.5"/>
                                                                 <subviews>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnT-Cr-Fes">
-                                                                        <rect key="frame" x="44" y="6" width="51" height="31"/>
+                                                                        <rect key="frame" x="44" y="5.5" width="51" height="31"/>
                                                                         <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <connections>
                                                                             <action selector="toggleTimer:" destination="9pv-A4-QxB" eventType="valueChanged" id="qWE-IZ-rwF"/>
@@ -465,7 +465,9 @@
                                     <constraint firstItem="uKS-Dw-HMj" firstAttribute="centerX" secondItem="DRk-l1-9nq" secondAttribute="centerX" id="PcQ-w3-eq6"/>
                                     <constraint firstItem="xUS-DF-AzF" firstAttribute="centerX" secondItem="DRk-l1-9nq" secondAttribute="centerX" id="ua0-GN-qOa"/>
                                     <constraint firstItem="uKS-Dw-HMj" firstAttribute="width" secondItem="DRk-l1-9nq" secondAttribute="width" multiplier="0.85" id="xSd-G6-s44"/>
-                                    <constraint firstAttribute="bottom" secondItem="xUS-DF-AzF" secondAttribute="bottom" constant="8" id="yld-bu-4RS"/>
+                                    <constraint firstAttribute="bottom" secondItem="xUS-DF-AzF" secondAttribute="bottom" constant="8" id="yld-bu-4RS">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="1"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                         </subviews>
