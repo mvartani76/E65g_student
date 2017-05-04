@@ -428,7 +428,7 @@
                                 <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKS-Dw-HMj" userLabel="PanelView">
-                                        <rect key="frame" x="57.5" y="90.5" width="653" height="729"/>
+                                        <rect key="frame" x="58" y="91" width="653" height="729"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Mf-Nl-dey" customClass="GridView" customModule="FinalProject" customModuleProvider="target">
                                                 <rect key="frame" x="65" y="103" width="523" height="523"/>
@@ -462,20 +462,8 @@
                                     <constraint firstItem="uKS-Dw-HMj" firstAttribute="width" secondItem="DRk-l1-9nq" secondAttribute="width" multiplier="0.85" id="xSd-G6-s44"/>
                                 </constraints>
                             </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DRk-l1-9nq" secondAttribute="trailing" id="52k-Fd-Y7a"/>
-                            <constraint firstAttribute="leading" secondItem="DRk-l1-9nq" secondAttribute="leading" id="Sjh-Wo-Yei"/>
-                            <constraint firstItem="cke-k7-AGX" firstAttribute="top" secondItem="DRk-l1-9nq" secondAttribute="bottom" id="cea-3F-wul"/>
-                            <constraint firstItem="DRk-l1-9nq" firstAttribute="top" secondItem="tGh-HW-Gp9" secondAttribute="bottom" id="zA2-aE-ris"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="VgC-Jk-kYL">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="vZu-jP-AI3">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xUS-DF-AzF">
-                                <rect key="frame" x="682" y="7" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0e-Xo-FQx" userLabel="Save Button">
+                                <rect key="frame" x="351" y="917" width="66" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Save"/>
                                 <variation key="heightClass=compact-widthClass=compact">
@@ -485,14 +473,23 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="saveButtonAction:" destination="Woa-hw-NYx" eventType="touchUpInside" id="xDX-3K-rSH"/>
+                                    <action selector="saveButtonAction:" destination="Woa-hw-NYx" eventType="touchUpInside" id="j7F-7i-6VF"/>
                                 </connections>
                             </button>
-                        </barButtonItem>
-                    </navigationItem>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DRk-l1-9nq" secondAttribute="trailing" id="52k-Fd-Y7a"/>
+                            <constraint firstAttribute="leading" secondItem="DRk-l1-9nq" secondAttribute="leading" id="Sjh-Wo-Yei"/>
+                            <constraint firstItem="cke-k7-AGX" firstAttribute="top" secondItem="DRk-l1-9nq" secondAttribute="bottom" id="cea-3F-wul"/>
+                            <constraint firstItem="x0e-Xo-FQx" firstAttribute="centerX" secondItem="DRk-l1-9nq" secondAttribute="centerX" id="kNb-yR-QlV"/>
+                            <constraint firstItem="DRk-l1-9nq" firstAttribute="top" secondItem="tGh-HW-Gp9" secondAttribute="bottom" id="zA2-aE-ris"/>
+                            <constraint firstItem="cke-k7-AGX" firstAttribute="top" secondItem="x0e-Xo-FQx" secondAttribute="bottom" constant="10" id="zio-qv-Otg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="VgC-Jk-kYL"/>
                     <connections>
                         <outlet property="gridView" destination="4Mf-Nl-dey" id="nCM-aT-YJH"/>
-                        <outlet property="saveButton" destination="xUS-DF-AzF" id="ckk-OY-fFA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZd-Rn-nJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
