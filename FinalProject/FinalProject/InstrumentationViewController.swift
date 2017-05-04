@@ -30,12 +30,21 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     
     var engine: StandardEngine!
     var gridConfigs: [GridConfig] = []
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.shared()
         refreshOnOff.setOn(false, animated: false)
+        
+        if let engineRows = defaults.object(forKey: "simConfig_rows") {
+            engine.rows = engineRows as! Int
+        }
+        if let engineCols = defaults.object(forKey: "simConfig_cols") {
+            engine.cols = engineCols as! Int
+        }
         
         rowStepper.value = Double(engine.rows)
         colStepper.value = Double(engine.cols)
