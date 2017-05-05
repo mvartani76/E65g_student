@@ -16,6 +16,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var configNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             
             // Display the name of the gridConfig in the title bar
             self.title = gridStruct?.title
+            configNameTextField.text = gridStruct?.title
             
             gridView.setNeedsDisplay()
         }
@@ -62,6 +64,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
                 }
             }
         }
+        
+        gridStruct!.title = configNameTextField.text!
         
         // Pass the updated gridStruct back to the InstrumentationViewController
         if let newValue = gridStruct,

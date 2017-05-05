@@ -289,6 +289,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                     {
                         self.gridConfigs[indexPath.row].contents.append(newValue.contents[j])
                     }
+                    self.gridConfigs[indexPath.row].title = newValue.title
                     self.tableView.reloadData()
                 }
             }
