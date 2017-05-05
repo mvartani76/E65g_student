@@ -235,6 +235,18 @@ class StandardEngine: EngineProtocol {
         
         return grid
     }
+
+    // Function to load grid from gridStruct
+    func loadGridFrom(gridStruct: GridConfig) -> (GridProtocol) {
+        updateNumRowsOrCols(rowOrCol: "both", numRows: gridStruct.maxDim*2, numCols: gridStruct.maxDim*2)
+        
+        for cell in gridStruct.contents {
+            let row = cell[0]
+            let col = cell[1]
+            StandardEngine.engine.grid[row,col] = CellState.alive
+        }
+        return StandardEngine.engine.grid
+    }
     
     func updateNumRowsOrCols(rowOrCol: String, numRows: Int, numCols: Int) {
         if rowOrCol == "row"

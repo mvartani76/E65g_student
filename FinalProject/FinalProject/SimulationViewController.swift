@@ -23,6 +23,12 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     
     let defaults = UserDefaults.standard
     
+    func loadSampleGrid(notification:Notification) -> Void {
+        guard let gridStruct = notification.userInfo!["gridstruct"] else { return }
+        
+        engine.grid = engine.loadGridFrom(gridStruct: (gridStruct as! GridConfig))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,6 +39,15 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
 
         // Load Configuration from UserDefaults
         loadConfigDefaults(config_gridValues: "simConfig_gridValues", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
+        
+        // Observe "SampleEngineUpdate" notifications
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "SampleEngineUpdate")
+        nc.addObserver(
+            forName: name,
+            object: nil,
+            queue: nil,
+            using: loadSampleGrid)
         
         // Make sure that the SimulationViewController knows about updated row/col size
         // before first time displayed

@@ -65,6 +65,15 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             }
         }
         
+        
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "SampleEngineUpdate")
+        let n = Notification(name: name,
+                             object: nil,
+                             userInfo: ["gridstruct" : gridStruct!])
+        nc.post(n)
+        
+        
         gridStruct!.title = configNameTextField.text!
         
         // Pass the updated gridStruct back to the InstrumentationViewController
