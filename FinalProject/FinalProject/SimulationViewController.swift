@@ -38,7 +38,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         gridView.drawGrid = self
 
         // Load Configuration from UserDefaults
-        loadConfigDefaults(config_gridValues: "simConfig_gridValues", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
+        loadConfigDefaults(config_gridStruct: "simConfig_gridStruct", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
         
         // Observe "SampleEngineUpdate" notifications
         let nc = NotificationCenter.default
@@ -80,19 +80,19 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     @IBAction func saveButtonAction(_ sender: UIButton) {
         
         // Load gridStruct.contents with values in grid
-        var gridValues = String()
+        var gridStruct = GridConfig(title: "savedefault", contents: [], maxDim: engine.grid.size.rows)
+        
         (0 ..< engine.grid.size.rows).forEach { row in
             (0 ..< engine.grid.size.cols).forEach { col in
                 let cell = engine.grid[row,col]
                 if (cell.isAlive) {
-                    gridValues.append("\(row),")
-                    gridValues.append("\(col),")
+                    gridStruct.contents.append([row,col])
                 }
             }
         }
-
+        
         // Store user defaults for num rows/cols & grid values (only alive/empty)
-        saveConfigDefaults(gridValues: gridValues, config_gridValuesKeyName: "simConfig_gridValues", config_NumRowsKeyName: "simConfig_rows", config_NumColsKeyName: "simConfig_cols")
+        saveConfigDefaults(gridStruct: gridStruct, config_gridStructKeyName: "simConfig_gridStruct", config_NumRowsKeyName: "simConfig_rows", config_NumColsKeyName: "simConfig_cols")
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton) {
@@ -103,35 +103,28 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     
     // Function to load configuration values from user defaults
-    func loadConfigDefaults(config_gridValues: String, config_NumRows: String, config_NumCols: String) {
+    func loadConfigDefaults(config_gridStruct: String, config_NumRows: String, config_NumCols: String) {
         
-        guard let gridValues = defaults.object(forKey: config_gridValues) else { return }
+        guard let gridDict = defaults.object(forKey: config_gridStruct) else { return }
         guard let gridRows = defaults.object(forKey: config_NumRows) else { return }
         guard let gridCols = defaults.object(forKey: config_NumCols) else { return }
+
+        let gridDict2 = gridDict as! NSDictionary
+        let gridValues = gridDict2["gridStructContents"] as! [[Int]]
+        let gridStruct = GridConfig(title: "", contents: gridValues, maxDim: (gridRows as! Int)/2)
         
-        let sArray = String(describing: gridValues).components(separatedBy: ",")
-        let sArraySize = sArray.count/2
-        var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
-                    
-        for i in 0..<(sArraySize) {
-            for j in 0..<2 {
-                iArray[i][j] = Int(sArray[2*i+j])!
-            }
-        }
-                    
-        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "both", numRows: gridRows as! Int, numCols: gridCols as! Int)
+        engine.grid = engine.loadGridFrom(gridStruct: gridStruct)
                     
         gridView.setNeedsDisplay()
-                    
-        for cell in iArray {
-            let row = cell[0]
-            let col = cell[1]
-            engine.grid[row,col] = CellState.alive
-        }
     }
     // Function to save configuration values to user defaults
-    func saveConfigDefaults(gridValues: String, config_gridValuesKeyName: String, config_NumRowsKeyName: String, config_NumColsKeyName: String) {
-        defaults.set(gridValues, forKey: config_gridValuesKeyName)
+    func saveConfigDefaults(gridStruct: GridConfig, config_gridStructKeyName: String, config_NumRowsKeyName: String, config_NumColsKeyName: String) {
+        
+        let gridDict: Dictionary<String, Array<Array<Int>>>
+        
+        gridDict = ["gridStructContents" : gridStruct.contents]
+        
+        defaults.set(gridDict, forKey: config_gridStructKeyName)
         defaults.set(engine.grid.size.rows, forKey: config_NumRowsKeyName)
         defaults.set(engine.grid.size.cols, forKey: config_NumColsKeyName)
     }
