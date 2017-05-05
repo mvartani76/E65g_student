@@ -65,6 +65,11 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             }
         }
         
+        gridStruct!.maxDim = Int(sampleEngine.grid.size.rows/2)
+        
+        let engine = StandardEngine.shared()
+        
+        engine.grid = engine.loadGridFrom(gridStruct: gridStruct!)
         
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "SampleEngineUpdate")

@@ -36,9 +36,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         engine = StandardEngine.shared()
         engine.delegate = self
         gridView.drawGrid = self
-
-        // Load Configuration from UserDefaults
-        loadConfigDefaults(config_gridStruct: "simConfig_gridStruct", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
         
         // Observe "SampleEngineUpdate" notifications
         let nc = NotificationCenter.default
@@ -102,21 +99,6 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         gridView.setNeedsDisplay()
     }
     
-    // Function to load configuration values from user defaults
-    func loadConfigDefaults(config_gridStruct: String, config_NumRows: String, config_NumCols: String) {
-        
-        guard let gridDict = defaults.object(forKey: config_gridStruct) else { return }
-        guard let gridRows = defaults.object(forKey: config_NumRows) else { return }
-        guard let gridCols = defaults.object(forKey: config_NumCols) else { return }
-
-        let gridDict2 = gridDict as! NSDictionary
-        let gridValues = gridDict2["gridStructContents"] as! [[Int]]
-        let gridStruct = GridConfig(title: "", contents: gridValues, maxDim: (gridRows as! Int)/2)
-        
-        engine.grid = engine.loadGridFrom(gridStruct: gridStruct)
-                    
-        gridView.setNeedsDisplay()
-    }
     // Function to save configuration values to user defaults
     func saveConfigDefaults(gridStruct: GridConfig, config_gridStructKeyName: String, config_NumRowsKeyName: String, config_NumColsKeyName: String) {
         

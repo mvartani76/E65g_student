@@ -39,6 +39,9 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         engine = StandardEngine.shared()
         refreshOnOff.setOn(false, animated: false)
         
+        // Load Configuration from UserDefaults
+        loadConfigDefaults(config_gridStruct: "simConfig_gridStruct", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
+        
         if let engineRows = defaults.object(forKey: "simConfig_rows") {
             engine.rows = engineRows as! Int
         }
@@ -294,6 +297,20 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 }
             }
         }
+    }
+    
+    // Function to load configuration values from user defaults
+    func loadConfigDefaults(config_gridStruct: String, config_NumRows: String, config_NumCols: String) {
+        
+        guard let gridDict = defaults.object(forKey: config_gridStruct) else { return }
+        guard let gridRows = defaults.object(forKey: config_NumRows) else { return }
+        guard let gridCols = defaults.object(forKey: config_NumCols) else { return }
+        
+        let gridDict2 = gridDict as! NSDictionary
+        let gridValues = gridDict2["gridStructContents"] as! [[Int]]
+        let gridStruct = GridConfig(title: "", contents: gridValues, maxDim: (gridRows as! Int)/2)
+        
+        engine.grid = engine.loadGridFrom(gridStruct: gridStruct)
     }
 
 }
