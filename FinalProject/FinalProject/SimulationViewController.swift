@@ -105,33 +105,28 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     // Function to load configuration values from user defaults
     func loadConfigDefaults(config_gridValues: String, config_NumRows: String, config_NumCols: String) {
         
-        if let gridValues = defaults.object(forKey: config_gridValues)
-        {
-            if let gridRows = defaults.object(forKey: config_NumRows)
-            {
-                if let gridCols = defaults.object(forKey: config_NumCols)
-                {
-                    let sArray = String(describing: gridValues).components(separatedBy: ",")
-                    let sArraySize = sArray.count/2
-                    var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
+        guard let gridValues = defaults.object(forKey: config_gridValues) else { return }
+        guard let gridRows = defaults.object(forKey: config_NumRows) else { return }
+        guard let gridCols = defaults.object(forKey: config_NumCols) else { return }
+        
+        let sArray = String(describing: gridValues).components(separatedBy: ",")
+        let sArraySize = sArray.count/2
+        var iArray = Array(repeating: Array(repeating: 0, count: 2), count: sArraySize)
                     
-                    for i in 0..<(sArraySize) {
-                        for j in 0..<2 {
-                            iArray[i][j] = Int(sArray[2*i+j])!
-                        }
-                    }
-                    
-                    StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "both", numRows: gridRows as! Int, numCols: gridCols as! Int)
-                    
-                    gridView.setNeedsDisplay()
-                    
-                    for cell in iArray {
-                        let row = cell[0]
-                        let col = cell[1]
-                        engine.grid[row,col] = CellState.alive
-                    }
-                }
+        for i in 0..<(sArraySize) {
+            for j in 0..<2 {
+                iArray[i][j] = Int(sArray[2*i+j])!
             }
+        }
+                    
+        StandardEngine.shared().updateNumRowsOrCols(rowOrCol: "both", numRows: gridRows as! Int, numCols: gridCols as! Int)
+                    
+        gridView.setNeedsDisplay()
+                    
+        for cell in iArray {
+            let row = cell[0]
+            let col = cell[1]
+            engine.grid[row,col] = CellState.alive
         }
     }
     // Function to save configuration values to user defaults
