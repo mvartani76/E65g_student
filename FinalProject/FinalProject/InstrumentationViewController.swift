@@ -42,13 +42,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         // Load Configuration from UserDefaults
         loadConfigDefaults(config_gridStruct: "simConfig_gridStruct", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
         
-        if let engineRows = defaults.object(forKey: "simConfig_rows") {
-            engine.rows = engineRows as! Int
-        }
-        if let engineCols = defaults.object(forKey: "simConfig_cols") {
-            engine.cols = engineCols as! Int
-        }
-        
         rowStepper.value = Double(engine.rows)
         colStepper.value = Double(engine.cols)
         
@@ -311,6 +304,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         let gridStruct = GridConfig(title: "", contents: gridValues, maxDim: (gridRows as! Int)/2)
         
         engine.grid = engine.loadGridFrom(gridStruct: gridStruct)
+        engine.rows = gridRows as! Int
+        engine.cols = gridCols as! Int
     }
 
 }
