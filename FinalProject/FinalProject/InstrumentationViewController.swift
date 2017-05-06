@@ -278,6 +278,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             }
         }
     }
+    
+    // Function to save alert textfield configuration
     func saveAlertTextFieldWith(placeholder: String, alert: UIAlertController) {
         alert.addTextField { (textField: UITextField) in
             textField.keyboardAppearance = .dark
@@ -287,6 +289,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             textField.clearButtonMode = .whileEditing
         }
     }
+    
     // Function to load configuration values from user defaults
     func loadConfigDefaults(config_gridStruct: String, config_NumRows: String, config_NumCols: String) {
         
