@@ -64,7 +64,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
 
             var maxDim: Int
             var temp: Int
-            let resultString = (json as AnyObject).description
             let jsonArray = json as! NSArray
             
             for i in 0..<jsonArray.count {
