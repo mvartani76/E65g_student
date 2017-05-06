@@ -216,22 +216,10 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
         
         // Add configTitle textField and customize it
-        alert.addTextField { (textField: UITextField) in
-            textField.keyboardAppearance = .dark
-            textField.keyboardType = .default
-            textField.autocorrectionType = .default
-            textField.placeholder = "Config Name"
-            textField.clearButtonMode = .whileEditing
-        }
-        
+        saveAlertTextFieldWith(placeholder: "Config Name", alert: alert)
+
         // Add configMaxNum textField and customize it
-        alert.addTextField { (textField: UITextField) in
-            textField.keyboardAppearance = .dark
-            textField.keyboardType = .numberPad
-            textField.autocorrectionType = .default
-            textField.placeholder = "Grid Size"
-            textField.clearButtonMode = .whileEditing
-        }
+        saveAlertTextFieldWith(placeholder: "Grid Size", alert: alert)
         
         // Add action buttons and present the Alert
         alert.addAction(submitAction)
@@ -291,7 +279,15 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             }
         }
     }
-    
+    func saveAlertTextFieldWith(placeholder: String, alert: UIAlertController) {
+        alert.addTextField { (textField: UITextField) in
+            textField.keyboardAppearance = .dark
+            textField.keyboardType = .numberPad
+            textField.autocorrectionType = .default
+            textField.placeholder = placeholder
+            textField.clearButtonMode = .whileEditing
+        }
+    }
     // Function to load configuration values from user defaults
     func loadConfigDefaults(config_gridStruct: String, config_NumRows: String, config_NumCols: String) {
         
