@@ -17,20 +17,34 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var configNameTextField: UITextField!
-    
+    #if false
+    func loadSampleGrid(notification:Notification) -> Void {
+        //guard let gridStruct = notification.userInfo!["gridstruct"] else { return }
+        
+        //sampleEngine.grid = sampleEngine.loadGridFrom(gridStruct: gridStruct!)
+        self.gridView.gridRows = sampleEngine.rows
+        self.gridView.gridCols = sampleEngine.cols
+        self.gridView.setNeedsDisplay()
+    }
+    #endif
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        #if false
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        nc.addObserver(
+            forName: name,
+            object: nil,
+            queue: nil,
+            using: loadSampleGrid)
+        #endif
+
         if gridStruct != nil {
+            let engine = StandardEngine.shared()
             sampleEngine = StandardEngine(rows: 2*gridStruct!.maxDim, cols: 2*gridStruct!.maxDim)
-            self.gridView.gridRows = sampleEngine.rows
-            self.gridView.gridCols = sampleEngine.cols
             
-            for cell in gridStruct!.contents {
-                let row = cell[0]
-                let col = cell[1]
-                sampleEngine.grid[row,col] = CellState.alive
-            }
+            sampleEngine.grid = sampleEngine.loadGridFrom(gridStruct: gridStruct!)
             
             gridView.drawGrid = self
             
@@ -38,6 +52,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
             self.title = gridStruct?.title
             configNameTextField.text = gridStruct?.title
             
+            self.gridView.gridRows = sampleEngine.rows
+            self.gridView.gridCols = sampleEngine.cols
             gridView.setNeedsDisplay()
         }
     }

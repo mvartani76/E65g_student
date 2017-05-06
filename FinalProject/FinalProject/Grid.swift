@@ -239,13 +239,10 @@ class StandardEngine: EngineProtocol {
     // Function to load grid from gridStruct
     func loadGridFrom(gridStruct: GridConfig) -> (GridProtocol) {
         updateNumRowsOrCols(rowOrCol: "both", numRows: gridStruct.maxDim*2, numCols: gridStruct.maxDim*2)
+
+        self.grid = loadCellsFrom(contents: gridStruct.contents)
         
-        for cell in gridStruct.contents {
-            let row = cell[0]
-            let col = cell[1]
-            StandardEngine.engine.grid[row,col] = CellState.alive
-        }
-        return StandardEngine.engine.grid
+        return self.grid
     }
     
     func updateNumRowsOrCols(rowOrCol: String, numRows: Int, numCols: Int) {
@@ -310,7 +307,17 @@ class StandardEngine: EngineProtocol {
         timerOn = switchOn
         refreshRate = StandardEngine.engine.refreshRate
     }
-
+    
+    // Function that loads cells from 2d int array and stores into GridProtocol
+    func loadCellsFrom(contents: [[Int]]) -> (GridProtocol) {
+        for cell in contents {
+            let row = cell[0]
+            let col = cell[1]
+            self.grid[row,col] = CellState.alive
+        }
+        return self.grid
+    }
+    
     class func shared() -> StandardEngine {
         return engine
     }
