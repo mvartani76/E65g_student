@@ -23,7 +23,6 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
         navigationController?.isNavigationBarHidden = false
 
         if gridStruct != nil {
-            let engine = StandardEngine.shared()
             sampleEngine = StandardEngine(rows: 2*gridStruct!.maxDim, cols: 2*gridStruct!.maxDim)
             
             sampleEngine.grid = sampleEngine.loadGridFrom(gridStruct: gridStruct!)
