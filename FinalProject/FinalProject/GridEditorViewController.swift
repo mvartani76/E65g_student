@@ -53,15 +53,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
 
         // Load gridStruct.contents with values in grid
         gridStruct!.contents = []
-        (0 ..< sampleEngine.grid.size.rows).forEach { row in
-            (0 ..< sampleEngine.grid.size.cols).forEach { col in
-                let cell = sampleEngine.grid[row,col]
-                if (cell.isAlive) {
-                    gridStruct!.contents.append([row,col])
-                }
-            }
-        }
-        
+        gridStruct!.contents = sampleEngine.loadgridStructFrom(engine: sampleEngine, contents: gridStruct!.contents)
+
         gridStruct!.maxDim = Int(sampleEngine.grid.size.rows/2)
         
         let engine = StandardEngine.shared()

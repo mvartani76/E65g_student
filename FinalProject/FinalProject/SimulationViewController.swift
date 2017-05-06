@@ -77,17 +77,9 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     @IBAction func saveButtonAction(_ sender: UIButton) {
         
         // Load gridStruct.contents with values in grid
-        var gridStruct = GridConfig(title: "savedefault", contents: [], maxDim: engine.grid.size.rows)
-        
-        (0 ..< engine.grid.size.rows).forEach { row in
-            (0 ..< engine.grid.size.cols).forEach { col in
-                let cell = engine.grid[row,col]
-                if (cell.isAlive) {
-                    gridStruct.contents.append([row,col])
-                }
-            }
-        }
-        
+        var gridStruct = GridConfig(title: "savedefault", contents: [], maxDim: engine.grid.size.rows)        
+        gridStruct.contents = engine.loadgridStructFrom(engine: engine, contents: gridStruct.contents)
+
         // Store user defaults for num rows/cols & grid values (only alive/empty)
         saveConfigDefaults(gridStruct: gridStruct, config_gridStructKeyName: "simConfig_gridStruct", config_NumRowsKeyName: "simConfig_rows", config_NumColsKeyName: "simConfig_cols")
     }

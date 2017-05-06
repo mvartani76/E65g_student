@@ -318,6 +318,20 @@ class StandardEngine: EngineProtocol {
         return self.grid
     }
     
+    // Function that loads cells into 2d int array
+    func loadgridStructFrom(engine: StandardEngine, contents: [[Int]])->([[Int]]) {
+        var newcontents = contents
+        (0 ..< engine.grid.size.rows).forEach { row in
+            (0 ..< engine.grid.size.cols).forEach { col in
+                let cell = engine.grid[row,col]
+                if (cell.isAlive) {
+                    newcontents.append([row,col])
+                }
+            }
+        }
+        return newcontents
+    }
+    
     class func shared() -> StandardEngine {
         return engine
     }
