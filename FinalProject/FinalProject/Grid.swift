@@ -248,19 +248,15 @@ class StandardEngine: EngineProtocol {
     func updateNumRowsOrCols(rowOrCol: String, numRows: Int, numCols: Int) {
         if rowOrCol == "row"
         {
-            StandardEngine.engine.rows = numRows
             self.rows = numRows
         }
         else if rowOrCol == "col"
         {
-            StandardEngine.engine.cols = numCols
             self.cols = numCols
         }
         else
         {
-            StandardEngine.engine.rows = numRows
             self.cols = numRows
-            StandardEngine.engine.cols = numCols
             self.cols = numCols
         }
         
