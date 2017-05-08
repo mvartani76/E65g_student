@@ -68,14 +68,13 @@ class GridEditorViewController: UIViewController, GridViewDataSource {
                              userInfo: ["gridstruct" : gridStruct!])
         nc.post(n)
         
-        
         gridStruct!.title = configNameTextField.text!
         
         // Pass the updated gridStruct back to the InstrumentationViewController
         if let newValue = gridStruct,
             let saveClosure = saveClosure {
             saveClosure(newValue)
-            self.navigationController?.popViewController(animated: true)
+            _ = navigationController?.popViewController(animated: true)
         }
     }
 }
