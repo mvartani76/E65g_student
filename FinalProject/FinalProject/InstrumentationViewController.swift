@@ -102,6 +102,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         }
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         engine = StandardEngine.shared()
@@ -180,17 +181,11 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 if let configMaxDim = configMaxDim.text {
                     // Check if Grid Size Text Field is not an integer
                     if !(Int(configMaxDim) != nil) {
-                        let emptyError = UIAlertController(title: "Grid Size Error", message:
-                            "Please enter an Integer Grid Size ", preferredStyle: UIAlertControllerStyle.alert)
-                        emptyError.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                        self.present(emptyError, animated: true, completion: nil)
+                        self.setAlertErrorWith(errorTitle: "Grid Size Error", errorMessage: "Please enter an Integer Grid Size")
                     }
                     // Check if input text field integer is less than zero
                     else if (Int(configMaxDim)! <= 0) {
-                        let negError = UIAlertController(title: "Grid Size Error", message:
-                            "Grid Size must be Positive", preferredStyle: UIAlertControllerStyle.alert)
-                        negError.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                        self.present(negError, animated: true, completion: nil)
+                        self.setAlertErrorWith(errorTitle: "Grid Size Error", errorMessage: "Grid Size must be Positive")
                     }
                     else
                     {
@@ -199,10 +194,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                             if let configTitle = configTitle.text {
                                 // Check if a Config Name has been entered
                                 if (configTitle == "") {
-                                    let emptyTitleError = UIAlertController(title: "Config Name Error", message:
-                                        "Missing Config Name", preferredStyle: UIAlertControllerStyle.alert)
-                                    emptyTitleError.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                                    self.present(emptyTitleError, animated: true, completion: nil)
+                                    self.setAlertErrorWith(errorTitle: "Config Name Error", errorMessage: "Missing Config Name")
                                 }
                                 else
                                 {
@@ -321,5 +313,13 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         numRowsTextField.text = "\(engine.rows)"
         numColsTextField.text = "\(engine.cols)"
     }
+    
+    // Function that presents error alerts with Dismiss action
+    func setAlertErrorWith(errorTitle: String, errorMessage: String) {
+        let alertController = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
