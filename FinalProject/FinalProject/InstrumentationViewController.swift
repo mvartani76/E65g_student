@@ -27,6 +27,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var numRowsTextField: UITextField!
     @IBOutlet weak var numColsTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var engine: StandardEngine!
     var gridConfigs: [GridConfig] = []
@@ -34,14 +35,20 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
+        activityIndicator.hidesWhenStopped = true;
+        activityIndicator.activityIndicatorViewStyle  = UIActivityIndicatorViewStyle.gray;
+        activityIndicator.center = view.center;
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.shared()
         refreshOnOff.setOn(false, animated: false)
         
+        activityIndicator.startAnimating()
+
         // Load Configuration from UserDefaults
         loadConfigDefaults(config_gridStruct: "simConfig_gridStruct", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
         
+        // Set the stepper/textfield row/col values
         setRowColUIValuesFrom(engine: engine)
         
         tableView.dataSource = self
@@ -90,8 +97,10 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             
             OperationQueue.main.addOperation ({
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             })
         }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
