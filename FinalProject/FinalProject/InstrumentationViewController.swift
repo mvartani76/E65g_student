@@ -85,7 +85,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 self.activityIndicator.stopAnimating()
             })
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
