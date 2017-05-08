@@ -256,7 +256,7 @@ class StandardEngine: EngineProtocol {
         }
         else
         {
-            self.cols = numRows
+            self.rows = numRows
             self.cols = numCols
         }
         
