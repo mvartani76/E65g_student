@@ -304,6 +304,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         engine.cols = gridCols as! Int
     }
     
+    // Function to set the stepper and text field values for rows/cols
     func setRowColUIValuesFrom(engine: StandardEngine) {
         rowStepper.value = Double(engine.rows)
         colStepper.value = Double(engine.cols)
