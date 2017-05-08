@@ -102,6 +102,12 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         engine = StandardEngine.shared()
         
         navigationController?.isNavigationBarHidden = false
+        
+        rowStepper.value = Double(engine.rows)
+        colStepper.value = Double(engine.cols)
+        
+        numRowsTextField.text = "\(engine.rows)"
+        numColsTextField.text = "\(engine.cols)"
     }
     
     override func didReceiveMemoryWarning() {
