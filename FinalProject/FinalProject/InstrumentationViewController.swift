@@ -65,8 +65,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 return
             }
 
-            var maxDim: Int
-            var temp: Int
             let jsonArray = json as! NSArray
             
             for i in 0..<jsonArray.count {
@@ -75,22 +73,9 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 let jsonTitle = jsonDictionary["title"] as! String
                 let jsonContents = jsonDictionary["contents"] as! [[Int]]
                 
-                maxDim = 0
-                temp = 0
-                for j in 0..<(jsonContents.count) {
-                    if (jsonContents[j][0] > jsonContents[j][1])
-                    {
-                        temp = jsonContents[j][0]
-                    }
-                    else
-                    {
-                        temp = jsonContents[j][1]
-                    }
-                    if (temp > maxDim)
-                    {
-                        maxDim = temp
-                    }
-                }
+                // Find the max value of 2d array to use when calculating gridSize (2x this value)
+                let maxDim = jsonContents.flatMap{$0}.reduce(Int.min, { max($0, $1) })
+
                 let gridConfig = GridConfig(title: jsonTitle, contents: jsonContents, maxDim: maxDim)
                 self.gridConfigs.append(gridConfig)
             }
@@ -320,6 +305,5 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
-    
 }
 
