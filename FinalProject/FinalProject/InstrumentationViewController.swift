@@ -42,11 +42,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         // Load Configuration from UserDefaults
         loadConfigDefaults(config_gridStruct: "simConfig_gridStruct", config_NumRows: "simConfig_rows", config_NumCols: "simConfig_cols")
         
-        rowStepper.value = Double(engine.rows)
-        colStepper.value = Double(engine.cols)
-        
-        numRowsTextField.text = "\(engine.rows)"
-        numColsTextField.text = "\(engine.cols)"
+        setRowColUIValuesFrom(engine: engine)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -103,11 +99,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         
         navigationController?.isNavigationBarHidden = false
         
-        rowStepper.value = Double(engine.rows)
-        colStepper.value = Double(engine.cols)
-        
-        numRowsTextField.text = "\(engine.rows)"
-        numColsTextField.text = "\(engine.cols)"
+        setRowColUIValuesFrom(engine: engine)
     }
     
     override func didReceiveMemoryWarning() {
@@ -311,6 +303,13 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         engine.rows = gridRows as! Int
         engine.cols = gridCols as! Int
     }
-
+    
+    func setRowColUIValuesFrom(engine: StandardEngine) {
+        rowStepper.value = Double(engine.rows)
+        colStepper.value = Double(engine.cols)
+    
+        numRowsTextField.text = "\(engine.rows)"
+        numColsTextField.text = "\(engine.cols)"
+    }
 }
 
